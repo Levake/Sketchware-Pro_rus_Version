@@ -46,7 +46,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
-                android:text="use (moreblockName[type|typeName] or\nmoreblockName[type|typeName|typeCode]) for custom moreblock type(S)"
+                android:text="использовать (moreblockName[type|typeName] или\nmoreblockName[type|typeName|typeCode]) для пользовательских типов moreblock"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -90,7 +90,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
-                android:text="Select Moreblock type"
+                android:text="Выбрать тип Moreblock"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -200,7 +200,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
-                android:text="Add Variable"
+                android:text="Добавить переменную"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -237,7 +237,7 @@
                         android:id="@+id/ed_variable_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Variable name"
+                        android:hint="Имя переменной"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:lines="1" />
@@ -275,7 +275,7 @@
                         android:id="@+id/ed_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Label text"
+                        android:hint="Текст надписи"
                         android:imeOptions="actionDone"
                         android:inputType="text"
                         android:lines="1" />
@@ -295,7 +295,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="Custom Parameter"
+                android:text="Пользовательский параметр"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -314,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:hint="Parameter"
+                    android:hint="Параметр"
                     app:counterEnabled="true"
                     app:counterMaxLength="100"
                     app:endIconMode="clear_text"
@@ -340,7 +340,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:hint="Variable name"
+                    android:hint="Имя переменной"
                     app:counterEnabled="true"
                     android:layout_marginTop="8dp"
                     app:counterMaxLength="100"

@@ -3,54 +3,54 @@
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="built-in-blocks"
-        app:summary="May slow down loading blocks in Logic Editor."
-        app:title="Built-in blocks" />
+        app:summary="Может замедляться загрузка блоков в логическом редакторе."
+        app:title="Встроенные блоки" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="always-show-blocks"
-        app:summary="All variable blocks will be visible, even if you don't have variables for them."
-        app:title="Show all variable blocks" />
+        app:summary="Все блоки переменных будут видны, даже если у вас для них нет переменных."
+        app:title="Показать все переменные блоки" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="show-every-single-block"
-        app:summary="Every single available block will be shown. Will slow down opening palettes!"
-        app:title="Show all blocks of palettes" />
+        app:summary="Будут показаны все доступные блоки. Открытие палитр замедлится!"
+        app:title="Показать все блоки палитр" />
 
     <Preference
         app:iconSpaceReserved="false"
         app:key="backup-dir"
-        app:summary="The default directory is /Internal storage/.sketchware/backups/."
-        app:title="Backup directory" />
+        app:summary="Каталогом по умолчанию является /Internal storage/.sketchware/backups/."
+        app:title="Каталог резервных копий" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="root-auto-install-projects"
-        app:summary="Automatically installs project APKs after building using root access."
-        app:title="Install projects with root access" />
+        app:summary="Автоматически устанавливает APK-файлы проекта после сборки с использованием root-доступа."
+        app:title="Устанавливайте проекты с правами root" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="root-auto-open-after-installing"
-        app:summary="Opens projects automatically after auto-installation using root."
-        app:title="Launch projects after installing" />
+        app:summary="Открывает проекты автоматически после автоматической установки с использованием root."
+        app:title="Запускайте проекты после установки" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="use-new-version-control"
-        app:summary="Enables custom version code and name for projects."
-        app:title="Use new Version Control" />
+        app:summary="Включает пользовательский код версии и название для проектов."
+        app:title="Используйте новый контроль версий" />
 
     <SwitchPreferenceCompat
         app:iconSpaceReserved="false"
         app:key="use-asd-highlighter"
-        app:summary="Enables syntax highlighting while editing blocks' text parameters."
-        app:title="Enable block text input highlighting" />
+        app:summary="Включает подсветку синтаксиса при редактировании текстовых параметров блоков."
+        app:title="Включить подсветку блока ввода текста" />
 
     <Preference
         app:iconSpaceReserved="false"
         app:key="backup-filename"
-        app:summary="Default is &quot;$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd'T'HHmmss)&quot;"
-        app:title="Backup filename format" />
+        app:summary="Значение по умолчанию равно &quot;$projectName v$versionName ($pkgName, $versionCode) $time(yyyy-MM-dd'T'HHmmss)&quot;"
+        app:title="Формат имени файла резервной копии" />
 </PreferenceScreen>

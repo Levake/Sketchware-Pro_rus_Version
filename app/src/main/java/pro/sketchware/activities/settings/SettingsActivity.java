@@ -31,7 +31,7 @@ public class SettingsActivity extends BaseAppCompatActivity {
             case SETTINGS_APPEARANCE_FRAGMENT -> new SettingsAppearanceFragment();
             case EVENTS_MANAGER_FRAGMENT -> new EventsManagerFragment();
             case BLOCK_SELECTOR_MANAGER_FRAGMENT -> new BlockSelectorManagerFragment();
-            default -> throw new IllegalArgumentException("Unknown fragment tag: " + fragmentTag);
+            default -> throw new IllegalArgumentException("Неизвестный тег фрагмента: " + fragmentTag);
         };
 
         openFragment(fragment);

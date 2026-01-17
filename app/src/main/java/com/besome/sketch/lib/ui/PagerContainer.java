@@ -62,7 +62,7 @@ public class PagerContainer extends FrameLayout implements ViewPager.OnPageChang
             viewPager = (ViewPager) getChildAt(0);
             viewPager.addOnPageChangeListener(this);
         } catch (Exception var2) {
-            throw new IllegalStateException("The root child of PagerContainer must be a ViewPager");
+            throw new IllegalStateException("Корневым дочерним элементом PagerContainer должен быть ViewPager");
         }
     }
 

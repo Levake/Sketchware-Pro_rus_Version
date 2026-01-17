@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="Add new component" />
+            app:title="Добавить новый компонент" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
@@ -87,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    app:helperText="The actual variable name used in class fields (e.g., 'private VariableName name').\nKeep this consistent with the Component Name to correctly utilize 'Additional Variable' features."
+                    app:helperText="Фактическое имя переменной, используемое в полях класса (например, ''private VariableName name').\nСледите за тем, чтобы оно соответствовало названию компонента, чтобы правильно использовать функции 'Additional Variable'."
                     app:helperTextEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -177,7 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    app:helperText="Allows adding multiple fields to your class.\nUse '###' as a placeholder for the component name."
+                    app:helperText="Позволяет добавить несколько полей в ваш класс.\n Используйте '###' в качестве заполнителя для имени компонента."
                     app:helperTextEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -192,7 +192,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    app:helperText="Use this to initialize any additionally added variables.\nUse '###' as a placeholder for the component name."
+                    app:helperText="Используйте это для инициализации любых дополнительно добавленных переменных.\nИспользуйте '###' в качестве заполнителя для имени компонента."
                     app:helperTextEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText

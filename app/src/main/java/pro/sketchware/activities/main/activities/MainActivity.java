@@ -242,7 +242,7 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                             // Clear intent so it doesn't duplicate
                             getIntent().setData(null);
                         } else {
-                            SketchwareUtil.toastError("Failed to copy backup file to temporary location: " + reason, Toast.LENGTH_LONG);
+                            SketchwareUtil.toastError("Не удалось скопировать файл резервной копии во временное хранилище: " + reason, Toast.LENGTH_LONG);
                         }
                     }
                 }).copyFile(data);
@@ -361,10 +361,10 @@ public class MainActivity extends BasePermissionAppCompatActivity {
         BottomSheetDialogView bottomSheetDialog = new BottomSheetDialogView(this);
         bottomSheetDialog.setTitle("Major changes in v7.0.0");
         bottomSheetDialog.setDescription("""
-                There have been major changes since v6.3.0 fix1, \
-                and it's very important to know them all if you want your projects to still work.
-                
-                You can view all changes whenever you want at the About Sketchware Pro screen.""");
+                Со времени выпуска версии 6.3.0 fix1 произошли серьезные изменения,
+и очень важно знать о них все, если вы хотите, чтобы ваши проекты по-прежнему работали.
+
+Вы можете просмотреть все изменения, когда захотите, на экране О программе Sketchware Pro.""");
 
         bottomSheetDialog.setPositiveButton("View changes", (dialog, which) -> {
             ConfigActivity.setSetting(ConfigActivity.SETTING_CRITICAL_UPDATE_REMINDER, true);
@@ -419,17 +419,17 @@ public class MainActivity extends BasePermissionAppCompatActivity {
             if (!optOutFile.exists() && !granted) {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
                 dialog.setIcon(R.drawable.ic_expire_48dp);
-                dialog.setTitle("Android 11 storage access");
-                dialog.setMessage("Starting with Android 11, Sketchware Pro needs a new permission to avoid " + "taking ages to build projects. Don't worry, we can't do more to storage than " + "with current granted permissions.");
+                dialog.setTitle("Доступ к хранилищу Android 11");
+                dialog.setMessage("Начиная с Android 11, Sketchware Pro требуется новое разрешение, чтобы избежать " + "на создание проектов уходит целая вечность. Не волнуйтесь, мы можем сделать для хранилища не больше, чем " + "с текущими предоставленными разрешениями.");
                 dialog.setPositiveButton(Helper.getResString(R.string.common_word_settings), (v, which) -> {
                     FileUtil.requestAllFilesAccessPermission(this);
                     v.dismiss();
                 });
-                dialog.setNegativeButton("Skip", null);
-                dialog.setNeutralButton("Don't show anymore", (v, which) -> {
+                dialog.setNegativeButton("Пропустить", null);
+                dialog.setNeutralButton("Больше не показывать", (v, which) -> {
                     try {
                         if (!optOutFile.createNewFile())
-                            throw new IOException("Failed to create file " + optOutFile);
+                            throw new IOException("Не удалось создать файл " + optOutFile);
                     } catch (IOException e) {
                         Log.e("MainActivity", "Error while trying to create " + "\"Don't show Android 11 hint\" dialog file: " + e.getMessage(), e);
                     }

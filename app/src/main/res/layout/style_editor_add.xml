@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Style name">
+        android:hint="Имя стиля">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/style_name"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Style Parent">
+        android:hint="Родительский стиль">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/style_parent"
@@ -49,14 +49,14 @@
         android:textAppearance="?attr/textAppearanceTitleMedium"
         android:textStyle="bold"
         android:visibility="gone"
-        tools:text="Header"
+        tools:text="Заголовок"
         tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Style header value ( optional )">
+        android:hint="Значение заголовка стиля (необязательно)">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/style_header_input"

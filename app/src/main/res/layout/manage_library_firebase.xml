@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:textAppearance="?attr/textAppearanceBodySmall"
-                    tools:text="Go To Firebase Console" />
+                    tools:text="Перейдите в Консоль Firebase" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

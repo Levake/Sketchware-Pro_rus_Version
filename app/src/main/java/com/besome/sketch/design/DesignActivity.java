@@ -318,7 +318,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
      */
     private void indicateCompileErrorOccurred(String error) {
         new CompileErrorSaver(sc_id).writeLogsToFile(error);
-        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Show compile log", Snackbar.LENGTH_INDEFINITE);
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, "Показать журнал компиляции", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(Helper.getResString(R.string.common_word_show), v -> {
             if (!mB.a()) {
                 snackbar.dismiss();
@@ -363,23 +363,23 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
                     Shell.cmd("cat " + apkUri + " | pm install -S " + length).to(stdout, stderr).submit(result -> {
                         if (result.isSuccess()) {
-                            SketchwareUtil.toast("Package installed successfully!");
+                            SketchwareUtil.toast("Пакет успешно установлен!");
                             if (ConfigActivity.isSettingEnabled(ConfigActivity.SETTING_ROOT_AUTO_OPEN_AFTER_INSTALLING)) {
                                 Intent launcher = getPackageManager().getLaunchIntentForPackage(q.packageName);
                                 if (launcher != null) {
                                     startActivity(launcher);
                                 } else {
-                                    SketchwareUtil.toastError("Couldn't launch project, either not installed or not with launcher activity.");
+                                    SketchwareUtil.toastError("Не удалось запустить проект, либо он не установлен, либо не активен при запуске.");
                                 }
                             }
                         } else {
-                            String sharedErrorMessage = "Failed to install package, result code: " + result.getCode() + ". ";
-                            SketchwareUtil.toastError(sharedErrorMessage + "Logs are available in /Internal storage/.sketchware/debug.txt", Toast.LENGTH_LONG);
+                            String sharedErrorMessage = "Не удалось установить пакет, результирующий код: " + result.getCode() + ". ";
+                            SketchwareUtil.toastError(sharedErrorMessage + "Журналы доступны в /Internal storage/.sketchware/debug.txt", Toast.LENGTH_LONG);
                             LogUtil.e("DesignActivity", sharedErrorMessage + "stdout: " + stdout + ", stderr: " + stderr);
                         }
                     });
                 } else {
-                    SketchwareUtil.toastError("No root access granted. Continuing using default package install prompt.");
+                    SketchwareUtil.toastError("Root-доступ не предоставлен. Продолжаем использовать приглашение на установку пакета по умолчанию.");
                     requestPackageInstallerInstall();
                 }
             });
@@ -482,39 +482,39 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
         bottomPopupMenu = new PopupMenu(this, btnOptions);
         bottomMenu = bottomPopupMenu.getMenu();
-        bottomMenu.add(Menu.NONE, 1, Menu.NONE, "Build Settings").setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 1, Menu.NONE, "Настройка сборки").setOnMenuItemClickListener(item -> {
             BuildSettingsBottomSheet sheet = BuildSettingsBottomSheet.newInstance(sc_id);
             sheet.show(getSupportFragmentManager(), BuildSettingsBottomSheet.TAG);
             return true;
         });
-        bottomMenu.add(Menu.NONE, 2, Menu.NONE, "Clean temporary files").setVisible(false).setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 2, Menu.NONE, "Очистить временные файлы").setVisible(false).setOnMenuItemClickListener(item -> {
             new Thread(() -> {
                 FileUtil.deleteFile(q.projectMyscPath);
                 updateBottomMenu();
-                runOnUiThread(() -> SketchwareUtil.toast("Done cleaning temporary files!"));
+                runOnUiThread(() -> SketchwareUtil.toast("Завершена очистка временных файлов!"));
             }).start();
             return true;
         });
-        bottomMenu.add(Menu.NONE, 3, Menu.NONE, "Show last compile error").setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 3, Menu.NONE, "Показать последнюю ошибку компиляции").setOnMenuItemClickListener(item -> {
             new CompileErrorSaver(sc_id).showLastErrors(this);
             return true;
         });
-        bottomMenu.add(Menu.NONE, 5, Menu.NONE, "Show source code").setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 5, Menu.NONE, "Показать исходный код").setOnMenuItemClickListener(item -> {
             showCurrentActivitySrcCode();
             return true;
         });
-        bottomMenu.add(Menu.NONE, 4, Menu.NONE, "Install last built APK").setVisible(false).setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 4, Menu.NONE, "Установить последний созданный APK-файл").setVisible(false).setOnMenuItemClickListener(item -> {
             if (FileUtil.isExistFile(q.finalToInstallApkPath)) {
                 installBuiltApk();
-            } else SketchwareUtil.toast("APK doesn't exist anymore");
+            } else SketchwareUtil.toast("APK больше не существует");
             return true;
         });
-        bottomMenu.add(Menu.NONE, 6, Menu.NONE, "Show Apk signatures").setVisible(false).setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 6, Menu.NONE, "Показать подписи Apk").setVisible(false).setOnMenuItemClickListener(item -> {
             ApkSignatures apkSignatures = new ApkSignatures(this, q.finalToInstallApkPath);
             apkSignatures.showSignaturesDialog();
             return true;
         });
-        bottomMenu.add(Menu.NONE, 7, Menu.NONE, "Direct XML editor").setOnMenuItemClickListener(item -> {
+        bottomMenu.add(Menu.NONE, 7, Menu.NONE, "Прямой редактор XML").setOnMenuItemClickListener(item -> {
             toViewCodeEditor();
             return true;
         });
@@ -641,7 +641,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
             ProjectLoader projectLoader = new ProjectLoader(this, savedInstanceState);
             projectLoader.execute();
         } catch (Exception e) {
-            crashlytics.log("ProjectLoader failed");
+            crashlytics.log("ProjectLoader ошибка");
             crashlytics.recordException(e);
         } finally {
             SystemLogPrinter.stop();
@@ -796,7 +796,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                 if (isFinishing()) return;
                 h();
                 if (code.isEmpty()) {
-                    SketchwareUtil.toast("Failed to generate source.");
+                    SketchwareUtil.toast("Не удалось сгенерировать исходный код.");
                     return;
                 }
                 var scheme = filename.endsWith(".xml") ? CodeViewerActivity.SCHEME_XML : CodeViewerActivity.SCHEME_JAVA;
@@ -1077,7 +1077,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
             try {
                 var q = activity.q;
                 var sc_id = DesignActivity.sc_id;
-                onProgress("Deleting temporary files...", 1);
+                onProgress("Удаление временных файлов...", 1);
                 FileUtil.deleteFile(q.projectMyscPath);
 
                 q.c(activity.getApplicationContext());
@@ -1098,7 +1098,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                     }
                 }
 
-                onProgress("Generating source code...", 2);
+                onProgress("Генерация исходного кода...", 2);
                 kC kC = jC.d(sc_id);
                 kC.b(q.resDirectoryPath + File.separator + "drawable-xhdpi");
                 kC = jC.d(sc_id);
@@ -1122,19 +1122,19 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                     return;
                 }
 
-                onProgress("Extracting built-in libraries...", 3);
+                onProgress("Извлечение встроенных библиотек...", 3);
                 BuiltInLibraries.extractCompileAssets(this);
                 if (canceled) {
                     return;
                 }
 
-                onProgress("AAPT2 is running...", 8);
+                onProgress("Запущен AAPT2...", 8);
                 builder.compileResources();
                 if (canceled) {
                     return;
                 }
 
-                onProgress("Generating view binding...", 11);
+                onProgress("Создание привязки к виду...", 11);
                 builder.generateViewBinding();
                 if (canceled) {
                     return;
@@ -1145,7 +1145,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                     return;
                 }
 
-                onProgress("Java is compiling...", 13);
+                onProgress("Java компилирование...", 13);
                 builder.compileJavaCode();
                 if (canceled) {
                     return;
@@ -1169,19 +1169,19 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                     return;
                 }
 
-                onProgress("Merging DEX files...", 18);
+                onProgress("Объединение файлов DEX...", 18);
                 builder.getDexFilesReady();
                 if (canceled) {
                     return;
                 }
 
-                onProgress("Building APK...", 19);
+                onProgress("Сборка APK...", 19);
                 builder.buildApk();
                 if (canceled) {
                     return;
                 }
 
-                onProgress("Signing APK...", 20);
+                onProgress("Подписание APK...", 20);
                 builder.signDebugApk();
                 if (canceled) {
                     return;
@@ -1196,23 +1196,23 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
                     if (isMissingDirectory) {
-                        dialog.setTitle("Missing directory detected");
-                        dialog.setMessage("A directory important for building is missing. " +
-                                "Sketchware Pro can try creating " + e.getMissingFile().getAbsolutePath() +
-                                " if you'd like to.");
+                        dialog.setTitle("Обнаружен отсутствующий каталог");
+                        dialog.setMessage("Отсутствует каталог, важный для сборки. " +
+                                "Sketchware Pro может попробовать создать " + e.getMissingFile().getAbsolutePath() +
+                                " если вы хотите.");
                         dialog.setNeutralButton("Create", (v, which) -> {
                             v.dismiss();
                             if (!e.getMissingFile().mkdirs()) {
-                                SketchwareUtil.toastError("Failed to create directory / directories!");
+                                SketchwareUtil.toastError("Не удалось создать каталог / директории!");
                             }
                         });
                     } else {
-                        dialog.setTitle("Missing file detected");
-                        dialog.setMessage("A file needed for building is missing. " +
-                                "Put the correct file back to " + e.getMissingFile().getAbsolutePath() +
-                                " and try building again.");
+                        dialog.setTitle("Обнаружен отсутствующий файл");
+                        dialog.setMessage("Отсутствует файл, необходимый для создания. " +
+                                "Поместите правильный файл обратно в " + e.getMissingFile().getAbsolutePath() +
+                                " и попробуйте сборку снова.");
                     }
-                    dialog.setPositiveButton("Dismiss", null);
+                    dialog.setPositiveButton("Отклонить", null);
                     dialog.show();
                 });
             } catch (zy zy) {
@@ -1220,7 +1220,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                 activity.indicateCompileErrorOccurred(zy.getMessage());
             } catch (Throwable tr) {
                 isBuildFinished = true;
-                LogUtil.e("DesignActivity$BuildTask", "Failed to build project", tr);
+                LogUtil.e("DesignActivity$BuildTask", "Не удалось создать проект", tr);
                 activity.indicateCompileErrorOccurred(Log.getStackTraceString(tr));
             } finally {
                 activity.runOnUiThread(this::onPostExecute);
@@ -1265,7 +1265,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
         public void cancelBuild() {
             canceled = true;
-            onProgress("Canceling build...", -1);
+            onProgress("Отмена сборки...", -1);
             if (isShowingNotification) {
                 notificationManager.cancel(notificationId);
                 isShowingNotification = false;
@@ -1287,11 +1287,11 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_mtrl_code)
-                        .setContentTitle("Building project")
-                        .setContentText("Starting build...")
+                        .setContentTitle("Сборка проекта")
+                        .setContentText("Запуск сборки...")
                         .setOngoing(true)
                         .setProgress(0, 0, true)
-                        .addAction(R.drawable.ic_cancel_white_96dp, "Cancel build", getCancelPendingIntent());
+                        .addAction(R.drawable.ic_cancel_white_96dp, "Отмена сборки", getCancelPendingIntent());
 
                 notificationManager.notify(notificationId, builder.build());
                 isShowingNotification = true;
@@ -1304,11 +1304,11 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_mtrl_code)
-                    .setContentTitle("Building project")
+                    .setContentTitle("Сборка проекта")
                     .setContentText(progress)
                     .setOngoing(true)
                     .setProgress(0, 0, true)
-                    .addAction(R.drawable.ic_cancel_white_96dp, "Cancel Build", getCancelPendingIntent());
+                    .addAction(R.drawable.ic_cancel_white_96dp, "Отмена сборки", getCancelPendingIntent());
 
             notificationManager.notify(notificationId, builder.build());
         }
@@ -1325,8 +1325,8 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
             DesignActivity activity = getActivity();
             if (activity == null) return;
 
-            CharSequence name = "Build Notifications";
-            String description = "Notifications for build progress";
+            CharSequence name = "Создание уведомлений";
+            String description = "Уведомления о ходе сборки";
             int importance = NotificationManager.IMPORTANCE_LOW;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
@@ -1339,7 +1339,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
             btnRun.setIcon(ContextCompat.getDrawable(context, isRunning ? R.drawable.ic_mtrl_stop : R.drawable.ic_mtrl_run));
             btnRun.setIconTint(ColorStateList.valueOf(ThemeUtils.getColor(context, isRunning ? R.attr.colorOnErrorContainer : R.attr.colorSurfaceContainerLowest)));
             btnRun.setTextColor(ColorStateList.valueOf(ThemeUtils.getColor(context, isRunning ? R.attr.colorOnErrorContainer : R.attr.colorSurfaceContainerLowest)));
-            btnRun.setText(isRunning ? "Stop" : "Run");
+            btnRun.setText(isRunning ? "Стоп" : "Запуск");
             btnOptions.setEnabled(!isRunning);
             progressContainer.setVisibility(isRunning ? View.VISIBLE : View.GONE);
         }

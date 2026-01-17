@@ -60,11 +60,11 @@ public class Base64 {
             // Looking for encode( byte[] input, int flags)
             aEncodeMethod = clazz.getMethod("encode", byte[].class, Integer.TYPE);
             aDecodeMethod = clazz.getMethod("decode", byte[].class, Integer.TYPE);
-            logger.debug( clazz.getName() + " is available.");
+            logger.debug( clazz.getName() + " доступен.");
         }
         catch (ClassNotFoundException x) {} // Ignore
         catch (Exception x) {
-            logger.error("Failed to initialize use of android.util.Base64", x);
+            logger.error("Не удалось инициализировать использование android.util.Base64", x);
         }
         
         try {
@@ -79,11 +79,11 @@ public class Base64 {
         }
         catch (ClassNotFoundException x) {} // Ignore
         catch (Exception x) {
-            logger.error("Failed to initialize use of org.bouncycastle.util.encoders.Base64Encoder", x);
+            logger.error("Не удалось инициализировать использование org.bouncycastle.util.encoders.Base64Encoder", x);
         }
         
         if (aEncodeMethod == null && bEncodeMethod == null)
-            throw new IllegalStateException("No base64 encoder implementation is available.");
+            throw new IllegalStateException("Реализация кодера base64 недоступна.");
     }
     
 
@@ -105,7 +105,7 @@ public class Base64 {
         }
 
         
-        throw new IllegalStateException("No base64 encoder implementation is available.");
+        throw new IllegalStateException("Реализация кодера base64 недоступна.");
     }
     
     public static byte[] decode( byte[] data) {
@@ -126,6 +126,6 @@ public class Base64 {
         }
 
         
-        throw new IllegalStateException("No base64 encoder implementation is available.");
+        throw new IllegalStateException("Реализация кодера base64 недоступна.");
     }
 }

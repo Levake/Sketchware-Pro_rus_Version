@@ -9,7 +9,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Array name">
+        android:hint="Имя списка">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/array_name"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Array type">
+        android:hint="Тип списка">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/array_type"
@@ -50,14 +50,14 @@
         android:textAppearance="?attr/textAppearanceTitleMedium"
         android:textStyle="bold"
         android:visibility="gone"
-        tools:text="Header"
+        tools:text="Заголовок"
         tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Array header value ( optional )">
+        android:hint="Значение заголовка списка (необязательно)">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/array_header_input"

@@ -17,7 +17,7 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Unknown built-in library '" + libraryName + "'!");
+        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
     }
 
     /**
@@ -30,7 +30,7 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Unknown built-in library '" + libraryName + "'!");
+        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
     }
 
     /**
@@ -44,6 +44,6 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Unknown built-in library '" + libraryName + "'!");
+        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
     }
 }

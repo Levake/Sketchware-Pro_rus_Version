@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="Block Manager" />
+        app:title="Менеджер блоков" />
 
     <LinearLayout
         android:id="@+id/background"
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Recycle bin"
+                        android:text="Мусорная корзина"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp" />
@@ -79,7 +79,7 @@
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="12sp"
-                        tools:text="Blocks: 23" />
+                        tools:text="Блоки: 23" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -92,7 +92,7 @@
             android:paddingTop="8dp"
             android:paddingEnd="8dp"
             android:paddingBottom="8dp"
-            android:text="Palettes"
+            android:text="Палитры"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             android:textColor="?attr/colorOnSurface"
             android:textSize="18sp" />

@@ -1481,7 +1481,7 @@ public class Fx {
             try {
                 formattedCode = String.format(blockInfo.getCode(), parameters.toArray(new Object[0]));
             } catch (Exception e) {
-                formattedCode = "/* Failed to resolve Custom Block's code: " + e + " */";
+                formattedCode = "/* Не удалось разрешить код пользовательского блока: " + e + " */";
             }
         } else {
             formattedCode = blockInfo.getCode();

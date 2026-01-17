@@ -37,10 +37,10 @@ public class SketchLogger {
                     } while (isRunning && (logTxt = bufferedReader.readLine()) != null);
 
                     if (isRunning) {
-                        broadcastLog("Logger got killed. Restarting.");
+                        broadcastLog("Логгер был убит. Перезапуск.");
                         startLogging();
                     } else {
-                        broadcastLog("Logger stopped.");
+                        broadcastLog("Логгер омтановлен.");
                     }
                 }
             } catch (IOException e) {
@@ -53,16 +53,16 @@ public class SketchLogger {
         if (!isRunning) {
             loggerThread.start();
         } else {
-            broadcastLog("Logger already running");
+            broadcastLog("Логгер уже запущен.");
         }
     }
 
     public static synchronized void stopLogging() {
         if (isRunning) {
             isRunning = false;
-            broadcastLog("Stopping logger by user request.");
+            broadcastLog("Остановка логгера по запросу пользователя.");
         } else {
-            broadcastLog("Logger not running");
+            broadcastLog("Логгер не запущен");
         }
     }
 

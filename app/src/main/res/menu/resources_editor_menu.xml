@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/action_save"
-        android:title="Save"
+        android:title="Сохранить"
         android:icon="@drawable/ic_mtrl_save"
         app:showAsAction="always" />
 
@@ -28,7 +28,7 @@
 
     <item
         android:id="@+id/action_open_editor"
-        android:title="Open in editor"
+        android:title="Открыть в редакторе"
         app:showAsAction="never" />
 
 </menu>

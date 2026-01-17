@@ -294,9 +294,9 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                             binding.tiInput.setError(null);
                         } else {
                             if (key.equals("property_scale_x") || key.equals("property_scale_y")) {
-                                binding.tiInput.setError("Value must be 0.1 or greater");
+                                binding.tiInput.setError("Значение должно быть 0,1 или больше");
                             } else {
-                                binding.tiInput.setError("Value must be 0 or greater");
+                                binding.tiInput.setError("Значение должно быть равно 0 или больше");
                             }
                         }
                     } else if (key.equals("property_progress") && bean != null) {
@@ -305,18 +305,18 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                             binding.slider.setValue(inputValue);
                             binding.tiInput.setError(null);
                         } else {
-                            binding.tiInput.setError(String.format("Value must be between 0 and %.0f", maxLimit));
+                            binding.tiInput.setError(String.format("Значение должно быть в диапазоне от 0 до %.0f", maxLimit));
                         }
                     } else {
                         if (inputValue >= minValue && inputValue <= maxValue) {
                             binding.slider.setValue(inputValue);
                             binding.tiInput.setError(null);
                         } else {
-                            binding.tiInput.setError(String.format("Value must be between %.1f and %.1f", minValue, maxValue));
+                            binding.tiInput.setError(String.format("Значение должно быть между %.1f и %.1f", minValue, maxValue));
                         }
                     }
                 } catch (NumberFormatException e) {
-                    binding.tiInput.setError("Invalid value");
+                    binding.tiInput.setError("Недопустимое значение");
                 }
             }
         });
@@ -380,11 +380,11 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                     binding.sliderSection.setVisibility(View.GONE);
                     binding.tiInput.setVisibility(View.VISIBLE);
                     binding.edInput.requestFocus();
-                    customButton.setText("Slider");
+                    customButton.setText("Ползунок");
                 } else {
                     binding.sliderSection.setVisibility(View.VISIBLE);
                     binding.tiInput.setVisibility(View.GONE);
-                    customButton.setText("Custom");
+                    customButton.setText("Пользовательский");
                 }
             });
 
@@ -585,8 +585,8 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                 if (inputText.equals(stringsStart)) {
 
                     String errorMessage = MessageFormat.format(
-                            "Please select a String\n" +
-                                    "or remove \"{0}\" and add the value directly",
+                            "Пожалуйста, выберите строку\n" +
+                                    "или удалить \"{0}\" и добавьте значение напрямую",
                             stringsStart
                     );
                     textAutoCompleteInput.setError(errorMessage);
@@ -631,7 +631,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                 }
 
                 boolean isExactMatch = keysList.contains(text);
-                textAutoCompleteInput.setError(isExactMatch ? null : "Not found in strings.xml");
+                textAutoCompleteInput.setError(isExactMatch ? null : "Не найден в strings.xml");
             }
         });
     }
@@ -892,8 +892,8 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                         dialog.dismiss();
                         var builder =
                                 new MaterialAlertDialogBuilder(getContext())
-                                        .setTitle("Delete")
-                                        .setMessage("Are you sure you want to delete " + attr + "?")
+                                        .setTitle("Удалить")
+                                        .setMessage("Вы уверены, что хотите удалить " + attr + "?")
                                         .setPositiveButton(
                                                 R.string.common_word_yes,
                                                 (d, w) -> {
@@ -931,7 +931,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
 
     private void addNewAttribute(Map<String, String> attributes) {
         var builder = new MaterialAlertDialogBuilder(getContext());
-        builder.setTitle("Add new attribute");
+        builder.setTitle("Добавить новый атрибут");
 
         PropertyPopupInputTextBinding binding =
                 PropertyPopupInputTextBinding.inflate(LayoutInflater.from(getContext()));
@@ -939,7 +939,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
         var input = binding.edTiAutoCompleteInput;
         binding.tiInput.setVisibility(View.GONE);
         binding.tiAutoCompleteInput.setVisibility(View.VISIBLE);
-        binding.tiAutoCompleteInput.setHint("Enter new attribute");
+        binding.tiAutoCompleteInput.setHint("Введите новый атрибут");
         input.setAdapter(
                 new ArrayAdapter<>(
                         getContext(),

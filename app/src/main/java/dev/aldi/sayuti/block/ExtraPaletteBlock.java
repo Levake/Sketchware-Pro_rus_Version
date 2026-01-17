@@ -191,13 +191,13 @@ public class ExtraPaletteBlock {
             if (split.length > 1) {
                 logicEditor.a(split[1], "v", split[0], "getVar").setTag(customVariables.get(i));
             } else {
-                SketchwareUtil.toastError("Found invalid data of Custom Variable #" + (i + 1) + ": \"" + customVariables.get(i) + "\"");
+                SketchwareUtil.toastError("Найдены недопустимые данные пользовательской переменной #" + (i + 1) + ": \"" + customVariables.get(i) + "\"");
             }
         }
 
         ArrayList<String> customVariables2 = jC.a(sc_id).e(javaName, 6);
         for (int i = 0; i < customVariables2.size(); i++) {
-            if (i == 0) logicEditor.a("Custom Variable", getTitleBgColor());
+            if (i == 0) logicEditor.a("Пользовательская переменная", getTitleBgColor());
 
             String variable = customVariables2.get(i);
             String variableType = CustomVariableUtil.getVariableType(variable);
@@ -364,7 +364,7 @@ public class ExtraPaletteBlock {
                     if (variableName != null) {
                         logicEditor.a(variableName, "l", "List", "getVar").setTag(name);
                     } else {
-                        logicEditor.a("Invalid: " + name, getColor(logicEditor, R.attr.colorError));
+                        logicEditor.a("Недействительный: " + name, getColor(logicEditor, R.attr.colorError));
                     }
                 }
             }
@@ -386,7 +386,7 @@ public class ExtraPaletteBlock {
             if (paletteId == 3) {
                 logicEditor.a(" ", "addSourceDirectly");
             } else {
-                logicEditor.a("Enter the path without import & semicolon", getTitleBgColor());
+                logicEditor.a("Введите путь без импорта и точки с запятой", getTitleBgColor());
                 logicEditor.a(" ", "customImport");
                 logicEditor.a(" ", "customImport2");
             }
@@ -400,10 +400,10 @@ public class ExtraPaletteBlock {
                 StringsEditorManager stringsEditorManager = new StringsEditorManager();
                 stringsEditorManager.convertXmlStringsToListMap(FileUtil.readFileIfExist(filePath), StringsListMap);
 
-                logicEditor.b("Open Resources editor", "openResourcesEditor");
+                logicEditor.b("Откройте редактор ресурсов", "openResourcesEditor");
 
                 logicEditor.a("s", "getResString");
-                logicEditor.a("Saved Res Strings :", getTitleBgColor());
+                logicEditor.a("Сохраненные строки Res :", getTitleBgColor());
                 if (!stringsEditorManager.isXmlStringsExist(StringsListMap, "app_name")) {
                     logicEditor.a("app_name", "s", "getResStr").setTag("S98ZCSapp_name");
                 }
@@ -414,16 +414,16 @@ public class ExtraPaletteBlock {
                 }
                 return;
             case 0:
-                logicEditor.b("Add variable", "variableAdd");
-                logicEditor.b("Add custom variable", "variableAddNew", clickListener);
-                logicEditor.b("Remove variable", "variableRemove", clickListener);
+                logicEditor.b("Добавить переменную", "variableAdd");
+                logicEditor.b("Добавить пользовательскую переменную", "variableAddNew", clickListener);
+                logicEditor.b("Удалить переменную", "variableRemove", clickListener);
                 variables();
                 return;
 
             case 1:
-                logicEditor.b("Add list", "listAdd");
-                logicEditor.b("Add custom List", "listAddCustom", clickListener);
-                logicEditor.b("Remove list", "listRemove", clickListener);
+                logicEditor.b("Добавить список", "listAdd");
+                logicEditor.b("Добавить пользовательский список", "listAddCustom", clickListener);
+                logicEditor.b("Удалить список", "listRemove", clickListener);
                 list();
                 return;
 
@@ -464,7 +464,7 @@ public class ExtraPaletteBlock {
 
             case 5:
                 extraBlocks.fileBlocks();
-                logicEditor.a("FileUtil Blocks", getTitleBgColor());
+                logicEditor.a("FileUtil Блоки", getTitleBgColor());
                 if (!frc.getAssetsFile().isEmpty()) {
                     logicEditor.a(" ", "getAssetFile");
                     logicEditor.a("s", "copyAssetFile");
@@ -1172,7 +1172,7 @@ public class ExtraPaletteBlock {
 
             case 8:
                 logicEditor.b("Create", "blockAdd");
-                logicEditor.b("Import From Collection", "blockImport");
+                logicEditor.b("Импорт из Коллекции", "blockImport");
                 if (ConfigActivity.isSettingEnabled(ConfigActivity.SETTING_SHOW_BUILT_IN_BLOCKS)) {
                     logicEditor.a(" ", "customToast");
                     logicEditor.a(" ", "customToastWithIcon");
@@ -1181,11 +1181,11 @@ public class ExtraPaletteBlock {
                 if (ConfigActivity.isSettingEnabled(ConfigActivity.SETTING_SHOW_BUILT_IN_BLOCKS)) {
                     logicEditor.a("Command Blocks", getTitleBgColor());
                     logicEditor.a("c", "CommandBlockJava");
-                    logicEditor.addDeprecatedBlock("Deprecated: Use XML Command Manager", "c", "CommandBlockXML");
-                    logicEditor.a("Permission Command Blocks", getTitleBgColor());
+                    logicEditor.addDeprecatedBlock("Рекомендуется использовать диспетчер команд XML", "c", "CommandBlockXML");
+                    logicEditor.a("Блоки команд разрешения", getTitleBgColor());
                     logicEditor.a(" ", "addPermission");
                     logicEditor.a(" ", "removePermission");
-                    logicEditor.a("Other Command Blocks", getTitleBgColor());
+                    logicEditor.a("Другие командные блоки", getTitleBgColor());
                     logicEditor.a(" ", "addCustomVariable");
                     logicEditor.a(" ", "addInitializer");
                     return;
@@ -1213,8 +1213,8 @@ public class ExtraPaletteBlock {
                                     if (spec instanceof String specString) {
                                         logicEditor.a(specString, getTitleBgColor());
                                     } else {
-                                        SketchwareUtil.toastError("Custom Block #" + paletteBlocks +
-                                                " of current palette has an invalid spec data type");
+                                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
+                                                " текущая палитра имеет недопустимый тип данных спецификации");
                                     }
                                 } else {
                                     Object name = map.get("name");
@@ -1228,18 +1228,18 @@ public class ExtraPaletteBlock {
                                             logicEditor.a("", typeString, "", nameString);
                                         }
                                     } else {
-                                        SketchwareUtil.toastError("Custom Block #" + paletteBlocks +
-                                                " of current palette has an invalid name data type");
+                                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
+                                                " текущая палитра имеет недопустимое название тип данных");
                                     }
                                 }
                             } else {
-                                SketchwareUtil.toastError("Custom Block #" + paletteBlocks +
-                                        " of current palette has an invalid block type data type");
+                                SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
+                                        " из текущей палитры имеет недопустимый тип блока тип данных");
                             }
                         }
                     } else {
-                        SketchwareUtil.toastError("Custom Block #" + paletteBlocks +
-                                " of current palette has an invalid block palette data type");
+                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
+                                " из текущей палитры имеет недопустимый тип данных палитры блоков");
                     }
                 }
                 break;

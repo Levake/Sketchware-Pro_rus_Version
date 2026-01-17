@@ -15,11 +15,11 @@ import java.util.Map;
 public class DebugActivity extends Activity {
 
     private static final Map<String, String> exceptionMap = new HashMap<String, String>() {{
-        put("StringIndexOutOfBoundsException", "Invalid string operation\n");
-        put("IndexOutOfBoundsException", "Invalid list operation\n");
-        put("ArithmeticException", "Invalid arithmetical operation\n");
-        put("NumberFormatException", "Invalid toNumber block operation\n");
-        put("ActivityNotFoundException", "Invalid intent operation\n");
+        put("StringIndexOutOfBoundsException", "Недопустимая операция со строкой\n");
+        put("IndexOutOfBoundsException", "Недопустимая операция со списком\n");
+        put("ArithmeticException", "Недопустимая арифметическая операция\n");
+        put("NumberFormatException", "Недопустимая операция с toNumber блоком\n");
+        put("ActivityNotFoundException", "Недопустимая операция с intent\n");
     }};
 
     @Override
@@ -49,10 +49,10 @@ public class DebugActivity extends Activity {
                 formattedMessage.append("\n");
             }
         } else {
-            formattedMessage.append("No error message available.");
+            formattedMessage.append("Сообщение об ошибке отсутствует.");
         }
 
-        setTitle(getTitle() + " Crashed");
+        setTitle(getTitle() + " Зависло");
 
         TextView errorView = new TextView(this);
         errorView.setText(formattedMessage);

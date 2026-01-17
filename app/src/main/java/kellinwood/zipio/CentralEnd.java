@@ -57,26 +57,26 @@ public class CentralEnd
         boolean debug = log.isDebugEnabled();
 
         numberThisDisk = input.readShort();
-        if (debug) log.debug( String.format("This disk number: 0x%04x", numberThisDisk));
+        if (debug) log.debug( String.format("Этот номер диска: 0x%04x", numberThisDisk));
 
         centralStartDisk = input.readShort();
-        if (debug) log.debug( String.format("Central dir start disk number: 0x%04x", centralStartDisk));
+        if (debug) log.debug( String.format("Номер стартового диска центрального каталога: 0x%04x", centralStartDisk));
 
         numCentralEntries = input.readShort();
-        if (debug) log.debug( String.format("Central entries on this disk: 0x%04x", numCentralEntries));
+        if (debug) log.debug( String.format("Основные записи на этом диске: 0x%04x", numCentralEntries));
 
         totalCentralEntries = input.readShort();
-        if (debug) log.debug( String.format("Total number of central entries: 0x%04x", totalCentralEntries));
+        if (debug) log.debug( String.format("Общее количество центральных записей: 0x%04x", totalCentralEntries));
 
         centralDirectorySize = input.readInt();
-        if (debug) log.debug( String.format("Central directory size: 0x%08x", centralDirectorySize));
+        if (debug) log.debug( String.format("Размер центрального каталога: 0x%08x", centralDirectorySize));
 
         centralStartOffset = input.readInt();
-        if (debug) log.debug( String.format("Central directory offset: 0x%08x", centralStartOffset));
+        if (debug) log.debug( String.format("Смещение центрального каталога: 0x%08x", centralStartOffset));
 
         short zipFileCommentLen = input.readShort();
         fileComment = input.readString(zipFileCommentLen);
-        if (debug) log.debug( ".ZIP file comment: " + fileComment);
+        if (debug) log.debug( ".ZIP комментарий к файлу: " + fileComment);
 
 
     }

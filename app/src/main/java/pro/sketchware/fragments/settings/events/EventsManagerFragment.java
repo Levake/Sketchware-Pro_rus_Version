@@ -54,7 +54,7 @@ public class EventsManagerFragment extends qA {
                 }
             }
         }
-        return "Events: " + eventAmount;
+        return "События: " + eventAmount;
     }
 
     @Override
@@ -148,9 +148,9 @@ public class EventsManagerFragment extends qA {
         }
 
         var dialog = new MaterialAlertDialogBuilder(requireContext())
-                .setTitle(existingListener == null ? "New Listener" : "Edit Listener")
+                .setTitle(existingListener == null ? "Новый слушатель" : "Редактирование слушателя")
                 .setView(listenerBinding.getRoot())
-                .setPositiveButton("Save", (di, i) -> {
+                .setPositiveButton("Сохранить", (di, i) -> {
                     String listenerName = Helper.getText(listenerBinding.listenerName);
                     if (!listenerName.isEmpty()) {
                         HashMap<String, Object> hashMap = existingListener != null ? existingListener : new HashMap<>();
@@ -168,10 +168,10 @@ public class EventsManagerFragment extends qA {
                         addListenerItem();
                         di.dismiss();
                     } else {
-                        SketchwareUtil.toastError("Invalid name!");
+                        SketchwareUtil.toastError("Недопустимое имя!");
                     }
                 })
-                .setNegativeButton("Cancel", (di, i) -> di.dismiss()).create();
+                .setNegativeButton("Отмена", (di, i) -> di.dismiss()).create();
         dialog.show();
     }
 
@@ -187,23 +187,23 @@ public class EventsManagerFragment extends qA {
 
     private void showImportEventsDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Select a .txt file");
+        options.setTitle("Выбрать .txt файл");
         options.setExtensions(new String[]{"txt"});
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
             public void onFileSelected(File file) {
                 if (FileUtil.readFile(file.getAbsolutePath()).isEmpty()) {
-                    SketchwareUtil.toastError("The selected file is empty!");
+                    SketchwareUtil.toastError("Выбранный файл пуст!");
                 } else if (FileUtil.readFile(file.getAbsolutePath()).equals("[]")) {
-                    SketchwareUtil.toastError("The selected file is empty!");
+                    SketchwareUtil.toastError("Выбранный файл пуст!");
                 } else {
                     try {
                         String[] split = FileUtil.readFile(file.getAbsolutePath()).split("\n");
                         importEvents(new Gson().fromJson(split[0], Helper.TYPE_MAP_LIST),
                                 new Gson().fromJson(split[1], Helper.TYPE_MAP_LIST));
                     } catch (Exception e) {
-                        SketchwareUtil.toastError("Invalid file");
+                        SketchwareUtil.toastError("Недопустимый файл");
                     }
                 }
             }
@@ -224,7 +224,7 @@ public class EventsManagerFragment extends qA {
         listMap.addAll(data);
         FileUtil.writeFile(EventsManagerConstants.LISTENERS_FILE.getAbsolutePath(), new Gson().toJson(listMap));
         refreshList();
-        SketchwareUtil.toast("Successfully imported events");
+        SketchwareUtil.toast("Успешно импортированные события");
     }
 
     private void exportListener(int p) {
@@ -242,7 +242,7 @@ public class EventsManagerFragment extends qA {
             }
         }
         FileUtil.writeFile(concat + ex.get(0).get("name").toString() + ".txt", new Gson().toJson(ex) + "\n" + new Gson().toJson(ex2));
-        SketchwareUtil.toast("Successfully exported event to:\n" +
+        SketchwareUtil.toast("Успешно экспортированное событие в:\n" +
                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
     }
 
@@ -253,7 +253,7 @@ public class EventsManagerFragment extends qA {
         }
         FileUtil.writeFile(new File(EventsManagerConstants.EVENT_EXPORT_LOCATION, "All_Events.txt").getAbsolutePath(),
                 new Gson().toJson(listMap) + "\n" + new Gson().toJson(events));
-        SketchwareUtil.toast("Successfully exported events to:\n" +
+        SketchwareUtil.toast("Успешно экспортированное события в:\n" +
                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
     }
 
@@ -316,7 +316,7 @@ public class EventsManagerFragment extends qA {
             holder.itemView.setOnLongClickListener(v -> {
                 new MaterialAlertDialogBuilder(context)
                         .setTitle(name)
-                        .setItems(new String[]{"Edit", "Export", "Delete"}, (dialog, which) -> {
+                        .setItems(new String[]{"Редактировать", "Экспортировать", "Удалить"}, (dialog, which) -> {
                             switch (which) {
                                 case 0:
                                     showEditListenerDialog(position);
@@ -326,14 +326,14 @@ public class EventsManagerFragment extends qA {
                                     break;
                                 case 2:
                                     new MaterialAlertDialogBuilder(context)
-                                            .setTitle("Delete listener")
-                                            .setMessage("Are you sure you want to delete this item?")
-                                            .setPositiveButton("Yes", (di, i) -> {
+                                            .setTitle("Удалить слушателя")
+                                            .setMessage("Вы уверены, что хотите удалить этот элемент?")
+                                            .setPositiveButton("Да", (di, i) -> {
                                                 deleteRelatedEvents(name);
                                                 deleteItem(position);
                                                 di.dismiss();
                                             })
-                                            .setNegativeButton("No", (di, i) -> di.dismiss())
+                                            .setNegativeButton("Нет", (di, i) -> di.dismiss())
                                             .show();
                                     break;
                             }

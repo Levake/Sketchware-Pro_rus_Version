@@ -25,7 +25,7 @@ public class VersionDialog {
     public void show() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
         dialog.setIcon(R.drawable.numbers_48);
-        dialog.setTitle("Advanced Version Control");
+        dialog.setTitle("Расширенный контроль версий");
 
         binding.versionCode.setText(String.valueOf(Integer.parseInt(Helper.getText(activity.binding.verCode))));
         binding.versionName1.setText(Helper.getText(activity.binding.verName).split(" ")[0]);
@@ -44,13 +44,13 @@ public class VersionDialog {
             if (validVerCode) {
                 binding.versionCode.setError(null);
             } else {
-                binding.versionCode.setError("Invalid Version Code");
+                binding.versionCode.setError("Неверный код версии");
             }
 
             if (validVerName) {
                 binding.versionName1.setError(null);
             } else {
-                binding.versionName1.setError("Invalid Version Name");
+                binding.versionName1.setError("Недопустимое имя версии");
             }
 
             if (!mB.a() && validVerCode && validVerName) {

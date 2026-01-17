@@ -145,7 +145,7 @@ public class ExtraMenuBean {
                         return;
 
                     case "import":
-                        asdDialog(ss, "Enter the path without import & semicolon");
+                        asdDialog(ss, "Введите путь без импорта и точки с запятой");
                         return;
 
                     default:
@@ -480,22 +480,22 @@ public class ExtraMenuBean {
                 break;
 
             case "fragmentAdapter":
-                title = "Select a FragmentAdapter Component";
+                title = "Выберите компонент FragmentAdapter";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FRAGMENT_ADAPTER);
                 break;
 
             case "phoneauth":
-                title = "Select a FirebasePhone Component";
+                title = "Выберите компонент FirebasePhone";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_PHONE);
                 break;
 
             case "cloudmessage":
-                title = "Select a CloudMessage Component";
+                title = "Выберите компонент CloudMessage";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_CLOUD_MESSAGE);
                 break;
 
             case "googlelogin":
-                title = "Select a FirebaseGoogle Component";
+                title = "Выберите компонент FirebaseGoogle";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_GOOGLE_LOGIN);
                 break;
 
@@ -515,14 +515,14 @@ public class ExtraMenuBean {
                 break;
 
             case "service":
-                title = "Select a Background Service";
+                title = "Выберите фоновую службу";
                 if (FileUtil.isExistFile(fpu.getManifestService(sc_id))) {
                     menus = frc.getServiceManifestList();
                 }
                 break;
 
             case "broadcast":
-                title = "Select a Broadcast Receiver";
+                title = "Выберите широковещательный приемник";
                 if (FileUtil.isExistFile(fpu.getManifestBroadcast(sc_id))) {
                     menus = frc.getBroadcastManifestList();
                 }
@@ -546,7 +546,7 @@ public class ExtraMenuBean {
                     }
                     if (!activityMenu.isEmpty()) {
                         TextView txt = new TextView(logicEditor);
-                        txt.setText("Custom Activities");
+                        txt.setText("Пользовательские активити");
                         txt.setPadding((int) getDip(2), (int) getDip(4), (int) getDip(4), (int) getDip(4));
                         txt.setTextSize(14f);
                         viewGroup.addView(txt);
@@ -559,28 +559,28 @@ public class ExtraMenuBean {
                 break;
 
             case "customViews":
-                title = "Select a Custom View";
+                title = "Выберите пользовательский вид";
                 for (ProjectFileBean projectFileBean : jC.b(sc_id).c()) {
                     menus.add(projectFileBean.fileName);
                 }
                 break;
 
             case "SignButtonColor":
-                title = "Select a SignInButton Color";
+                title = "Выберите цвет кнопки для входа";
                 menus.add("COLOR_AUTO");
                 menus.add("COLOR_DARK");
                 menus.add("COLOR_LIGHT");
                 break;
 
             case "SignButtonSize":
-                title = "Select SignInButton Size";
+                title = "Выберите размер кнопки входа";
                 menus.add("SIZE_ICON_ONLY");
                 menus.add("SIZE_STANDARD");
                 menus.add("SIZE_WIDE");
                 break;
 
             case "ResString":
-                title = "Select a ResString";
+                title = "Выберите строку обновления";
 
                 String filePath = FileUtil.getExternalStorageDir().concat("/.sketchware/data/").concat(sc_id.concat("/files/resource/values/strings.xml"));
                 ArrayList<HashMap<String, Object>> StringsListMap = new ArrayList<>();
@@ -603,13 +603,13 @@ public class ExtraMenuBean {
             case "ResInteger":
             case "ResAttr":
             case "ResXml":
-                title = "Deprecated";
-                dialog.setMessage("This Block Menu was initially used to parse resource values, but was too I/O heavy and has been removed due to that. Please use the Code Editor instead.");
+                title = "Осуждаемый";
+                dialog.setMessage("Это блочное меню изначально использовалось для анализа значений ресурсов, но из-за большого объема ввода-вывода было удалено. Пожалуйста, используйте вместо этого редактор кода.");
                 break;
 
             case "AdUnit":
                 dialog.setIcon(R.drawable.unit_96);
-                title = "Select an Ad Unit";
+                title = "Выберите рекламный блок";
                 for (AdUnitBean bean : jC.c(sc_id).e.adUnits) {
                     menus.add(bean.id);
                 }
@@ -617,39 +617,39 @@ public class ExtraMenuBean {
 
             case "TestDevice":
                 dialog.setIcon(R.drawable.ic_test_device_48dp);
-                title = "Select a Test device";
+                title = "Выберите тестовое устройство";
                 for (AdTestDeviceBean testDevice : jC.c(sc_id).e.testDevices) {
                     menus.add(testDevice.deviceId);
                 }
                 break;
 
             case "IntentKey":
-                title = "Select an Intent key";
+                title = "Выберите ключ Intent";
                 menus.addAll(new ArrayList<>(Arrays.asList(intentKey)));
                 break;
 
             case "PatternFlag":
-                title = "Select a Pattern Flags";
+                title = "Выберите шаблон флагов";
                 menus.addAll(new ArrayList<>(Arrays.asList(patternFlags)));
                 break;
 
             case "Permission":
-                title = "Select a Permission";
+                title = "Выберите разрешение";
                 menus.addAll(new ArrayList<>(Arrays.asList(permission)));
                 break;
 
             case "AdSize":
-                title = "Select an Ad size";
+                title = "Выберите размер объявления";
                 menus.addAll(new ArrayList<>(Arrays.asList(adSize)));
                 break;
 
             case "PixelFormat":
-                title = "Select a PixelFormat";
+                title = "Выберите формат пикселя";
                 menus.addAll(new ArrayList<>(Arrays.asList(pixelFormat)));
                 break;
 
             case "Variable":
-                title = "Select a Variable";
+                title = "Выберите переменную";
                 for (Pair<Integer, String> integerStringPair : projectDataManager.k(javaName)) {
                     String variable = integerStringPair.second;
                     String variableName = CustomVariableUtil.getVariableName(variable);
@@ -658,14 +658,14 @@ public class ExtraMenuBean {
                 break;
 
             case "Component":
-                title = "Select a Component";
+                title = "Выберите компонент";
                 for (ComponentBean componentBean : projectDataManager.e(javaName)) {
                     menus.add(componentBean.componentId);
                 }
                 break;
 
             case "CustomVar":
-                title = "Select a Custom Variable";
+                title = "Выберите пользовательскую переменную";
                 for (String s : projectDataManager.e(javaName, 5)) {
                     Matcher matcher = Pattern.compile("^(\\w+)[\\s]+(\\w+)").matcher(s);
                     while (matcher.find()) {
@@ -710,7 +710,7 @@ public class ExtraMenuBean {
             v.dismiss();
         });
         dialog.setNegativeButton(R.string.common_word_cancel, null);
-        dialog.setNeutralButton("Code Editor", (v, which) -> {
+        dialog.setNeutralButton("Редактор кода", (v, which) -> {
             AsdDialog editor = new AsdDialog(logicEditor);
             editor.setContent(menu.getArgValue().toString());
             editor.show();
@@ -758,7 +758,7 @@ public class ExtraMenuBean {
             v.dismiss();
         });
         dialog.setNegativeButton(R.string.common_word_cancel, null);
-        dialog.setNeutralButton("Code Editor", (v, which) -> {
+        dialog.setNeutralButton("Редактор кода", (v, which) -> {
             AsdDialog asdDialog = new AsdDialog(logicEditor);
             asdDialog.setContent(Helper.getText(edittext));
             asdDialog.show();
@@ -776,11 +776,11 @@ public class ExtraMenuBean {
         mOptions.setSelectionMode(SelectionMode.BOTH);
         String path = null;
         if (menuName.equals("Assets")) {
-            mOptions.setTitle("Select an Asset");
+            mOptions.setTitle("Выберите актив");
             path = String.format(ASSETS_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
         } else if (menuName.equals("NativeLib")) {
-            mOptions.setTitle("Select a Native library");
+            mOptions.setTitle("Выберите собственную библиотеку");
             path = String.format(NATIVE_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
         }

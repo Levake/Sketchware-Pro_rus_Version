@@ -37,7 +37,7 @@
                 android:layout_weight="1"
                 android:ellipsize="marquee"
                 android:maxLines="2"
-                android:text="Random User"
+                android:text="Случайный пользователь"
                 android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
                 android:textColor="?attr/colorOnSurface" />
 
@@ -49,7 +49,7 @@
                 android:layout_weight="1"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                tools:text="Hello, this project is so cool!" />
+                tools:text="Привет, этот проект такой классный!" />
 
         </LinearLayout>
     </LinearLayout>

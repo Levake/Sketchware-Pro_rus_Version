@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="Create view" />
+        app:title="Создать вид" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -169,7 +169,7 @@
                     android:id="@+id/ed_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter name"
+                    android:hint="Введите имя"
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:lines="1" />
@@ -212,7 +212,7 @@
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="2dp"
                             android:layout_toEndOf="@+id/tipIcon"
-                            android:text="Important note"
+                            android:text="Важное замечание"
                             android:textColor="?attr/colorPrimary"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -240,7 +240,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text="Type"
+                        android:text="Тип"
                         android:textColor="?colorPrimary" />
 
                     <HorizontalScrollView
@@ -301,7 +301,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text="Screen orientation"
+                        android:text="Ориентация экрана"
                         android:textColor="?colorPrimary" />
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -321,7 +321,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Portrait" />
+                            android:text="Вертикально" />
 
                         <Button
                             android:id="@+id/select_landscape"
@@ -329,7 +329,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Landscape" />
+                            android:text="Горизонтально" />
 
                         <Button
                             android:id="@+id/select_both"
@@ -337,7 +337,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Both" />
+                            android:text="Оба" />
 
                     </com.google.android.material.button.MaterialButtonToggleGroup>
                 </LinearLayout>
@@ -353,7 +353,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text="Keyboard settings"
+                        android:text="Настройки клавиатуры"
                         android:textColor="?colorPrimary" />
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
@@ -373,7 +373,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Unspecified" />
+                            android:text="Неопределённая" />
 
                         <Button
                             android:id="@+id/select_visible"
@@ -381,7 +381,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Visible" />
+                            android:text="Видимая" />
 
                         <Button
                             android:id="@+id/select_hidden"
@@ -389,7 +389,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Hidden" />
+                            android:text="Скрытая" />
                     </com.google.android.material.button.MaterialButtonToggleGroup>
                 </LinearLayout>
             </LinearLayout>
@@ -412,7 +412,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:text="Отмена" />
 
         <Button
             android:id="@+id/btn_save"
@@ -420,7 +420,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save" />
+            android:text="Сохранить" />
 
     </LinearLayout>
 </RelativeLayout>

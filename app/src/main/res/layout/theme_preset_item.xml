@@ -66,6 +66,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="12sp"
-        tools:text="Material Purple" />
+        tools:text="Материал Фиолетовый" />
 
 </LinearLayout> 

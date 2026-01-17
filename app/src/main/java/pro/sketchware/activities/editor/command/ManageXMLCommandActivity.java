@@ -95,7 +95,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
         ManageXmlCommandBinding binding = ManageXmlCommandBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setTitle("XML Command Manager");
+        getSupportActionBar().setTitle("Менеджер команд XML");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         UI.addSystemWindowInsetToPadding(binding.list, false, false, false, true);
@@ -123,11 +123,11 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                     int position = item.second;
                     PopupMenu popupMenu = new PopupMenu(this, item.first);
                     var menu = popupMenu.getMenu();
-                    menu.add(Menu.NONE, 0, Menu.NONE, "Edit");
-                    menu.add(Menu.NONE, 1, Menu.NONE, "Delete");
-                    if (position != 0) menu.add(Menu.NONE, 2, Menu.NONE, "Move up");
+                    menu.add(Menu.NONE, 0, Menu.NONE, "Редактировать");
+                    menu.add(Menu.NONE, 1, Menu.NONE, "Удалить");
+                    if (position != 0) menu.add(Menu.NONE, 2, Menu.NONE, "Двигаться вверх");
                     if (position != adapter.getItemCount() - 1)
-                        menu.add(Menu.NONE, 3, Menu.NONE, "Move down");
+                        menu.add(Menu.NONE, 3, Menu.NONE, "Двигаться вниз");
 
                     popupMenu.setOnMenuItemClickListener(
                             itemMenu -> {
@@ -147,7 +147,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                                     MaterialAlertDialogBuilder dialog =
                                             new MaterialAlertDialogBuilder(this);
                                     dialog.setTitle(R.string.common_word_delete);
-                                    dialog.setMessage("Are you sure you want to delete this item?");
+                                    dialog.setMessage("Вы уверены, что хотите удалить этот элемент?");
                                     dialog.setPositiveButton(
                                             R.string.common_word_yes,
                                             (d, w) -> {
@@ -185,7 +185,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
         switch (item.getItemId()) {
             case 0 -> {
                 new MaterialAlertDialogBuilder(this)
-                        .setTitle("Select an XML")
+                        .setTitle("Выберите XML-файл")
                         .setAdapter(
                                 new ArrayAdapter<>(
                                         this, android.R.layout.simple_list_item_1, xmlFiles),
@@ -226,7 +226,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                     }
                 });
         dialog.show();
-        binding.title.setText(!edit ? "Add new command" : "Edit command");
+        binding.title.setText(!edit ? "Добавить новую команду" : "Редактировать команду");
 
         if (edit) {
             var command = commands.get(position);
@@ -297,9 +297,9 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
 
     private void showConfirmationDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
-        dialog.setTitle("Confirmation");
+        dialog.setTitle("Подтверждение");
         dialog.setMessage(
-                "Would you like to enable the new XML Command? It will speed up XML generation and compilation, but this change cannot be undone. Don’t worry, your previous changes with the XML Command Block will transfered here so it will remain unaffected.");
+                "Вы хотели бы включить новую команду XML? Это ускорит генерацию и компиляцию XML, но это изменение нельзя отменить. Не волнуйтесь, ваши предыдущие изменения в блоке команд XML будут перенесены сюда, так что они останутся неизменными.");
         dialog.setPositiveButton(
                 R.string.common_word_yes,
                 (d, w) -> {
@@ -330,7 +330,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                                     new MaterialAlertDialogBuilder(this)
                                             .setTitle(filename)
                                             .setCancelable(false)
-                                            .setPositiveButton("Dismiss", null);
+                                            .setPositiveButton("Отклонить", null);
 
                             runOnUiThread(
                                     () -> {
@@ -344,7 +344,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                                         editor.setText(
                                                 !source.isEmpty()
                                                         ? source
-                                                        : "Failed to generate source.");
+                                                        : "Не удалось сгенерировать исходный код.");
                                         editor.getComponent(Magnifier.class)
                                                 .setWithinEditorForcibly(true);
 

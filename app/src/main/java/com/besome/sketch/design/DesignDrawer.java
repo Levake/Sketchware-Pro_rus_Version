@@ -76,7 +76,7 @@ public class DesignDrawer extends LinearLayout {
         } else if (id == R.id.item_collection_manager) {
             designActivity.toCollectionManager();
         } else {
-            throw new IllegalArgumentException("Invalid item id: " + id);
+            throw new IllegalArgumentException("Недопустимый элемент id: " + id);
         }
     };
 

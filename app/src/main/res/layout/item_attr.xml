@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textColor="?colorOnSurface"
         android:visibility="gone"
-        tools:text="Surface Colors :" />
+        tools:text="Цвета поверхности:" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/container"

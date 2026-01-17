@@ -122,7 +122,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/projectImageCard"
             app:layout_constraintTop_toTopOf="@+id/projectImageCard"
-            tools:text="Project name" />
+            tools:text="Имя проекта" />
 
         <TextView
             android:id="@+id/projectDesc"
@@ -136,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/projectImageCard"
             app:layout_constraintTop_toBottomOf="@+id/projectTitle"
-            tools:text="Description" />
+            tools:text="Описание" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

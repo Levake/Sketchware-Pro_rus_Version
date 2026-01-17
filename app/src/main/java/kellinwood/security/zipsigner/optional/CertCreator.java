@@ -55,7 +55,7 @@ public class CertCreator {
 
             File sfile = new File(storePath);
             if (sfile.exists()) {
-                throw new IOException("File already exists: " + storePath);
+                throw new IOException("Файл уже существует: " + storePath);
             }
             KeyStoreFileManager.writeKeyStore( privateKS, storePath, storePass);
 

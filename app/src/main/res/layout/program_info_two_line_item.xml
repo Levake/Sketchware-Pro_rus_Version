@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:textAppearance="?attr/textAppearanceTitleMedium"
-            tools:text="Test 123 Title" />
+            tools:text="Тест 123 Заголовка" />
 
         <TextView
             android:id="@+id/tv_desc"
@@ -29,7 +29,7 @@
             android:layout_marginTop="4dp"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?attr/colorOnSurfaceVariant"
-            tools:text="Test 123" />
+            tools:text="Тест 123" />
 
     </LinearLayout>
 

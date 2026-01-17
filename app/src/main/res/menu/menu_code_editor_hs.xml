@@ -4,47 +4,47 @@
 
     <item
         android:id="@+id/action_undo"
-        android:title="Undo"
+        android:title="Отменить"
         android:icon="@drawable/ic_mtrl_undo"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_redo"
-        android:title="Redo"
+        android:title="Поаторить"
         android:icon="@drawable/ic_mtrl_redo"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_paste"
-        android:title="Paste"
+        android:title="Вставить"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_word_wrap"
         android:checkable="true"
-        android:title="Word wrap"
+        android:title="Перенос слов"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_pretty_print"
-        android:title="Pretty print"
+        android:title="Красивый принт"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_find_replace"
-        android:title="Find &amp; Replace"
+        android:title="Найди &amp; Заменить"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_autocomplete"
         android:checkable="true"
-        android:title="Auto complete"
+        android:title="Автозаполнение"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_autocomplete_symbol_pair"
         android:checkable="true"
-        android:title="Auto complete symbol pair"
+        android:title="Автоматическое заполнение пары символов"
         app:showAsAction="never" />
 
 </menu>

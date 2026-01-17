@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:gravity="center"
-                tools:text="Delete" />
+                tools:text="Удалить" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:gravity="center"
-                tools:text="Duplicate" />
+                tools:text="Дубликат" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:gravity="center"
-                tools:text="Collection" />
+                tools:text="Коллекция" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:gravity="center"
-                tools:text="Detail" />
+                tools:text="Детали" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

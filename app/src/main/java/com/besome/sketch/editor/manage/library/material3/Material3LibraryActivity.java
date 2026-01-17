@@ -38,8 +38,8 @@ public class Material3LibraryActivity extends BaseAppCompatActivity {
         if (!material3LibraryManager.isAppCompatEnabled()) {
             new MaterialAlertDialogBuilder(this)
                     .setIcon(R.drawable.ic_mtrl_warning)
-                    .setTitle("AppCompat is disabled!")
-                    .setMessage("Please enable AppCompat first to use this feature")
+                    .setTitle("Функция AppCompat отключена!")
+                    .setMessage("Пожалуйста, сначала включите AppCompat, чтобы использовать эту функцию")
                     .setPositiveButton("OK", (dialog, which) -> finish())
                     .setCancelable(false)
                     .show();

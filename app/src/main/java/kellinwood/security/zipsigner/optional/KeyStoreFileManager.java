@@ -91,7 +91,7 @@ public class KeyStoreFileManager {
                 fis.close();
                 return ks;
             } catch (Exception e) {
-                throw new RuntimeException("Failed to load keystore: " + e.getMessage(), e);
+                throw new RuntimeException("Не удалось загрузить хранилище ключей: " + e.getMessage(), e);
             }
         }
     }
@@ -152,7 +152,7 @@ public class KeyStoreFileManager {
 
     static void copyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
         if (destFile.exists() && destFile.isDirectory()) {
-            throw new IOException("Destination '" + destFile + "' exists but is a directory");
+            throw new IOException("Описание '" + destFile + "' существует, но является каталогом");
         }
 
         FileInputStream input = new FileInputStream(srcFile);
@@ -174,8 +174,8 @@ public class KeyStoreFileManager {
         }
 
         if (srcFile.length() != destFile.length()) {
-            throw new IOException("Failed to copy full contents from '" +
-                srcFile + "' to '" + destFile + "'");
+            throw new IOException("Не удалось скопировать полное содержимое из '" +
+                srcFile + "' к '" + destFile + "'");
         }
         if (preserveFileDate) {
             destFile.setLastModified(srcFile.lastModified());
@@ -187,7 +187,7 @@ public class KeyStoreFileManager {
         throws IOException
     {
         copyFile(fromFile, toFile, true);
-        if (!fromFile.delete()) throw new IOException("Failed to delete " + fromFile);
+        if (!fromFile.delete()) throw new IOException("Не удалось удалить " + fromFile);
     }
 
     public static void deleteKey(String storePath, String storePass, String keyName)

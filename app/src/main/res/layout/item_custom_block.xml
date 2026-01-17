@@ -34,7 +34,7 @@
                 android:paddingLeft="4dp"
                 android:singleLine="true"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                tools:text="Block ID" />
+                tools:text="Блок ID" />
 
             <LinearLayout
                 android:id="@+id/customBlocksContainer"

@@ -187,7 +187,7 @@ public class pu extends qA {
                 Files.createDirectories(svgDir);
             }
         } catch (IOException error) {
-            Log.d("pu.java", "Failed to create directory for saving svgs at: " + fpu.getPathResource(sc_id));
+            Log.d("pu.java", "Не удалось создать каталог для сохранения svg в: " + fpu.getPathResource(sc_id));
         }
         int index = 0;
         for (ProjectResourceBean image : images) {
@@ -202,7 +202,7 @@ public class pu extends qA {
 
 
                     String str = projectImagesDirectory + File.separator + image.resName;
-                    Log.d("svg", "full name : " + image.resFullName);
+                    Log.d("svg", "полное имя : " + image.resFullName);
                     if (image.resFullName.endsWith(".svg")) {
                         // convert the svg to vectors
                         String svgPath = fpu.getSvgFullPath(sc_id, image.resName);
@@ -444,7 +444,7 @@ public class pu extends qA {
         colorItem1.put("color", color);
 
         colorMap.put(forPosition, colorItem1);
-        Log.d("color filter", "new color filter item at " + forPosition + ": " + colorHex + " " + color);
+        Log.d("color filter", "новый элемент цветового фильтра на " + forPosition + ": " + colorHex + " " + color);
     }
 
     private void addImages(ArrayList<ProjectResourceBean> arrayList) {
@@ -485,7 +485,7 @@ public class pu extends qA {
 
             if (colorMap.get(position) != null) {
                 int color = Objects.requireNonNullElse((int) colorMap.get(position).get("color"), 0xFFFFFFFF);
-                Log.d("Applying filter to " + position, String.valueOf(color));
+                Log.d("Применение фильтра к " + position, String.valueOf(color));
                 holder.binding.img.setColorFilter(color, PorterDuff.Mode.SRC_IN);
             } else {
                 holder.binding.img.clearColorFilter();
@@ -499,7 +499,7 @@ public class pu extends qA {
             if (image.resFullName.endsWith(".svg")) {
                 svgUtils.loadImage(holder.binding.img, image.isNew ? image.resFullName : String.join(File.separator, projectImagesDirectory, image.resFullName));
             } else if (image.resFullName.endsWith(".xml")) {
-                Log.d("loading converted vector: ", fpu.getSvgFullPath(sc_id, image.resName));
+                Log.d("загрузка преобразованного вектора: ", fpu.getSvgFullPath(sc_id, image.resName));
                 svgUtils.loadImage(holder.binding.img, image.isNew ? image.resFullName : fpu.getSvgFullPath(sc_id, image.resName));
             } else {
                 Glide.with(requireActivity())

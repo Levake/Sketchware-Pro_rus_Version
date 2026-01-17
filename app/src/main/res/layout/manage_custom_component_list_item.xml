@@ -49,7 +49,7 @@
                 android:textSize="14sp"
                 android:maxLines="2"
                 android:ellipsize="end"
-                tools:text="description" />
+                tools:text="описание" />
 
             <LinearLayout
                 android:id="@+id/events_preview"

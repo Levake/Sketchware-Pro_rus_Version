@@ -388,7 +388,7 @@ public class ViewPane extends RelativeLayout {
             view.setLayoutParams(layoutParams);
             if (viewBean.getClassInfo().b("FloatingActionButton") && (imageBean = viewBean.image) != null && (str = imageBean.resName) != null && !str.isEmpty()) {
                 try {
-                    crashlytics.log("ViewPane: trying to set image to FAB");
+                    crashlytics.log("ViewPane: пытаюсь установить изображение в FAB");
                     FloatingActionButton fab = (FloatingActionButton) view;
                     if (resourcesManager.h(viewBean.image.resName) == ProjectResourceBean.PROJECT_RES_TYPE_RESOURCE) {
                         int resourceId = getContext().getResources().getIdentifier(viewBean.image.resName, "drawable", getContext().getPackageName());
@@ -405,7 +405,7 @@ public class ViewPane extends RelativeLayout {
                             int scaleFactor = Math.round(getResources().getDisplayMetrics().density / 2.0f);
 
                             if (imagePath.endsWith(".xml")) {
-                                crashlytics.log("ViewPane: loading scaled XML/SVG image");
+                                crashlytics.log("ViewPane: загрузка масштабированного изображения в формате XML/SVG");
                                 FilePathUtil fpu = new FilePathUtil();
                                 svgUtils.loadScaledSvgIntoImageView(new AppCompatImageView(getContext()) {
                                     @Override
@@ -426,7 +426,7 @@ public class ViewPane extends RelativeLayout {
                                 }
                             }
                         } else {
-                            crashlytics.log("ViewPane: converting XML to SVG for FAB");
+                            crashlytics.log("ViewPane: преобразование XML в SVG для FAB");
                             XmlToSvgConverter xmlToSvgConverter = new XmlToSvgConverter();
                             ImageView tempImageView = new AppCompatImageView(getContext()) {
                                 @Override
@@ -633,7 +633,7 @@ public class ViewPane extends RelativeLayout {
                 //lmao use simple_list_item_1 for now
                 listItem.setListItem(android.R.layout.simple_list_item_1);
             }
-            crashlytics.log("ViewPane: setting item count to EditorListItem");
+            crashlytics.log("ViewPane: установка количества элементов в EditorListItem");
             if (!TextUtils.isEmpty(itemCount)) {
                 if (TextUtils.isEmpty(listitem)) {
                     try {
@@ -1026,7 +1026,7 @@ public class ViewPane extends RelativeLayout {
     }
 
     private void updateLayout(View view, ViewBean viewBean) {
-        crashlytics.log("ViewPane: Updating layout");
+        crashlytics.log("ViewPane: Обновление макета");
         LayoutBean layoutBean = viewBean.layout;
         int width = layoutBean.width;
         int height = layoutBean.height;

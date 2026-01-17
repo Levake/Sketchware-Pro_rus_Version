@@ -55,7 +55,7 @@
                     app:layout_constraintStart_toEndOf="@+id/icon"
                     app:layout_constraintTop_toTopOf="@+id/icon"
                     app:lineHeight="33dp"
-                    tools:text="Sketchware Pro - a new place to create android apps!" />
+                    tools:text="Sketchware Pro - это новое место для создания приложений для Android!" />
 
                 <TextView
                     android:id="@+id/author"
@@ -69,7 +69,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon"
                     app:layout_constraintTop_toBottomOf="@+id/name"
-                    tools:text="Modders Team" />
+                    tools:text="Команда модераторов" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textIsSelectable="true"
-                    tools:text="Meet Sketchware Pro v7.0.0!\nFinally, the long-awaited version has been released!" />
+                    tools:text="Встречайте Sketchware Pro v7.0.0! Наконец-то вышла долгожданная версия!" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
@@ -100,7 +100,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
-                android:text="Screenshots"
+                android:text="Скриншоты"
                 android:textAppearance="?attr/textAppearanceTitleLargeEmphasized" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -138,7 +138,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
-                android:text="About this project"
+                android:text="Об этом проекте"
                 android:textAppearance="?attr/textAppearanceTitleLargeEmphasized" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -163,7 +163,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/icon_downloads"
                     app:layout_constraintStart_toEndOf="@id/icon_downloads"
                     app:layout_constraintTop_toTopOf="@id/icon_downloads"
-                    tools:text="Downloads: 140920" />
+                    tools:text="Загрузили: 140920" />
 
                 <ImageView
                     android:id="@+id/icon_timestamp"
@@ -183,7 +183,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/icon_timestamp"
                     app:layout_constraintStart_toEndOf="@id/icon_timestamp"
                     app:layout_constraintTop_toTopOf="@id/icon_timestamp"
-                    tools:text="Uploaded: 26.09.2024" />
+                    tools:text="Обновление: 26.09.2024" />
 
                 <ImageView
                     android:id="@+id/icon_filesize"
@@ -203,7 +203,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/icon_filesize"
                     app:layout_constraintStart_toEndOf="@id/icon_filesize"
                     app:layout_constraintTop_toTopOf="@id/icon_filesize"
-                    tools:text="Size: 112 MB" />
+                    tools:text="Размер: 112 MB" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -224,7 +224,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textIsSelectable="true"
-                    tools:text="Sketchware Pro's sources in Java. Now anyone can contribute to Sketchware Pro." />
+                    tools:text="Исходные код Sketchware Pro на Java. Теперь любой желающий может внести свой вклад в Sketchware Pro." />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -275,7 +275,7 @@
                 android:singleLine="true"
                 android:textAppearance="?attr/textAppearanceBodyLargeEmphasized"
                 android:textSize="18sp"
-                tools:text="Sketchware Pro - a new place to create android apps!" />
+                tools:text="Sketchware Pro - это новое место для создания приложений для Android!" />
 
             <TextView
                 android:id="@+id/toolbar_subtitle"
@@ -286,7 +286,7 @@
                 android:singleLine="true"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                tools:text="Modders Team" />
+                tools:text="Команда модераторов" />
         </LinearLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -319,7 +319,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:text="Comments"
+            android:text="Комментарии"
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@id/btn_download"
             app:layout_constraintStart_toStartOf="parent"
@@ -331,7 +331,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Download"
+            android:text="Загрузка"
             app:layout_constraintEnd_toStartOf="@id/btn_like"
             app:layout_constraintStart_toEndOf="@id/btn_comments"
             app:layout_constraintTop_toTopOf="parent" />

@@ -25,7 +25,7 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-                app:title="Last Compile Log" />
+                app:title="Журнал последней компиляции" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -52,7 +52,7 @@
                 android:paddingBottom="48dp"
                 android:textSize="11sp"
                 android:typeface="monospace"
-                tools:text="Errors will show up here" />
+                tools:text="Здесь будут отображаться ошибки" />
         </HorizontalScrollView>
     </androidx.core.widget.NestedScrollView>
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Awesome, no bugs to fix!"
+            android:text="Потрясающе, никаких ошибок, которые нужно исправлять!"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="20sp" />
 
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Let's continue working on the project"
+            android:text="Давайте продолжим работу над проектом"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="14sp" />
 

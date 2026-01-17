@@ -35,7 +35,7 @@ public class ImageFactory {
             fileOutputStream.flush();
             fileOutputStream.close();
         } catch (IOException e) {
-            Log.e(ImageFactory.class.getSimpleName(), "Couldn't save bitmap with name " + imageName + ": " + e.getMessage(), e);
+            Log.e(ImageFactory.class.getSimpleName(), "Не удалось сохранить растровое изображение с именем " + imageName + ": " + e.getMessage(), e);
         }
         return savedBitmap;
     }

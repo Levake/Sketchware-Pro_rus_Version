@@ -98,8 +98,8 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
         adapter.setOnItemClickListener(
                 item -> {
                     PopupMenu popupMenu = new PopupMenu(this, item.first);
-                    popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Edit");
-                    popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Delete");
+                    popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Редактировать");
+                    popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Удалить");
                     popupMenu.setOnMenuItemClickListener(
                             itemMenu -> {
                                 int position = adapter.getCurrentList().indexOf(item.second);
@@ -157,7 +157,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                     appCompats.add("NavigationDrawer");
                 }
                 if (appCompats.isEmpty()) {
-                    setNote("No options are found.", "No AppCompat options are currently available in this activity.");
+                    setNote("Никаких вариантов не найдено.", "В настоящее время в этом упражнении не доступны параметры AppCompat.");
                 } else {
                     for (int i = 0; i < appCompats.size(); i++) {
                         TabLayout.Tab tab = binding.tabLayout.newTab();
@@ -171,10 +171,10 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                 }
             } else {
                 setNote(
-                        "AppCompat is disabled.", "Please enable AppCompat in the Library Manager to use it.");
+                        "Функция AppCompat отключена.", "Пожалуйста, включите AppCompat в менеджере библиотек, чтобы использовать его.");
             }
         } else {
-            setNote("Not available.", "You're not currently in the Activity layout.");
+            setNote("Не доступен.", "В данный момент вы не находитесь в макете активити.");
         }
     }
 
@@ -200,7 +200,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
                 dialog.setTitle(R.string.common_word_reset);
                 dialog.setMessage(
-                        "Are you sure you want to reset appcompat attributes for " + filename + "?");
+                        "Вы уверены, что хотите сбросить атрибуты appcompat для " + filename + "?");
                 dialog.setPositiveButton(
                         R.string.common_word_yes,
                         (d, w) -> {
@@ -252,7 +252,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
 
     private void dialog(String type, int position) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
-        dialog.setTitle(type.equals("create") ? "Add new attribute" : "Edit attribute");
+        dialog.setTitle(type.equals("create") ? "Добавить новый атрибут" : "Редактировать атрибут");
         CustomDialogAttributeBinding attributeBinding =
                 CustomDialogAttributeBinding.inflate(getLayoutInflater());
         dialog.setView(attributeBinding.getRoot());

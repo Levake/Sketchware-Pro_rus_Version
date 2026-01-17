@@ -52,8 +52,8 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
                 holder.binding.tvTitle.setText(titleText);
                 holder.binding.tvTitle.setVisibility(View.VISIBLE);
             } else {
-                holder.binding.tvTitle.setText("We've messed something up, sorry for the inconvenience!\n" +
-                        "(Details: Invalid data type of \"title\")");
+                holder.binding.tvTitle.setText("Мы что-то напутали, приносим извинения за причиненные неудобства!\n" +
+                        "(Подробности: Недопустимый тип данных \"title\")");
                 holder.binding.tvTitle.setVisibility(View.VISIBLE);
             }
         } else {
@@ -76,7 +76,7 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
         if (releaseDate > 0) {
             holder.binding.tvReleaseNote.setVisibility(View.VISIBLE);
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-            holder.binding.tvReleaseNote.setText("Released on: " + formatter.format(new Date(releaseDate)));
+            holder.binding.tvReleaseNote.setText("Выпущенный на: " + formatter.format(new Date(releaseDate)));
         } else {
             holder.binding.tvReleaseNote.setVisibility(View.GONE);
         }
@@ -86,8 +86,8 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
             holder.binding.tvSubTitle.setText(description);
             Linkify.addLinks(holder.binding.tvSubTitle, Linkify.WEB_URLS);
         } else {
-            holder.binding.tvSubTitle.setText("We've messed something up, sorry for the inconvenience!\n" +
-                    "(Details: Invalid data type of \"description\")");
+            holder.binding.tvSubTitle.setText("Мы что-то напутали, приносим извинения за причиненные неудобства!\n" +
+                    "(Подробности: Недопустимый тип данных \"description\")");
         }
 
         boolean showingAdditionalInfo = showingAdditionalInfoPositions.contains(position);

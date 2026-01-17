@@ -144,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Background Type"
+                        android:text="Тип фона"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -165,7 +165,7 @@
                             style="@style/Widget.Material3Expressive.Button.OutlinedButton"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Color"
+                            android:text="Цвет"
                             android:layout_weight="1"/>
 
                         <com.google.android.material.button.MaterialButton
@@ -173,7 +173,7 @@
                             style="@style/Widget.Material3Expressive.Button.OutlinedButton"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Gradient"
+                            android:text="Градиент"
                             android:layout_weight="1"/>
                     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -261,7 +261,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:padding="4dp"
-                            android:text="Gradient Direction"
+                            android:text="Направление градиента"
                             android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:textSize="12sp" />
 
@@ -349,7 +349,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Effects"
+                        android:text="Эффекты"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -359,14 +359,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:checked="false"
-                        android:text="Score effect" />
+                        android:text="Эффект оценки" />
 
                     <com.google.android.material.materialswitch.MaterialSwitch
                         android:id="@+id/texture_check"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:checked="false"
-                        android:text="Textures" />
+                        android:text="Текстуры" />
 
                     <LinearLayout
                         android:id="@+id/texture_cont"
@@ -428,7 +428,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:padding="4dp"
-                            android:text="Color"
+                            android:text="Цвет"
                             android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:textSize="12sp" />
 
@@ -454,7 +454,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:padding="4dp"
-                            android:text="Opacity"
+                            android:text="Непрозрачность"
                             android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:textSize="12sp" />
 
@@ -491,7 +491,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:padding="4dp"
-                            android:text="Scale"
+                            android:text="Масштаб"
                             android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:textSize="12sp" />
 
@@ -528,7 +528,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:padding="4dp"
-                            android:text="Rotation"
+                            android:text="Поворот"
                             android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:textSize="12sp" />
 
@@ -583,7 +583,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Corners"
+                        android:text="Углы"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -637,7 +637,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Image"
+                        android:text="Изображение"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -647,7 +647,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="Color"
+                        android:text="Цвет"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -674,7 +674,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="Size"
+                        android:text="Размер"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -712,7 +712,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="Vertical position"
+                        android:text="Вертикальное положение"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -750,7 +750,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="horizontal position"
+                        android:text="горизонтальное положение"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -810,7 +810,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
                             android:gravity="center_vertical"
-                            android:hint="Text"
+                            android:hint="Текст"
                             android:importantForAutofill="noExcludeDescendants"
                             app:layout_constraintEnd_toStartOf="@+id/txt_color_preview_card"
                             app:layout_constraintStart_toStartOf="parent"
@@ -851,7 +851,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="Size"
+                        android:text="Размер"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -888,7 +888,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="Vertical position"
+                        android:text="Вертикальное положение"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -926,7 +926,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:padding="4dp"
-                        android:text="horizontal position"
+                        android:text="горизонтальное положение"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 
@@ -981,7 +981,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Other"
+                        android:text="Другое"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -998,7 +998,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
                             android:gravity="center_vertical"
-                            android:hint="Badge text"
+                            android:hint="Текст значка"
                             android:importantForAutofill="noExcludeDescendants"
                             app:layout_constraintEnd_toStartOf="@+id/badge_txt_color_preview_card"
                             app:layout_constraintStart_toStartOf="parent"
@@ -1036,7 +1036,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Badge background color"
+                        android:text="Цвет фона значка"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 

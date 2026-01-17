@@ -14,7 +14,7 @@
         android:layout_centerInParent="false"
         android:padding="8dp"
         android:textColor="?colorOnSurfaceVariant"
-        tools:text="You haven't used any custom blocks in this project." />
+        tools:text="Вы не использовали никаких пользовательских блоков в этом проекте." />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressIndicator"

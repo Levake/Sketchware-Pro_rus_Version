@@ -69,19 +69,19 @@ public class LibraryDownloaderDialogFragment extends BottomSheetDialogFragment {
     private void initDownloadFlow() {
         dependencyName = Helper.getText(binding.dependencyInput);
         if (dependencyName == null || dependencyName.isEmpty()) {
-            binding.dependencyInputLayout.setError("Please enter a dependency");
+            binding.dependencyInputLayout.setError("Пожалуйста, укажите зависимость");
             binding.dependencyInputLayout.setErrorEnabled(true);
             return;
         }
 
         var parts = dependencyName.split(":");
         if (parts.length != 3) {
-            binding.dependencyInputLayout.setError("Invalid dependency format");
+            binding.dependencyInputLayout.setError("Недопустимый формат зависимостей");
             binding.dependencyInputLayout.setErrorEnabled(true);
             return;
         }
 
-        binding.dependencyInfo.setText("Looking for dependency...");
+        binding.dependencyInfo.setText("В поисках зависимости...");
         binding.dependencyInputLayout.setErrorEnabled(false);
         setDownloadState(true);
 
@@ -111,89 +111,89 @@ public class LibraryDownloaderDialogFragment extends BottomSheetDialogFragment {
             resolver.resolveDependency(new DependencyResolver.DependencyResolverCallback() {
                 @Override
                 public void onResolving(@NonNull Artifact artifact, @NonNull Artifact dependency) {
-                    handler.post(new SetTextRunnable("Resolving " + dependency + " for " + artifact + "..."));
+                    handler.post(new SetTextRunnable("Решения " + dependency + " для " + artifact + "..."));
                 }
 
                 @Override
                 public void onResolutionComplete(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Dependency " + dep + " resolved"));
+                    handler.post(new SetTextRunnable("Зависимость " + dep + " решенный"));
                 }
 
                 @Override
                 public void onArtifactNotFound(@NonNull Artifact dep) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Dependency '" + dep + "' not found");
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Зависимость '" + dep + "' не найдено");
                     });
                 }
 
                 @Override
                 public void onSkippingResolution(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Skipping resolution for " + dep));
+                    handler.post(new SetTextRunnable("Пропуск разрешения для " + dep));
                 }
 
                 @Override
                 public void onVersionNotFound(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Version not available for " + dep));
+                    handler.post(new SetTextRunnable("Версия, недоступная для " + dep));
                 }
 
                 @Override
                 public void onDependenciesNotFound(@NonNull Artifact dep) {
-                    handler.post(() -> new SetTextRunnable("Dependencies not found for \"" + dep + "\"").run());
+                    handler.post(() -> new SetTextRunnable("Зависимости, не найденные для \"" + dep + "\"").run());
                 }
 
                 @Override
                 public void onInvalidScope(@NonNull Artifact dep, @NonNull String scope) {
-                    handler.post(new SetTextRunnable("Invalid scope for " + dep + ": " + scope));
+                    handler.post(new SetTextRunnable("Недопустимая область применения для " + dep + ": " + scope));
                 }
 
                 @Override
                 public void invalidPackaging(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Invalid packaging for dependency " + dep));
+                    handler.post(new SetTextRunnable("Недопустимая упаковка для зависимостей " + dep));
                 }
 
                 @Override
                 public void onDownloadStart(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Downloading dependency " + dep + "..."));
+                    handler.post(new SetTextRunnable("Зависимость от загрузки " + dep + "..."));
                 }
 
                 @Override
                 public void onDownloadEnd(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Dependency " + dep + " downloaded"));
+                    handler.post(new SetTextRunnable("Зависимость " + dep + " загруженный"));
                 }
 
                 @Override
                 public void onDownloadError(@NonNull Artifact dep, @NonNull Throwable e) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Downloading dependency '" + dep + "' failed: " + Log.getStackTraceString(e));
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Зависимость от загрузки '" + dep + "' неудачно: " + Log.getStackTraceString(e));
                     });
                 }
 
                 @Override
                 public void unzipping(@NonNull Artifact artifact) {
-                    handler.post(new SetTextRunnable("Unzipping dependency " + artifact));
+                    handler.post(new SetTextRunnable("Распаковка зависимости " + artifact));
                 }
 
                 @Override
                 public void dexing(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Dexing dependency " + dep));
+                    handler.post(new SetTextRunnable("Ослабляющая зависимость " + dep));
                 }
 
                 @Override
                 public void dexingFailed(@NonNull Artifact dependency, @NonNull Exception e) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Dexing dependency '" + dependency + "' failed: " + Log.getStackTraceString(e));
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Ослабляющая зависимость '" + dependency + "' неудачно: " + Log.getStackTraceString(e));
                     });
                 }
 
                 @Override
                 public void onTaskCompleted(@NonNull List<String> dependencies) {
                     handler.post(() -> {
-                        SketchwareUtil.toast("Library downloaded successfully");
+                        SketchwareUtil.toast("Библиотека успешно загружена");
                         if (!notAssociatedWithProject) {
-                            new SetTextRunnable("Adding dependencies to project...").run();
+                            new SetTextRunnable("Добавление зависимостей в проект...").run();
                             var fileContent = FileUtil.readFile(localLibFile);
                             var enabledLibs = gson.fromJson(fileContent, Helper.TYPE_MAP_LIST);
                             enabledLibs.addAll(dependencies.stream()

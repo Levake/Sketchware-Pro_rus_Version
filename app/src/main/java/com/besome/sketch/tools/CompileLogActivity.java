@@ -51,9 +51,9 @@ public class CompileLogActivity extends BaseAppCompatActivity {
         binding.topAppBar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
 
         if (getIntent().getBooleanExtra("showingLastError", false)) {
-            binding.topAppBar.setTitle("Last compile log");
+            binding.topAppBar.setTitle("Журнал последней компиляции");
         } else {
-            binding.topAppBar.setTitle("Compile log");
+            binding.topAppBar.setTitle("Журнал компиляции");
         }
 
         String sc_id = getIntent().getStringExtra("sc_id");
@@ -69,18 +69,18 @@ public class CompileLogActivity extends BaseAppCompatActivity {
                 if (compileErrorSaver.logFileExists()) {
                     compileErrorSaver.deleteSavedLogs();
                     getIntent().removeExtra("error");
-                    SketchwareUtil.toast("Compile logs have been cleared.");
+                    SketchwareUtil.toast("Журналы компиляции были очищены.");
                 } else {
-                    SketchwareUtil.toast("No compile logs found.");
+                    SketchwareUtil.toast("Журналы компиляции не найдены.");
                 }
 
                 setErrorText();
             });
         }
 
-        final String wrapTextLabel = "Wrap text";
-        final String monospacedFontLabel = "Monospaced font";
-        final String fontSizeLabel = "Font size";
+        final String wrapTextLabel = "Перенос текста";
+        final String monospacedFontLabel = "Моноширинный шрифт";
+        final String fontSizeLabel = "Размер шрифта";
 
         PopupMenu options = new PopupMenu(this, binding.formatButton);
         options.getMenu().add(wrapTextLabel).setCheckable(true).setChecked(getWrappedTextPreference());

@@ -14,7 +14,7 @@
         android:minHeight="64dp"
         android:paddingStart="20dp"
         android:textAppearance="?attr/textAppearanceTitleMedium"
-        tools:text="Program Info Item" />
+        tools:text="Элемент информации о программе" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/layout_divider"

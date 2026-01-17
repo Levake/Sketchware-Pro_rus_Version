@@ -76,7 +76,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                tools:text="Remaker" />
+                tools:text="Переделыватель" />
         </LinearLayout>
 
         <ImageView

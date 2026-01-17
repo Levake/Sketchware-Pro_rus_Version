@@ -800,10 +800,10 @@ public class ViewEditor extends RelativeLayout implements View.OnClickListener, 
     private void b(boolean z, boolean isCustomWidget) {
         if (isCustomWidget) {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_edit));
-            deleteText.setText("Drag here to see the Actions");
+            deleteText.setText("Перетащите сюда, чтобы увидеть действия");
         } else if (z) {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_delete));
-            deleteText.setText("Drag here to delete");
+            deleteText.setText("Перетащите сюда, чтобы удалить");
             setDeleteViewIconAndTextUi(false);
         }
         deleteView.bringToFront();
@@ -875,7 +875,7 @@ public class ViewEditor extends RelativeLayout implements View.OnClickListener, 
         int var9 = displayWidth - (int) (120.0F * dip);
         int var8 = displayHeight - statusBarHeight - toolBarHeight - (int) (dip * 48.0F) - (int) (dip * 48.0F);
         if (screenType == 0 && da) {
-            Log.d("ViewEditor", "hmmm");
+            Log.d("ViewEditor", "хммм");
             var8 -= (int) (dip * 56.0F);
         }
 
@@ -1067,10 +1067,10 @@ public class ViewEditor extends RelativeLayout implements View.OnClickListener, 
         }
         if (isCustomWidget) {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_edit));
-            deleteText.setText(D ? "Release to see the actions" : "Drag here to see the Actions");
+            deleteText.setText(D ? "Отпустите, чтобы увидеть действия" : "Перетащите сюда, чтобы увидеть действия");
         } else {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_delete));
-            deleteText.setText(D ? "Release to delete" : "Drag here to delete");
+            deleteText.setText(D ? "Отпустите, чтобы удалить" : "Перетащите сюда, чтобы удалить");
         }
     }
 

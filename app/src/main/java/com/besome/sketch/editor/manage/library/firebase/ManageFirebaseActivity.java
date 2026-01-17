@@ -152,8 +152,8 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
                     firebaseLibraryBean.useYn = "Y";
                 }
             } else {
-                SketchwareUtil.toast("Configure Firebase settings first, either by importing google-services.json, " +
-                        "or by manually entering the project's details.", Toast.LENGTH_LONG);
+                SketchwareUtil.toast("Сначала настройте параметры Firebase, либо импортировав файл google-services.json, " +
+                        "или путем ручного ввода сведений о проекте.", Toast.LENGTH_LONG);
             }
         }
     }
@@ -201,8 +201,8 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Help").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_help)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Config").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_settings)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Помощь").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_help)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Конфигурация").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_settings)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -272,7 +272,7 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
     private void showImportJsonDialog() {
         FilePickerOptions options = new FilePickerOptions();
         options.setExtensions(new String[]{"json"});
-        options.setTitle("Select your google-services.json");
+        options.setTitle("Выберите свой google-services.json");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -305,33 +305,33 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
 
         StringBuilder notFoundLog = new StringBuilder();
         boolean hasNullConfig = false;
-        notFoundLog.append("The google-services.json file you selected does not contain the following configurations:\n");
+        notFoundLog.append("В сервисах Google выбранный вами файл json не содержит следующих конфигураций:\n");
 
         if (storageBucketMatcher.find()) {
             configureImportFirebaseConfigFromJson(storage_bucket, storageBucketMatcher.group(1));
         } else {
-            notFoundLog.append("StorageBucket, ");
+            notFoundLog.append("Корзина для хранения, ");
             configureImportFirebaseConfigFromJson(storage_bucket, "");
             hasNullConfig = true;
         }
         if (appIdMatcher.find()) {
             configureImportFirebaseConfigFromJson(app_id, appIdMatcher.group(1));
         } else {
-            notFoundLog.append("App ID, ");
+            notFoundLog.append("ID приложения, ");
             configureImportFirebaseConfigFromJson(app_id, "");
             hasNullConfig = true;
         }
         if (apiKeyMatcher.find()) {
             configureImportFirebaseConfigFromJson(api_key, apiKeyMatcher.group(1));
         } else {
-            notFoundLog.append("API Key, ");
+            notFoundLog.append("API ключ, ");
             configureImportFirebaseConfigFromJson(api_key, "");
             hasNullConfig = true;
         }
         if (rtdbMatcher.find()) {
             configureImportFirebaseConfigFromJson(realtime_db, rtdbMatcher.group(1).replace("https://", ""));
         } else {
-            notFoundLog.append("Realtime Database, ");
+            notFoundLog.append("База данных в реальном времени, ");
             configureImportFirebaseConfigFromJson(realtime_db, "");
             hasNullConfig = true;
 

@@ -250,7 +250,7 @@ public class Jx {
             }
         } else {
             if (isBottomDialogFragment) {
-                sb.append("/* Enable AppCompat to use it */");
+                sb.append("/* Включите AppCompat, чтобы использовать его */");
             } else if (isDialogFragment) {
                 sb.append("DialogFragment");
             } else if (isFragment) {
@@ -568,7 +568,7 @@ public class Jx {
                 sb.append(adapterCode);
             } else {
                 sb.append(adapterCode.replace("return onTabLayoutNewTabAdded(pos);",
-                        "// Use the Activity Event (onTabLayoutNewTabAdded) in order to use this method" + EOL +
+                        "// Используйте событие Activity (onTabLayoutNewTabAdded), чтобы использовать этот метод" + EOL +
                                 "return \"page \" + String.valueOf(pos);"));
             }
             if (j != qSize - 1) {

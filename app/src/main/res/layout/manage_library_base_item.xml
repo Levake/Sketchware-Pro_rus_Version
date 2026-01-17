@@ -35,7 +35,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:textSize="11sp"
-            tools:text="OFF" />
+            tools:text="ВЫКЛ" />
     </LinearLayout>
 
     <TextView
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toEndOf="@id/icon_container"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Component Manager" />
+        tools:text="Менеджер компонента" />
 
     <TextView
         android:id="@+id/lib_desc"
@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="@id/lib_title"
         app:layout_constraintStart_toStartOf="@id/lib_title"
         app:layout_constraintTop_toBottomOf="@id/lib_title"
-        tools:text="Something something something" />
+        tools:text="Нечто, нечто, нечто" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"

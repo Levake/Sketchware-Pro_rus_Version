@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="10dp"
-        android:text="Project Settings"
+        android:text="Настройки проекта"
         android:textAppearance="?attr/textAppearanceTitleLarge" />
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center_vertical"
-            android:text="Change project settings"
+            android:text="Изменить настройки проекта"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             app:drawableEndCompat="@drawable/ic_mtrl_arrow_right" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center_vertical"
-            android:text="Backup project"
+            android:text="Резервное копирование проекта"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             app:drawableEndCompat="@drawable/ic_mtrl_arrow_right" />
 
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center_vertical"
-            android:text="Export/Sign"
+            android:text="Экспорт/Подпись"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             app:drawableEndCompat="@drawable/ic_mtrl_arrow_right" />
 
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center_vertical"
-            android:text="Project configuration"
+            android:text="Конфигурация проекта"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             app:drawableEndCompat="@drawable/ic_mtrl_arrow_right" />
 
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center_vertical"
-            android:text="Delete project"
+            android:text="Удалить проект"
             android:textAppearance="?attr/textAppearanceBodyLarge"
             android:textColor="?attr/colorError"
             app:drawableEndCompat="@drawable/ic_mtrl_arrow_right" />

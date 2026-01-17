@@ -61,7 +61,7 @@
                         android:gravity="center_vertical"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        tools:text="Sketchware 2022 is real" />
+                        tools:text="Sketchware 2022 - это реальность" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,7 +91,7 @@
                         android:paddingHorizontal="18dp"
                         android:paddingVertical="12dp"
                         android:textColor="?colorPrimary"
-                        tools:text="Default" />
+                        tools:text="По умолчанию" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                             android:paddingHorizontal="18dp"
                             android:paddingVertical="12dp"
                             android:textColor="?colorPrimary"
-                            tools:text="Cancel" />
+                            tools:text="Отмена" />
 
                         <TextView
                             android:id="@+id/common_dialog_ok_button"
@@ -122,7 +122,7 @@
                             android:paddingHorizontal="18dp"
                             android:paddingVertical="12dp"
                             android:textColor="?colorPrimary"
-                            tools:text="Okay" />
+                            tools:text="Окей" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

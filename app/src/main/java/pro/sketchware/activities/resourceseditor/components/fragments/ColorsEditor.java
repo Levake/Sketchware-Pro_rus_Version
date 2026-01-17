@@ -181,7 +181,7 @@ public class ColorsEditor extends Fragment {
             public void afterTextChanged(Editable s) {
                 String value = s.toString();
                 if (value.startsWith("#") && !PropertiesUtil.isHexColor(value)) {
-                    dialogBinding.colorValueInputLayout.setError("Invalid HEX color");
+                    dialogBinding.colorValueInputLayout.setError("Недопустимый шестнадцатеричный цвет");
                     return;
                 }
                 dialogBinding.colorValueInput.setError(null);
@@ -205,18 +205,18 @@ public class ColorsEditor extends Fragment {
             }
         });
 
-        dialog.setPositiveButton("Save", (v1, which) -> {
+        dialog.setPositiveButton("Сохранить", (v1, which) -> {
             String key = Objects.requireNonNull(dialogBinding.colorKeyInput.getText()).toString();
             String value = Objects.requireNonNull(dialogBinding.colorValueInput.getText()).toString();
 
             if (key.isEmpty() || value.isEmpty()) {
-                SketchwareUtil.toastError("Please fill in all fields", Toast.LENGTH_SHORT);
+                SketchwareUtil.toastError("Пожалуйста, заполните все поля", Toast.LENGTH_SHORT);
                 return;
             }
 
             if (value.startsWith("#")) {
                 if (!PropertiesUtil.isHexColor(value)) {
-                    SketchwareUtil.toastError("Please enter a valid HEX color");
+                    SketchwareUtil.toastError("Пожалуйста, введите допустимый шестнадцатеричный цвет");
                     return;
                 }
             }
@@ -259,7 +259,7 @@ public class ColorsEditor extends Fragment {
         });
 
         if (colorModel != null && !defaultColors.containsKey(colorModel.getColorName())) {
-            dialog.setNeutralButton("Delete", (v1, which) -> {
+            dialog.setNeutralButton("Удалить", (v1, which) -> {
                 colorList.remove(position);
                 adapter.notifyItemRemoved(position);
                 adapter.notifyItemRangeChanged(position, colorList.size());
@@ -278,7 +278,7 @@ public class ColorsEditor extends Fragment {
         ColorModel newItem = new ColorModel(name, value);
         for (int i = 0; i < colorList.size(); i++) {
             if (colorList.get(i).getColorName().equals(name)) {
-                SketchwareUtil.toastError("\"" + name + "\" is already exist");
+                SketchwareUtil.toastError("\"" + name + "\" уже существует");
                 return;
             }
         }

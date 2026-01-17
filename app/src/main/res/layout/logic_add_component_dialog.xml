@@ -40,7 +40,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="16dp"
-        tools:text="File is used to save data locally" />
+        tools:text="Файл используется для локального сохранения данных" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_warning"
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBodySmall"
                     android:textColor="?attr/colorOnErrorContainer"
-                    tools:text="Warning!" />
+                    tools:text="Предупреждение!" />
 
                 <TextView
                     android:id="@+id/warning"
@@ -88,7 +88,7 @@
                     android:maxLines="3"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?attr/colorOnErrorContainer"
-                    tools:text="Your phone doesn't support gyroscope." />
+                    tools:text="Ваш телефон не поддерживает функцию гироскопа." />
             </LinearLayout>
         </LinearLayout>
 

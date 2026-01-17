@@ -10,7 +10,7 @@
         android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:hint="String key">
+        tools:hint="Строковый ключ">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text"
@@ -20,7 +20,7 @@
             android:importantForAutofill="no"
             android:inputType="textMultiLine|textNoSuggestions"
             android:textSize="16sp"
-            tools:text="String value"
+            tools:text="Строковое значение"
             tools:ignore="LabelFor" />
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

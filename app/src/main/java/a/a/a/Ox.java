@@ -1016,7 +1016,7 @@ public class Ox {
                 eventType = parser.next();
             }
         } catch (XmlPullParserException | IOException | RuntimeException e) {
-            LogUtil.e("a.a.a.Ox", "Failed to parse inject property of View " + viewBean.id, e);
+            LogUtil.e("a.a.a.Ox", "Не удалось проанализировать свойство inject из View " + viewBean.id, e);
         }
 
         return toReplace;

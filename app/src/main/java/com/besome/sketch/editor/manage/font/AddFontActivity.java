@@ -90,7 +90,7 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                 try {
                     Np.g().a(sc_id, resourceBean);
                 } catch (Exception e) {
-                    Log.e("AddFontActivity", "Failed to add font to collection", e);
+                    Log.e("AddFontActivity", "Не удалось добавить шрифт в коллекцию", e);
                     // Well, (parts of) the bytecode's lying, yy can be thrown.
                     //noinspection ConstantConditions
                     if (e instanceof yy) {
@@ -134,7 +134,7 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                 try {
                     Typeface typeface = Typeface.createFromFile(tempFontFile);
                     if (typeface.equals(Typeface.DEFAULT)) {
-                        SketchwareUtil.toastError("Warning: Font doesn't seem to be valid");
+                        SketchwareUtil.toastError("Warning: Шрифт, по-видимому, недопустим");
                         return;
                     }
                     validFontPicked = true;
@@ -149,13 +149,13 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                     e.printStackTrace();
                     validFontPicked = false;
                     binding.fontPreviewView.setVisibility(View.GONE);
-                    SketchwareUtil.toast("Couldn't load font: " + e.getMessage());
-                    LogUtil.e("AddFontActivity", "Failed to load font", e);
+                    SketchwareUtil.toast("Не удалось загрузить шрифт: " + e.getMessage());
+                    LogUtil.e("AddFontActivity", "Не удалось загрузить шрифт", e);
                 }
             }, e -> {
-                SketchwareUtil.toastError("Error while loading font: " + e.getMessage());
+                SketchwareUtil.toastError("Ошибка при загрузке шрифта: " + e.getMessage());
                 e.printStackTrace();
-                LogUtil.e("AddFontActivity", "Failed to load font", e);
+                LogUtil.e("AddFontActivity", "Не удалось загрузить шрифт", e);
             });
         }
     }

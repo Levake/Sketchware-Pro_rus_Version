@@ -78,7 +78,7 @@ public class PasswordObfuscator {
             byte[] encoded = cipher.doFinal( baos.toByteArray());
             return Base64.encode( encoded);
         } catch (Exception x) {
-            logger.error("Failed to obfuscate password", x);
+            logger.error("Не удалось зашифровать пароль", x);
         }
         return null;
     }
@@ -111,7 +111,7 @@ public class PasswordObfuscator {
             return result;
             
         } catch (Exception x) {
-            logger.error("Failed to decode password", x);
+            logger.error("Не удалось расшифровать пароль", x);
         }
         return null;
     }

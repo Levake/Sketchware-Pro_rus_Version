@@ -16,7 +16,7 @@
         android:id="@+id/tv_variant"
         android:textAppearance="?attr/textAppearanceLabelLarge"
         android:textStyle="bold"
-        tools:text="Official / Beta" />
+        tools:text="Официальная / Бета-версия" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                     android:paddingHorizontal="8dp"
                     android:paddingBottom="8dp"
                     android:textAppearance="?attr/textAppearanceBodySmall"
-                    tools:text="Released on: ----- (= never ¯\\_(ツ)_/¯)" />
+                    tools:text="Выпущено: ----- (= никогда ¯\\_(ツ)_/¯)" />
             </LinearLayout>
 
             <ImageButton
@@ -131,7 +131,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                tools:text="A version that's newer than v6.3.0. That's it." />
+                tools:text="Версия, которая новее, чем v6.3.0. Вот и все." />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

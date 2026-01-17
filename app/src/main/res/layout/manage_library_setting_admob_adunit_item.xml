@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textColor="?colorControlNormal"
             android:textSize="12sp"
-            tools:text="&lt;Ad Unit name&gt;" />
+            tools:text="&lt;Название рекламного блока&gt;" />
 
         <TextView
             android:id="@+id/tv_unit_id"
@@ -29,7 +29,7 @@
             android:layout_marginTop="4dp"
             android:textColor="#ff555555"
             android:textSize="11sp"
-            tools:text="&lt;Ad Unit ID&gt;" />
+            tools:text="&lt;ID рекламного блока&gt;" />
     </LinearLayout>
 
     <ImageView

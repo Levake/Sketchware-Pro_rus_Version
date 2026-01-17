@@ -24,7 +24,7 @@ public class ApkUtils {
 
     public static String getSignature(String algorithm) {
         if (apkPath == null || apkPath.isEmpty()) {
-            return "APK path must be set before computing signature.";
+            return "Путь к APK-файлу должен быть задан перед вычислением подписи.";
         }
 
         try (FileInputStream fis = new FileInputStream(apkPath)) {

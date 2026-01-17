@@ -599,13 +599,13 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
 
                 if (buildingAppBundle) {
                     AppBundleCompiler compiler = new AppBundleCompiler(builder);
-                    publishProgress("Creating app module...");
+                    publishProgress("Создание модуля приложения...");
                     compiler.createModuleMainArchive();
                     publishProgress("Building app bundle...");
                     compiler.buildBundle();
 
                     /* Sign the generated .aab file */
-                    publishProgress("Signing app bundle...");
+                    publishProgress("Подписание пакета приложений...");
 
                     String createdBundlePath = AppBundleCompiler.getDefaultAppBundleOutputFile(project_metadata).getAbsolutePath();
                     String signedAppBundleDirectoryPath = FileUtil.getExternalStorageDir()
@@ -635,21 +635,21 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
                         FileUtil.copyFile(createdBundlePath, getCorrectResultFilename(outputPath));
                     }
                 } else {
-                    publishProgress("Building APK...");
+                    publishProgress("Построение APK...");
                     builder.buildApk();
                     if (canceled) {
                         cancel(true);
                         return;
                     }
 
-                    publishProgress("Aligning APK...");
+                    publishProgress("Регулировка APK...");
                     builder.runZipalign(builder.yq.unsignedUnalignedApkPath, builder.yq.unsignedAlignedApkPath);
                     if (canceled) {
                         cancel(true);
                         return;
                     }
 
-                    publishProgress("Signing APK...");
+                    publishProgress("Подписание APK...");
                     String outputLocation = getCorrectResultFilename(builder.yq.releaseApkPath);
                     if (signWithTestkey) {
                         TestkeySignBridge.signWithTestkey(builder.yq.unsignedAlignedApkPath, outputLocation);
@@ -671,9 +671,9 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
                 }
             } catch (Throwable throwable) {
                 if (throwable instanceof LoadKeystoreException &&
-                        "Incorrect password, or integrity check failed.".equals(throwable.getMessage())) {
+                        "Неверный пароль или ошибка проверки целостности.".equals(throwable.getMessage())) {
                     activity.get().runOnUiThread(() -> SketchwareUtil.showAnErrorOccurredDialog(activity.get(),
-                            "Either an incorrect password was entered, or your key store is corrupt."));
+                            "Либо был введен неверный пароль, либо ваше хранилище ключей повреждено."));
                 } else {
                     Log.e("AppExporter", throwable.getMessage(), throwable);
                     activity.get().runOnUiThread(() -> SketchwareUtil.showAnErrorOccurredDialog(activity.get(),
@@ -689,7 +689,7 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             if (!activity.get().progressDialog.isCancelable()) {
                 activity.get().progressDialog.setCancelable(true);
                 activity.get().a((DialogInterface.OnCancelListener) this);
-                publishProgress("Canceling process...");
+                publishProgress("Процесс отмены...");
                 canceled = true;
             }
         }
@@ -740,9 +740,9 @@ public class ExportProjectActivity extends BaseAppCompatActivity {
             if (buildingAppBundle && new File(Environment.getExternalStorageDirectory(), "sketchware" + File.separator + "signed_aab" + File.separator + aabFilename).exists()) {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity.get());
                 dialog.setIcon(R.drawable.open_box_48);
-                dialog.setTitle("Finished exporting AAB");
-                dialog.setMessage("You can find the generated, signed AAB file at:\n" +
-                        "/Internal storage/sketchware/signed_aab/" + aabFilename);
+                dialog.setTitle("Закончен экспорт AAB");
+                dialog.setMessage("Вы можете найти сгенерированный, подписанный файл AAB по адресу:\n" +
+                        "/Внутреняя память/sketchware/signed_aab/" + aabFilename);
                 dialog.setPositiveButton(Helper.getResString(R.string.common_word_ok), null);
                 dialog.show();
             }

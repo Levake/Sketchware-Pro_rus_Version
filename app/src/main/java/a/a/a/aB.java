@@ -19,11 +19,11 @@ public class aB extends AlertDialog {
     public boolean msgIsSelectable = false;
     public boolean canDismissDialogOnDefaultBtnClicked = true;
     public View dialogCustomView;
-    public String dialogDefaultText = "Default";
+    public String dialogDefaultText = "По умолчанию";
     public View.OnClickListener dialogDefaultListener = null;
-    public String dialogNoText = "No";
+    public String dialogNoText = "Нет";
     public View.OnClickListener dialogNoListener = null;
-    public String dialogYesText = "Yes";
+    public String dialogYesText = "Да";
     public View.OnClickListener dialogYesListener = null;
     public boolean cancelable = true;
     public boolean canceledOnTouchOutside = true;

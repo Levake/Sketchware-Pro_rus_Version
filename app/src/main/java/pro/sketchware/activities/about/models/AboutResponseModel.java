@@ -54,7 +54,7 @@ public class AboutResponseModel {
         }
 
         public String getTitle() {
-            return is_core_team ? "Core Team Members" : "Contributors";
+            return is_core_team ? "Основные члены команды" : "Участники";
         }
 
         public String getDescription() {
@@ -98,7 +98,7 @@ public class AboutResponseModel {
 
         public String getCommitterName() {
             String commiterName = safeGetValueFromMap(author, "login");
-            return commiterName.isEmpty() ? "Deleted Account" : commiterName;
+            return commiterName.isEmpty() ? "Удаленная учетная запись" : commiterName;
         }
 
         public String getCommitterImage() {
@@ -145,15 +145,15 @@ public class AboutResponseModel {
             LocalDate today = LocalDate.now(ZoneOffset.UTC);
 
             if (commitDate.equals(today)) {
-                return "Today";
+                return "Сегодня";
             } else if (commitDate.equals(today.minusDays(1))) {
-                return "Yesterday";
+                return "Вчера";
             } else if (commitDate.isAfter(today.minusWeeks(1))) {
-                return "This week";
+                return "На этой неделе";
             } else if (commitDate.isAfter(today.minusWeeks(2))) {
-                return "Last week";
+                return "Прошлая неделя";
             } else if (commitDate.isAfter(today.minusMonths(1))) {
-                return "Last month";
+                return "Прошлый месяц";
             } else {
                 long monthsAgo = ChronoUnit.MONTHS.between(commitDate.withDayOfMonth(1), today.withDayOfMonth(1));
                 if (monthsAgo <= 12) {

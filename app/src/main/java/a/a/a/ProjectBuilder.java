@@ -116,14 +116,14 @@ public class ProjectBuilder {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
 
-            LogUtil.d(TAG, "Running Sketchware Pro " + info.versionName + " (" + info.versionCode + ")");
+            LogUtil.d(TAG, "Запуск Sketchware Pro " + info.versionName + " (" + info.versionCode + ")");
 
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
 
             long fileSizeInBytes = new File(applicationInfo.sourceDir).length();
-            LogUtil.d(TAG, "base.apk's size is " + Formatter.formatFileSize(context, fileSizeInBytes) + " (" + fileSizeInBytes + " B)");
+            LogUtil.d(TAG, "base.apk's размер равен " + Formatter.formatFileSize(context, fileSizeInBytes) + " (" + fileSizeInBytes + " B)");
         } catch (PackageManager.NameNotFoundException e) {
-            LogUtil.e(TAG, "Somehow failed to get package info about us!", e);
+            LogUtil.e(TAG, "Не удалось получить пакет, смотрите информацию", e);
         }
 
         aapt2Binary = new File(context.getCacheDir(), "aapt2");
@@ -188,7 +188,7 @@ public class ProjectBuilder {
                 buildAppBundle,
                 progressReceiver);
         compiler.compile();
-        LogUtil.d(TAG, "Compiling resources took " + (System.currentTimeMillis() - timestampResourceCompilationStarted) + " ms");
+        LogUtil.d(TAG, "Сбор ресурсов занял " + (System.currentTimeMillis() - timestampResourceCompilationStarted) + " ms");
     }
 
     public void generateViewBinding() throws IOException, SAXException {
@@ -216,7 +216,7 @@ public class ProjectBuilder {
     }
 
     public String getDxRunningText() {
-        return (isD8Enabled() ? "D8" : "Dx") + " is running...";
+        return (isD8Enabled() ? "D8" : "Dx") + " выполняется...";
     }
 
     /**
@@ -232,9 +232,9 @@ public class ProjectBuilder {
             long savedTimeMillis = System.currentTimeMillis();
             try {
                 DexCompiler.compileDexFiles(this);
-                LogUtil.d(TAG, "D8 took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+                LogUtil.d(TAG, "D8 занял " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
             } catch (Exception e) {
-                LogUtil.e(TAG, "D8 failed to process .class files", e);
+                LogUtil.e(TAG, "D8 не удалось обработать файлы .class", e);
                 throw e;
             }
         } else {
@@ -248,7 +248,7 @@ public class ProjectBuilder {
             );
 
             try {
-                LogUtil.d(TAG, "Running Dx with these arguments: " + args);
+                LogUtil.d(TAG, "Запуск Dx с этими аргументами: " + args);
 
                 Main.clearInternTables();
                 Main.Arguments arguments = new Main.Arguments();
@@ -257,9 +257,9 @@ public class ProjectBuilder {
                 parseMethod.invoke(arguments, (Object) args.toArray(new String[0]));
 
                 Main.run(arguments);
-                LogUtil.d(TAG, "Dx took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+                LogUtil.d(TAG, "Dx занял " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
             } catch (Exception e) {
-                LogUtil.e(TAG, "Dx failed to process .class files", e);
+                LogUtil.e(TAG, "Dx не удалось обработать файлы .class", e);
                 throw e;
             }
         }
@@ -405,9 +405,9 @@ public class ProjectBuilder {
                 for (FieldId fieldId : dex.fieldIds()) {
                     if (!mergedDexFields.contains(fieldId)) {
                         if (mergedDexFields.size() + newDexFieldIds.size() + 1 > 0xffff) {
-                            LogUtil.d(TAG, "Can't merge DEX file to " + nextMergedDexFilename +
-                                    " because it has too many new field IDs. "
-                                    + nextMergedDexFilename + " will have " + mergedDexFields.size() + " field IDs");
+                            LogUtil.d(TAG, "Не удается объединить файл DEX с " + nextMergedDexFilename +
+                                    " потому что в нем слишком много новых IDs. "
+                                    + nextMergedDexFilename + " должен иметь " + mergedDexFields.size() + " не удачно IDs");
                             canMerge = false;
                             break bruh;
                         } else {
@@ -419,9 +419,9 @@ public class ProjectBuilder {
                 for (MethodId methodId : dex.methodIds()) {
                     if (!newDexMethodIds.contains(methodId)) {
                         if (mergedDexMethods.size() + newDexMethodIds.size() + 1 > 0xffff) {
-                            LogUtil.d(TAG, "Can't merge DEX file to " + nextMergedDexFilename +
-                                    " because it has too many new method IDs. "
-                                    + nextMergedDexFilename + " will have " + mergedDexMethods.size() + " method IDs");
+                            LogUtil.d(TAG, "Не удается объединить файл DEX с " + nextMergedDexFilename +
+                                    " потому что в нем слишком много новых методов IDs. "
+                                    + nextMergedDexFilename + " должно иметь " + mergedDexMethods.size() + " метод IDs");
                             canMerge = false;
                             break bruh;
                         } else {
@@ -433,9 +433,9 @@ public class ProjectBuilder {
                 for (ProtoId protoId : dex.protoIds()) {
                     if (!newDexProtoIds.contains(protoId)) {
                         if (mergedDexProtos.size() + newDexProtoIds.size() + 1 > 0xffff) {
-                            LogUtil.d(TAG, "Can't merge DEX file to " + nextMergedDexFilename +
-                                    " because it has too many new proto IDs. "
-                                    + nextMergedDexFilename + " will have " + mergedDexProtos.size() + " proto IDs");
+                            LogUtil.d(TAG, "Не удается объединить файл DEX с " + nextMergedDexFilename +
+                                    " потому что в нем слишком много новых прототипов IDs. "
+                                    + nextMergedDexFilename + " должно иметь " + mergedDexProtos.size() + " прототипы IDs");
                             canMerge = false;
                             break bruh;
                         } else {
@@ -447,9 +447,9 @@ public class ProjectBuilder {
                 for (Integer typeId : dex.typeIds()) {
                     if (!newDexTypeIds.contains(typeId)) {
                         if (mergedDexTypes.size() + newDexProtoIds.size() + 1 > 0xffff) {
-                            LogUtil.d(TAG, "Can't merge DEX file to " + nextMergedDexFilename +
-                                    " because it has too many new type IDs. "
-                                    + nextMergedDexFilename + " will have " + mergedDexTypes.size() + " type IDs");
+                            LogUtil.d(TAG, "Не удается объединить файл DEX с " + nextMergedDexFilename +
+                                    " потому что у него слишком много новых идентификаторов типов. "
+                                    + nextMergedDexFilename + " должен иметь " + mergedDexTypes.size() + " типов IDs");
                             canMerge = false;
                             break bruh;
                         } else {
@@ -460,7 +460,7 @@ public class ProjectBuilder {
             }
 
             if (canMerge) {
-                LogUtil.d(TAG, "Merging DEX #" + dexes.indexOf(dexFile) + " as well to " + nextMergedDexFilename);
+                LogUtil.d(TAG, "Слияние DEX #" + dexes.indexOf(dexFile) + " а также для " + nextMergedDexFilename);
                 dexObjects.add(dex);
                 mergedDexFields.addAll(newDexFieldIds);
                 mergedDexMethods.addAll(newDexMethodIds);
@@ -572,20 +572,20 @@ public class ProjectBuilder {
             /* Avoid "package ;" line in that file causing issues while compiling */
             File rJavaFileWithoutPackage = new File(yq.rJavaDirectoryPath, "R.java");
             if (rJavaFileWithoutPackage.exists() && !rJavaFileWithoutPackage.delete()) {
-                LogUtil.w(TAG, "Failed to delete file " + rJavaFileWithoutPackage.getAbsolutePath());
+                LogUtil.w(TAG, "Не удалось удалить файл " + rJavaFileWithoutPackage.getAbsolutePath());
             }
 
             /* Start compiling */
             org.eclipse.jdt.internal.compiler.batch.Main main = new org.eclipse.jdt.internal.compiler.batch.Main(outWriter, errWriter, false, null, null);
-            LogUtil.d(TAG, "Running Eclipse compiler with these arguments: " + args);
+            LogUtil.d(TAG, "Запуск компилятора Eclipse с этими аргументами: " + args);
             main.compile(args.toArray(new String[0]));
 
-            LogUtil.d(TAG, "System.out of Eclipse compiler: " + outOutputStream.getOut());
+            LogUtil.d(TAG, "System.out из компилятора Eclipse: " + outOutputStream.getOut());
             if (main.globalErrorsCount <= 0) {
-                LogUtil.d(TAG, "System.err of Eclipse compiler: " + errOutputStream.getOut());
-                LogUtil.d(TAG, "Compiling Java files took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+                LogUtil.d(TAG, "System.err из компилятора Eclipse: " + errOutputStream.getOut());
+                LogUtil.d(TAG, "Компиляция Java файлов заняло " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
             } else {
-                LogUtil.e(TAG, "Failed to compile Java files");
+                LogUtil.e(TAG, "Не удалось скомпилировать Java-файлы");
                 throw new zy(errOutputStream.getOut());
             }
         }
@@ -638,13 +638,13 @@ public class ProjectBuilder {
         } catch (ApkCreationException | SealedApkException e) {
             throw new By(e.getMessage());
         } catch (DuplicateFileException e) {
-            String message = "Duplicate files from two libraries detected \r\n";
+            String message = "Обнаружены дубликаты файлов из двух библиотек \r\n";
             message += "File1: " + e.getFile1() + " \r\n";
             message += "File2: " + e.getFile2() + " \r\n";
-            message += "Archive path: " + e.getArchivePath();
+            message += "Путь к архиву: " + e.getArchivePath();
             throw new By(message);
         }
-        LogUtil.d(TAG, "Time passed since starting to compile resources until building the unsigned APK: " +
+        LogUtil.d(TAG, "С момента начала компиляции ресурсов до создания неподписанного APK-файла прошло время: " +
                 (System.currentTimeMillis() - timestampResourceCompilationStarted) + " ms");
     }
 
@@ -708,10 +708,10 @@ public class ProjectBuilder {
                         }
                     }
                 } else {
-                    SketchwareUtil.toastError("Invalid DEX file path of enabled Local library #" + i1, Toast.LENGTH_LONG);
+                    SketchwareUtil.toastError("Неверный путь к файлу DEX для включенной локальной библиотеки #" + i1, Toast.LENGTH_LONG);
                 }
             } else {
-                SketchwareUtil.toastError("Invalid name of enabled Local library #" + i1, Toast.LENGTH_LONG);
+                SketchwareUtil.toastError("Недопустимое имя включенной локальной библиотеки #" + i1, Toast.LENGTH_LONG);
             }
         }
 
@@ -719,14 +719,14 @@ public class ProjectBuilder {
             dexes.add(new File(file));
         }
 
-        LogUtil.d(TAG, "Will merge these " + dexes.size() + " DEX files to classes.dex: " + dexes);
+        LogUtil.d(TAG, "Объединит эти " + dexes.size() + " DEX преоразован в classes.dex: " + dexes);
 
         if (settings.getMinSdkVersion() < 21 || !yq.N.isDebugBuild) {
             dexLibraries(new File(yq.binDirectoryPath), dexes);
-            LogUtil.d(TAG, "Merging DEX files took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+            LogUtil.d(TAG, "Слияние файлов DEX заняло " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
         } else {
             dexesToAddButNotMerge = dexes;
-            LogUtil.d(TAG, "Skipped merging DEX files due to debug build with minSdkVersion >= 21");
+            LogUtil.d(TAG, "Пропущено объединение файлов DEX из-за отладочной сборки с minSdkVersion >= 21");
         }
     }
 
@@ -742,13 +742,13 @@ public class ProjectBuilder {
                 Os.chmod(aapt2Binary.getAbsolutePath(), S_IRUSR | S_IWUSR | S_IXUSR);
             }
         } catch (Exception e) {
-            LogUtil.e(TAG, "Failed to extract AAPT2 binaries", e);
+            LogUtil.e(TAG, "Не удалось извлечь двоичные файлы AAPT2", e);
             // noinspection ConstantValue: the bytecode's lying
             throw new By(
                     e instanceof FileNotFoundException fileNotFoundException ?
-                            "Looks like the device's architecture (" + abi + ") isn't supported.\n"
+                            "Похоже на архитектуру устройства (" + abi + ") не поддерживается.\n"
                                     + Log.getStackTraceString(fileNotFoundException)
-                            : "Couldn't extract AAPT2 binaries! Message: " + e.getMessage()
+                            : "Не удалось извлечь двоичные файлы AAPT2! Сообщение: " + e.getMessage()
             );
         }
     }
@@ -946,7 +946,7 @@ public class ProjectBuilder {
             args.add("-printmapping");
             args.add(yq.proguardMappingPath);
         }
-        LogUtil.d(TAG, "About to run ProGuard with these arguments: " + args);
+        LogUtil.d(TAG, "Собираюсь запустить ProGuard с этими аргументами: " + args);
 
         Configuration configuration = new Configuration();
 
@@ -967,7 +967,7 @@ public class ProjectBuilder {
             throw new IOException(e);
         }
 
-        LogUtil.d(TAG, "ProGuard took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+        LogUtil.d(TAG, "ProGuard заняло " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
     }
 
     public void runStringfog() {
@@ -984,24 +984,24 @@ public class ProjectBuilder {
             stringFogClassInjector.doFog2ClassInDir(new File(yq.compiledClassesPath));
             KB.a(context, "stringfog/stringfog.zip", yq.compiledClassesPath);
         } catch (Exception e) {
-            LogUtil.e("StringFog", "Failed to run StringFog", e);
+            LogUtil.e("StringFog", "Не удачный заруск StringFog", e);
         }
     }
 
     public void runZipalign(String inPath, String outPath) throws By {
-        LogUtil.d(TAG, "About to zipalign " + inPath + " to " + outPath);
+        LogUtil.d(TAG, "Начинается запаковка " + inPath + " в " + outPath);
         long savedTimeMillis = System.currentTimeMillis();
 
         try (RandomAccessFile in = new RandomAccessFile(inPath, "r");
              FileOutputStream out = new FileOutputStream(outPath)) {
             ZipAlign.alignZip(in, out);
         } catch (IOException e) {
-            throw new By("Couldn't run zipalign on " + inPath + " with output path " + outPath + ": " + Log.getStackTraceString(e));
+            throw new By("Не удалось запустить zipalign на " + inPath + " с выходным трактом " + outPath + ": " + Log.getStackTraceString(e));
         } catch (InvalidZipException e) {
-            throw new By("Failed to zipalign due to the given zip being invalid: " + Log.getStackTraceString(e));
+            throw new By("Не удалось выполнить zipalign из-за того, что указанный zip был недействительным: " + Log.getStackTraceString(e));
         }
 
-        LogUtil.d(TAG, "zipalign took " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
+        LogUtil.d(TAG, "zipalign заняло " + (System.currentTimeMillis() - savedTimeMillis) + " ms");
     }
 
     public void setBuildAppBundle(boolean buildAppBundle) {

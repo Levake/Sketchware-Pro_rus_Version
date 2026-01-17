@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textSize="11sp"
-            tools:text="On activity create" />
+            tools:text="При создании атктивити" />
     </LinearLayout>
 
     <CheckBox

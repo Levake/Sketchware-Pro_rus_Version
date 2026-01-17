@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
                     android:textSize="16sp"
-                    tools:text="Sound Name" />
+                    tools:text="Имя звука" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

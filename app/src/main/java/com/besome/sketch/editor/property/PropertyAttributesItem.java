@@ -117,7 +117,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 ((TextView) findViewById(R.id.tv_title)).setText(Helper.getResString(identifier));
                 return;
             }
-            tvValue.setText("Configure parent attributes");
+            tvValue.setText("Настройка родительских атрибутов");
             imgLeftIcon.setImageResource(icon);
         }
     }
@@ -188,13 +188,13 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 }
             }
             new MaterialAlertDialogBuilder(getContext())
-                    .setTitle("Choose an attributes")
+                    .setTitle("Выберите атрибуты")
                     .setAdapter(
                             new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, list), (d, w) -> {
                                 var attr = list.get(w);
                                 if (RELATIVE_IDS.contains(attr)) {
                                     new MaterialAlertDialogBuilder(getContext())
-                                            .setTitle("Choose an id")
+                                            .setTitle("Выберите ID")
                                             .setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, ids), (d2, w2) -> {
                                                 var id = ids.get(w2);
                                                 if (new CircularDependencyDetector(beans, bean).isLegalAttribute(id, attr)) {
@@ -203,10 +203,10 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                                         valueChangeListener.a(key, value);
                                                     adapter.submitList(new ArrayList<>(value.keySet()));
                                                 } else {
-                                                    SketchwareUtil.toastError("IllegalStateException : Circular dependencies cannot exist in RelativeLayout");
+                                                    SketchwareUtil.toastError("IllegalStateException : Циклические зависимости не могут существовать в RelativeLayout");
                                                 }
                                             })
-                                            .setNegativeButton("Cancel", (d2, which) -> d.dismiss())
+                                            .setNegativeButton("Отмена", (d2, which) -> d.dismiss())
                                             .show();
                                 } else {
                                     value.put(attr, "false");
@@ -215,7 +215,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                     adapter.submitList(new ArrayList<>(value.keySet()));
                                 }
                             })
-                    .setNegativeButton("Cancel", (d, which) -> d.dismiss())
+                    .setNegativeButton("Отмена", (d, which) -> d.dismiss())
                     .show();
         });
     }
@@ -284,7 +284,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                     var filteredIds = new ArrayList<>(ids);
                     filteredIds.remove(value.get(attr));
                     new MaterialAlertDialogBuilder(getContext())
-                            .setTitle("Choose an id")
+                            .setTitle("Выберите ID")
                             .setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, filteredIds), (d, w) -> {
                                 var id = filteredIds.get(w);
                                 value.put(attr, id);
@@ -292,13 +292,13 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                 if (valueChangeListener != null)
                                     valueChangeListener.a(key, value);
                             })
-                            .setNegativeButton("Cancel", (d, which) -> d.dismiss())
+                            .setNegativeButton("Отмена", (d, which) -> d.dismiss())
                             .show();
                 });
                 itemView.setOnLongClickListener(v -> {
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(getContext());
-                    dialog.setTitle("Delete");
-                    dialog.setMessage("Are you sure you want to delete " + attr + "?");
+                    dialog.setTitle("Удалить");
+                    dialog.setMessage("Вы уверены, что хотите удалить " + attr + "?");
                     dialog.setPositiveButton("Yes", (view, which) -> {
                         value.remove(attr);
                         if (valueChangeListener != null)
@@ -333,8 +333,8 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 });
                 itemView.setOnLongClickListener(v -> {
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(getContext());
-                    dialog.setTitle("Delete");
-                    dialog.setMessage("Are you sure you want to delete " + attr + "?");
+                    dialog.setTitle("Удалить");
+                    dialog.setMessage("Вы уверены, что хотите удалить " + attr + "?");
                     dialog.setPositiveButton("Yes", (view, which) -> {
                         value.remove(attr);
                         if (valueChangeListener != null)
