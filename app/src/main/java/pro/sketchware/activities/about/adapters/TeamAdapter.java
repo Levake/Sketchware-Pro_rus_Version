@@ -79,11 +79,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         int activeBackgroundColor;
         int activeBackgroundTextColor;
         if (member.isActive()) {
-            holder.binding.tvStatus.setText("Активный");
+            holder.binding.tvStatus.setText("ГЂГЄГІГЁГўГ­Г»Г©");
             activeBackgroundColor = MaterialColors.getColor(holder.binding.tvStatus, R.attr.colorCoolGreenContainer);
             activeBackgroundTextColor = MaterialColors.getColor(holder.binding.tvStatus, R.attr.colorOnCoolGreenContainer);
         } else {
-            holder.binding.tvStatus.setText("Неактивный");
+            holder.binding.tvStatus.setText("ГЌГҐГ ГЄГІГЁГўГ­Г»Г©");
             activeBackgroundColor = MaterialColors.getColor(holder.binding.tvStatus, R.attr.colorAmberContainer);
             activeBackgroundTextColor = MaterialColors.getColor(holder.binding.tvStatus, R.attr.colorOnAmberContainer);
         }

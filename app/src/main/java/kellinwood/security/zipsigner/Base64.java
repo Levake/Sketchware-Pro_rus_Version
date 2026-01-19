@@ -60,11 +60,11 @@ public class Base64 {
             // Looking for encode( byte[] input, int flags)
             aEncodeMethod = clazz.getMethod("encode", byte[].class, Integer.TYPE);
             aDecodeMethod = clazz.getMethod("decode", byte[].class, Integer.TYPE);
-            logger.debug( clazz.getName() + " доступен.");
+            logger.debug( clazz.getName() + " РґРѕСЃС‚СѓРїРµРЅ.");
         }
         catch (ClassNotFoundException x) {} // Ignore
         catch (Exception x) {
-            logger.error("Не удалось инициализировать использование android.util.Base64", x);
+            logger.error("РќРµ СѓРґР°Р»РѕСЃСЊ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ android.util.Base64", x);
         }
         
         try {
@@ -79,11 +79,11 @@ public class Base64 {
         }
         catch (ClassNotFoundException x) {} // Ignore
         catch (Exception x) {
-            logger.error("Не удалось инициализировать использование org.bouncycastle.util.encoders.Base64Encoder", x);
+            logger.error("РќРµ СѓРґР°Р»РѕСЃСЊ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ org.bouncycastle.util.encoders.Base64Encoder", x);
         }
         
         if (aEncodeMethod == null && bEncodeMethod == null)
-            throw new IllegalStateException("Реализация кодера base64 недоступна.");
+            throw new IllegalStateException("Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРґРµСЂР° base64 РЅРµРґРѕСЃС‚СѓРїРЅР°.");
     }
     
 
@@ -105,7 +105,7 @@ public class Base64 {
         }
 
         
-        throw new IllegalStateException("Реализация кодера base64 недоступна.");
+        throw new IllegalStateException("Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРґРµСЂР° base64 РЅРµРґРѕСЃС‚СѓРїРЅР°.");
     }
     
     public static byte[] decode( byte[] data) {
@@ -126,6 +126,6 @@ public class Base64 {
         }
 
         
-        throw new IllegalStateException("Реализация кодера base64 недоступна.");
+        throw new IllegalStateException("Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРґРµСЂР° base64 РЅРµРґРѕСЃС‚СѓРїРЅР°.");
     }
 }

@@ -51,9 +51,9 @@ public class CompileLogActivity extends BaseAppCompatActivity {
         binding.topAppBar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
 
         if (getIntent().getBooleanExtra("showingLastError", false)) {
-            binding.topAppBar.setTitle("Журнал последней компиляции");
+            binding.topAppBar.setTitle("Г†ГіГ°Г­Г Г« ГЇГ®Г±Г«ГҐГ¤Г­ГҐГ© ГЄГ®Г¬ГЇГЁГ«ГїГ¶ГЁГЁ");
         } else {
-            binding.topAppBar.setTitle("Журнал компиляции");
+            binding.topAppBar.setTitle("Г†ГіГ°Г­Г Г« ГЄГ®Г¬ГЇГЁГ«ГїГ¶ГЁГЁ");
         }
 
         String sc_id = getIntent().getStringExtra("sc_id");
@@ -69,18 +69,18 @@ public class CompileLogActivity extends BaseAppCompatActivity {
                 if (compileErrorSaver.logFileExists()) {
                     compileErrorSaver.deleteSavedLogs();
                     getIntent().removeExtra("error");
-                    SketchwareUtil.toast("Журналы компиляции были очищены.");
+                    SketchwareUtil.toast("Г†ГіГ°Г­Г Г«Г» ГЄГ®Г¬ГЇГЁГ«ГїГ¶ГЁГЁ ГЎГ»Г«ГЁ Г®Г·ГЁГ№ГҐГ­Г».");
                 } else {
-                    SketchwareUtil.toast("Журналы компиляции не найдены.");
+                    SketchwareUtil.toast("Г†ГіГ°Г­Г Г«Г» ГЄГ®Г¬ГЇГЁГ«ГїГ¶ГЁГЁ Г­ГҐ Г­Г Г©Г¤ГҐГ­Г».");
                 }
 
                 setErrorText();
             });
         }
 
-        final String wrapTextLabel = "Перенос текста";
-        final String monospacedFontLabel = "Моноширинный шрифт";
-        final String fontSizeLabel = "Размер шрифта";
+        final String wrapTextLabel = "ГЏГҐГ°ГҐГ­Г®Г± ГІГҐГЄГ±ГІГ ";
+        final String monospacedFontLabel = "ГЊГ®Г­Г®ГёГЁГ°ГЁГ­Г­Г»Г© ГёГ°ГЁГґГІ";
+        final String fontSizeLabel = "ГђГ Г§Г¬ГҐГ° ГёГ°ГЁГґГІГ ";
 
         PopupMenu options = new PopupMenu(this, binding.formatButton);
         options.getMenu().add(wrapTextLabel).setCheckable(true).setChecked(getWrappedTextPreference());

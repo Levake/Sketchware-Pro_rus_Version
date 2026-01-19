@@ -188,7 +188,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
     }
 
     private void loadEventBlocks() {
-        crashlytics.log("Загрузка блоков событий");
+        crashlytics.log("Р—Р°РіСЂСѓР·РєР° Р±Р»РѕРєРѕРІ СЃРѕР±С‹С‚РёР№");
         ArrayList<BlockBean> eventBlocks = jC.a(scId).a(M.getJavaName(), id + "_" + eventName);
         if (eventBlocks != null) {
             if (eventBlocks.isEmpty()) {
@@ -561,7 +561,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
                         XmlToSvgConverter xmlToSvgConverter = new XmlToSvgConverter();
                         xmlToSvgConverter.setImageVectorFromFile(imageView, xmlToSvgConverter.getVectorFullPath(DesignActivity.sc_id, str));
                     } catch (Exception e) {
-                        crashlytics.log("Преобразование SVG в XML.");
+                        crashlytics.log("РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ SVG РІ XML.");
                         crashlytics.recordException(e);
                         imageView.setImageResource(R.drawable.ic_remove_grey600_24dp);
                     }
@@ -1567,7 +1567,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
         }
 
         dialog.setView(customView);
-        dialog.setNeutralButton("Редактор кода", (v, which) -> {
+        dialog.setNeutralButton("Р РµРґР°РєС‚РѕСЂ РєРѕРґР°", (v, which) -> {
             AsdDialog editor = new AsdDialog(this);
             editor.setContent(ss.getArgValue().toString());
             editor.show();
@@ -2503,7 +2503,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
 
         @Override
         public void b() {
-            publishProgress("Сохранение..");
+            publishProgress("РЎРѕС…СЂР°РЅРµРЅРёРµ..");
             activity.get().E();
         }
     }

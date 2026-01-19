@@ -191,13 +191,13 @@ public class ExtraPaletteBlock {
             if (split.length > 1) {
                 logicEditor.a(split[1], "v", split[0], "getVar").setTag(customVariables.get(i));
             } else {
-                SketchwareUtil.toastError("Найдены недопустимые данные пользовательской переменной #" + (i + 1) + ": \"" + customVariables.get(i) + "\"");
+                SketchwareUtil.toastError("РќР°Р№РґРµРЅС‹ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Рµ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ #" + (i + 1) + ": \"" + customVariables.get(i) + "\"");
             }
         }
 
         ArrayList<String> customVariables2 = jC.a(sc_id).e(javaName, 6);
         for (int i = 0; i < customVariables2.size(); i++) {
-            if (i == 0) logicEditor.a("Пользовательская переменная", getTitleBgColor());
+            if (i == 0) logicEditor.a("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ", getTitleBgColor());
 
             String variable = customVariables2.get(i);
             String variableType = CustomVariableUtil.getVariableType(variable);
@@ -364,7 +364,7 @@ public class ExtraPaletteBlock {
                     if (variableName != null) {
                         logicEditor.a(variableName, "l", "List", "getVar").setTag(name);
                     } else {
-                        logicEditor.a("Недействительный: " + name, getColor(logicEditor, R.attr.colorError));
+                        logicEditor.a("РќРµРґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹Р№: " + name, getColor(logicEditor, R.attr.colorError));
                     }
                 }
             }
@@ -386,7 +386,7 @@ public class ExtraPaletteBlock {
             if (paletteId == 3) {
                 logicEditor.a(" ", "addSourceDirectly");
             } else {
-                logicEditor.a("Введите путь без импорта и точки с запятой", getTitleBgColor());
+                logicEditor.a("Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Р±РµР· РёРјРїРѕСЂС‚Р° Рё С‚РѕС‡РєРё СЃ Р·Р°РїСЏС‚РѕР№", getTitleBgColor());
                 logicEditor.a(" ", "customImport");
                 logicEditor.a(" ", "customImport2");
             }
@@ -400,10 +400,10 @@ public class ExtraPaletteBlock {
                 StringsEditorManager stringsEditorManager = new StringsEditorManager();
                 stringsEditorManager.convertXmlStringsToListMap(FileUtil.readFileIfExist(filePath), StringsListMap);
 
-                logicEditor.b("Откройте редактор ресурсов", "openResourcesEditor");
+                logicEditor.b("РћС‚РєСЂРѕР№С‚Рµ СЂРµРґР°РєС‚РѕСЂ СЂРµСЃСѓСЂСЃРѕРІ", "openResourcesEditor");
 
                 logicEditor.a("s", "getResString");
-                logicEditor.a("Сохраненные строки Res :", getTitleBgColor());
+                logicEditor.a("РЎРѕС…СЂР°РЅРµРЅРЅС‹Рµ СЃС‚СЂРѕРєРё Res :", getTitleBgColor());
                 if (!stringsEditorManager.isXmlStringsExist(StringsListMap, "app_name")) {
                     logicEditor.a("app_name", "s", "getResStr").setTag("S98ZCSapp_name");
                 }
@@ -414,16 +414,16 @@ public class ExtraPaletteBlock {
                 }
                 return;
             case 0:
-                logicEditor.b("Добавить переменную", "variableAdd");
-                logicEditor.b("Добавить пользовательскую переменную", "variableAddNew", clickListener);
-                logicEditor.b("Удалить переменную", "variableRemove", clickListener);
+                logicEditor.b("Р”РѕР±Р°РІРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ", "variableAdd");
+                logicEditor.b("Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ", "variableAddNew", clickListener);
+                logicEditor.b("РЈРґР°Р»РёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ", "variableRemove", clickListener);
                 variables();
                 return;
 
             case 1:
-                logicEditor.b("Добавить список", "listAdd");
-                logicEditor.b("Добавить пользовательский список", "listAddCustom", clickListener);
-                logicEditor.b("Удалить список", "listRemove", clickListener);
+                logicEditor.b("Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє", "listAdd");
+                logicEditor.b("Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ СЃРїРёСЃРѕРє", "listAddCustom", clickListener);
+                logicEditor.b("РЈРґР°Р»РёС‚СЊ СЃРїРёСЃРѕРє", "listRemove", clickListener);
                 list();
                 return;
 
@@ -464,7 +464,7 @@ public class ExtraPaletteBlock {
 
             case 5:
                 extraBlocks.fileBlocks();
-                logicEditor.a("FileUtil Блоки", getTitleBgColor());
+                logicEditor.a("FileUtil Р‘Р»РѕРєРё", getTitleBgColor());
                 if (!frc.getAssetsFile().isEmpty()) {
                     logicEditor.a(" ", "getAssetFile");
                     logicEditor.a("s", "copyAssetFile");
@@ -1172,7 +1172,7 @@ public class ExtraPaletteBlock {
 
             case 8:
                 logicEditor.b("Create", "blockAdd");
-                logicEditor.b("Импорт из Коллекции", "blockImport");
+                logicEditor.b("РРјРїРѕСЂС‚ РёР· РљРѕР»Р»РµРєС†РёРё", "blockImport");
                 if (ConfigActivity.isSettingEnabled(ConfigActivity.SETTING_SHOW_BUILT_IN_BLOCKS)) {
                     logicEditor.a(" ", "customToast");
                     logicEditor.a(" ", "customToastWithIcon");
@@ -1181,11 +1181,11 @@ public class ExtraPaletteBlock {
                 if (ConfigActivity.isSettingEnabled(ConfigActivity.SETTING_SHOW_BUILT_IN_BLOCKS)) {
                     logicEditor.a("Command Blocks", getTitleBgColor());
                     logicEditor.a("c", "CommandBlockJava");
-                    logicEditor.addDeprecatedBlock("Рекомендуется использовать диспетчер команд XML", "c", "CommandBlockXML");
-                    logicEditor.a("Блоки команд разрешения", getTitleBgColor());
+                    logicEditor.addDeprecatedBlock("Р РµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґРёСЃРїРµС‚С‡РµСЂ РєРѕРјР°РЅРґ XML", "c", "CommandBlockXML");
+                    logicEditor.a("Р‘Р»РѕРєРё РєРѕРјР°РЅРґ СЂР°Р·СЂРµС€РµРЅРёСЏ", getTitleBgColor());
                     logicEditor.a(" ", "addPermission");
                     logicEditor.a(" ", "removePermission");
-                    logicEditor.a("Другие командные блоки", getTitleBgColor());
+                    logicEditor.a("Р”СЂСѓРіРёРµ РєРѕРјР°РЅРґРЅС‹Рµ Р±Р»РѕРєРё", getTitleBgColor());
                     logicEditor.a(" ", "addCustomVariable");
                     logicEditor.a(" ", "addInitializer");
                     return;
@@ -1213,8 +1213,8 @@ public class ExtraPaletteBlock {
                                     if (spec instanceof String specString) {
                                         logicEditor.a(specString, getTitleBgColor());
                                     } else {
-                                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
-                                                " текущая палитра имеет недопустимый тип данных спецификации");
+                                        SketchwareUtil.toastError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р±Р»РѕРє #" + paletteBlocks +
+                                                " С‚РµРєСѓС‰Р°СЏ РїР°Р»РёС‚СЂР° РёРјРµРµС‚ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С‚РёРї РґР°РЅРЅС‹С… СЃРїРµС†РёС„РёРєР°С†РёРё");
                                     }
                                 } else {
                                     Object name = map.get("name");
@@ -1228,18 +1228,18 @@ public class ExtraPaletteBlock {
                                             logicEditor.a("", typeString, "", nameString);
                                         }
                                     } else {
-                                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
-                                                " текущая палитра имеет недопустимое название тип данных");
+                                        SketchwareUtil.toastError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р±Р»РѕРє #" + paletteBlocks +
+                                                " С‚РµРєСѓС‰Р°СЏ РїР°Р»РёС‚СЂР° РёРјРµРµС‚ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РЅР°Р·РІР°РЅРёРµ С‚РёРї РґР°РЅРЅС‹С…");
                                     }
                                 }
                             } else {
-                                SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
-                                        " из текущей палитры имеет недопустимый тип блока тип данных");
+                                SketchwareUtil.toastError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р±Р»РѕРє #" + paletteBlocks +
+                                        " РёР· С‚РµРєСѓС‰РµР№ РїР°Р»РёС‚СЂС‹ РёРјРµРµС‚ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С‚РёРї Р±Р»РѕРєР° С‚РёРї РґР°РЅРЅС‹С…");
                             }
                         }
                     } else {
-                        SketchwareUtil.toastError("Пользовательский блок #" + paletteBlocks +
-                                " из текущей палитры имеет недопустимый тип данных палитры блоков");
+                        SketchwareUtil.toastError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р±Р»РѕРє #" + paletteBlocks +
+                                " РёР· С‚РµРєСѓС‰РµР№ РїР°Р»РёС‚СЂС‹ РёРјРµРµС‚ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С‚РёРї РґР°РЅРЅС‹С… РїР°Р»РёС‚СЂС‹ Р±Р»РѕРєРѕРІ");
                     }
                 }
                 break;

@@ -26,33 +26,33 @@ public class VariableTypeValidator extends MB {
         String reconsInput = String.join(" ", words);
 
         if (!variableType.equals(reconsInput)) {
-            b.setError("Дополнительные пробелы между текстами или в конце не допускаются.");
+            b.setError("Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїСЂРѕР±РµР»С‹ РјРµР¶РґСѓ С‚РµРєСЃС‚Р°РјРё РёР»Рё РІ РєРѕРЅС†Рµ РЅРµ РґРѕРїСѓСЃРєР°СЋС‚СЃСЏ.");
             d = false;
             return;
         }
 
         if (!TextUtils.isEmpty(charSequence)) {
             if (!Character.isLetter(charSequence.charAt(0))) {
-                b.setError("Тип данных переменной должен начинаться с буквы");
+                b.setError("РўРёРї РґР°РЅРЅС‹С… РїРµСЂРµРјРµРЅРЅРѕР№ РґРѕР»Р¶РµРЅ РЅР°С‡РёРЅР°С‚СЊСЃСЏ СЃ Р±СѓРєРІС‹");
                 d = false;
                 return;
             }
         }
 
         if (!isValidAngleBracket(variableType)) {
-            b.setError("Угловой кронштейн не подобран");
+            b.setError("РЈРіР»РѕРІРѕР№ РєСЂРѕРЅС€С‚РµР№РЅ РЅРµ РїРѕРґРѕР±СЂР°РЅ");
             d = false;
             return;
         }
 
         if (!isValidBoxBracket(variableType)) {
-            b.setError("Не подобран кронштейн коробки");
+            b.setError("РќРµ РїРѕРґРѕР±СЂР°РЅ РєСЂРѕРЅС€С‚РµР№РЅ РєРѕСЂРѕР±РєРё");
             d = false;
             return;
         }
 
         if (!PATTERN_TYPE.matcher(variableType).matches()) {
-            b.setError("Недопустимый тип данных переменной");
+            b.setError("РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С‚РёРї РґР°РЅРЅС‹С… РїРµСЂРµРјРµРЅРЅРѕР№");
             d = false;
             return;
         }

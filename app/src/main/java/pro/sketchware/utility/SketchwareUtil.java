@@ -154,9 +154,9 @@ public class SketchwareUtil {
     public static void showFailedToParseJsonDialog(Activity context, File json, String componentLabel, Consumer<Void> afterRenameLogic) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(context);
         dialog.setIcon(R.drawable.break_warning_96_red);
-        dialog.setTitle("Не смог добраться " + componentLabel);
-        dialog.setMessage("Не удалось выполнить синтаксический анализ " + componentLabel + " из файла " + json + ". Исправьте это, переименовав старый файл в " + json.getName() + ".bak? " + "Если нет, то нет " + componentLabel + " будет использоваться.");
-        dialog.setPositiveButton("Переименовать", (v, which) -> {
+        dialog.setTitle("РќРµ СЃРјРѕРі РґРѕР±СЂР°С‚СЊСЃСЏ " + componentLabel);
+        dialog.setMessage("РќРµ СѓРґР°Р»РѕСЃСЊ РІС‹РїРѕР»РЅРёС‚СЊ СЃРёРЅС‚Р°РєСЃРёС‡РµСЃРєРёР№ Р°РЅР°Р»РёР· " + componentLabel + " РёР· С„Р°Р№Р»Р° " + json + ". РСЃРїСЂР°РІСЊС‚Рµ СЌС‚Рѕ, РїРµСЂРµРёРјРµРЅРѕРІР°РІ СЃС‚Р°СЂС‹Р№ С„Р°Р№Р» РІ " + json.getName() + ".bak? " + "Р•СЃР»Рё РЅРµС‚, С‚Рѕ РЅРµС‚ " + componentLabel + " Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ.");
+        dialog.setPositiveButton("РџРµСЂРµРёРјРµРЅРѕРІР°С‚СЊ", (v, which) -> {
             FileUtil.renameFile(json.getAbsolutePath(), json.getAbsolutePath() + ".bak");
             afterRenameLogic.accept(null);
             v.dismiss();
@@ -170,7 +170,7 @@ public class SketchwareUtil {
         builder.setTitle(Helper.getResString(R.string.common_error_an_error_occurred));
         builder.setIcon(R.drawable.ic_mtrl_warning);
         builder.setMessage(errorMessage);
-        builder.setPositiveButton("Окей", null);
+        builder.setPositiveButton("РћРєРµР№", null);
         builder.show();
     }
 

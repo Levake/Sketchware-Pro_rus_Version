@@ -38,8 +38,8 @@ public class Material3LibraryActivity extends BaseAppCompatActivity {
         if (!material3LibraryManager.isAppCompatEnabled()) {
             new MaterialAlertDialogBuilder(this)
                     .setIcon(R.drawable.ic_mtrl_warning)
-                    .setTitle("Ôóíêöèÿ AppCompat îòêëþ÷åíà!")
-                    .setMessage("Ïîæàëóéñòà, ñíà÷àëà âêëþ÷èòå AppCompat, ÷òîáû èñïîëüçîâàòü ýòó ôóíêöèþ")
+                    .setTitle("Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ AppCompat Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°!")
+                    .setMessage("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, ÑÐ½Ð°Ñ‡Ð°Ð»Ð° Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ AppCompat, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ñƒ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ")
                     .setPositiveButton("OK", (dialog, which) -> finish())
                     .setCancelable(false)
                     .show();

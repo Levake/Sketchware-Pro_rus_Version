@@ -60,18 +60,18 @@ public class ProjectPreviewActivity extends BaseAppCompatActivity {
         }
 
         if (project.getIsEditorChoice().equals("1")) {
-            addChip("Âûáîð ðåäàêòîðà");
+            addChip("Ð’Ñ‹Ð±Ð¾Ñ€ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€Ð°");
         }
 
         if (project.getIsVerified().equals("1")) {
-            addChip("Ïðîâåðåííûé");
+            addChip("ÐŸÑ€Ð¾Ð²ÐµÑ€ÐµÐ½Ð½Ñ‹Ð¹");
         }
 
         addChip(project.getCategory());
 
-        binding.downloads.setText("Çàãðóçêè: " + project.getDownloads());
-        binding.filesize.setText("Ðàçìåð: " + project.getProjectSize());
-        binding.timestamp.setText("Âûïóùåííûé: " + DateFormat.getDateInstance().format(new Date(Long.parseLong(project.getPublishedTimestamp()))));
+        binding.downloads.setText("Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸: " + project.getDownloads());
+        binding.filesize.setText("Ð Ð°Ð·Ð¼ÐµÑ€: " + project.getProjectSize());
+        binding.timestamp.setText("Ð’Ñ‹Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ð¹: " + DateFormat.getDateInstance().format(new Date(Long.parseLong(project.getPublishedTimestamp()))));
         binding.btnComments.setOnClickListener(v -> openCommentsSheet());
         binding.btnDownload.setOnClickListener(v -> SketchwareUtil.toastError("Downloading projects is unavailable right now!"));
         binding.btnOpenIn.setOnClickListener(v -> openProject());

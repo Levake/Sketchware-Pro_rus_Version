@@ -10,15 +10,15 @@ public class DefaultResourceAdapter implements ResourceAdapter {
 
         return switch (item) {
             case INPUT_SAME_AS_OUTPUT_ERROR ->
-                    "Входные и выходные файлы одинаковы. Укажите другое имя для выходных данных.";
-            case AUTO_KEY_SELECTION_ERROR -> "Не удается автоматически выбрать ключ для подписи " + args[0];
-            case LOADING_CERTIFICATE_AND_KEY -> "Загрузка сертификата и закрытого ключа";
-            case PARSING_CENTRAL_DIRECTORY -> "Разбор центрального каталога входных данных";
-            case GENERATING_MANIFEST -> "Создание манифеста";
-            case GENERATING_SIGNATURE_FILE -> "Создание файла подписи";
-            case GENERATING_SIGNATURE_BLOCK -> "Создание файла блока подписи";
-            case COPYING_ZIP_ENTRY -> String.format("Копирование zip индекса %d в %d", args[0], args[1]);
-            default -> throw new IllegalArgumentException("Неизвестный элемент " + item);
+                    "Р’С…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹ РѕРґРёРЅР°РєРѕРІС‹. РЈРєР°Р¶РёС‚Рµ РґСЂСѓРіРѕРµ РёРјСЏ РґР»СЏ РІС‹С…РѕРґРЅС‹С… РґР°РЅРЅС‹С….";
+            case AUTO_KEY_SELECTION_ERROR -> "РќРµ СѓРґР°РµС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р±СЂР°С‚СЊ РєР»СЋС‡ РґР»СЏ РїРѕРґРїРёСЃРё " + args[0];
+            case LOADING_CERTIFICATE_AND_KEY -> "Р—Р°РіСЂСѓР·РєР° СЃРµСЂС‚РёС„РёРєР°С‚Р° Рё Р·Р°РєСЂС‹С‚РѕРіРѕ РєР»СЋС‡Р°";
+            case PARSING_CENTRAL_DIRECTORY -> "Р Р°Р·Р±РѕСЂ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР° РІС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…";
+            case GENERATING_MANIFEST -> "РЎРѕР·РґР°РЅРёРµ РјР°РЅРёС„РµСЃС‚Р°";
+            case GENERATING_SIGNATURE_FILE -> "РЎРѕР·РґР°РЅРёРµ С„Р°Р№Р»Р° РїРѕРґРїРёСЃРё";
+            case GENERATING_SIGNATURE_BLOCK -> "РЎРѕР·РґР°РЅРёРµ С„Р°Р№Р»Р° Р±Р»РѕРєР° РїРѕРґРїРёСЃРё";
+            case COPYING_ZIP_ENTRY -> String.format("РљРѕРїРёСЂРѕРІР°РЅРёРµ zip РёРЅРґРµРєСЃР° %d РІ %d", args[0], args[1]);
+            default -> throw new IllegalArgumentException("РќРµРёР·РІРµСЃС‚РЅС‹Р№ СЌР»РµРјРµРЅС‚ " + item);
         };
 
     }

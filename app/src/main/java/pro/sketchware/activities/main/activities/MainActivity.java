@@ -242,7 +242,7 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                             // Clear intent so it doesn't duplicate
                             getIntent().setData(null);
                         } else {
-                            SketchwareUtil.toastError("Не удалось скопировать файл резервной копии во временное хранилище: " + reason, Toast.LENGTH_LONG);
+                            SketchwareUtil.toastError("РќРµ СѓРґР°Р»РѕСЃСЊ СЃРєРѕРїРёСЂРѕРІР°С‚СЊ С„Р°Р№Р» СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё РІРѕ РІСЂРµРјРµРЅРЅРѕРµ С…СЂР°РЅРёР»РёС‰Рµ: " + reason, Toast.LENGTH_LONG);
                         }
                     }
                 }).copyFile(data);
@@ -361,10 +361,10 @@ public class MainActivity extends BasePermissionAppCompatActivity {
         BottomSheetDialogView bottomSheetDialog = new BottomSheetDialogView(this);
         bottomSheetDialog.setTitle("Major changes in v7.0.0");
         bottomSheetDialog.setDescription("""
-                Со времени выпуска версии 6.3.0 fix1 произошли серьезные изменения,
-и очень важно знать о них все, если вы хотите, чтобы ваши проекты по-прежнему работали.
+                РЎРѕ РІСЂРµРјРµРЅРё РІС‹РїСѓСЃРєР° РІРµСЂСЃРёРё 6.3.0 fix1 РїСЂРѕРёР·РѕС€Р»Рё СЃРµСЂСЊРµР·РЅС‹Рµ РёР·РјРµРЅРµРЅРёСЏ,
+Рё РѕС‡РµРЅСЊ РІР°Р¶РЅРѕ Р·РЅР°С‚СЊ Рѕ РЅРёС… РІСЃРµ, РµСЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ, С‡С‚РѕР±С‹ РІР°С€Рё РїСЂРѕРµРєС‚С‹ РїРѕ-РїСЂРµР¶РЅРµРјСѓ СЂР°Р±РѕС‚Р°Р»Рё.
 
-Вы можете просмотреть все изменения, когда захотите, на экране О программе Sketchware Pro.""");
+Р’С‹ РјРѕР¶РµС‚Рµ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ РёР·РјРµРЅРµРЅРёСЏ, РєРѕРіРґР° Р·Р°С…РѕС‚РёС‚Рµ, РЅР° СЌРєСЂР°РЅРµ Рћ РїСЂРѕРіСЂР°РјРјРµ Sketchware Pro.""");
 
         bottomSheetDialog.setPositiveButton("View changes", (dialog, which) -> {
             ConfigActivity.setSetting(ConfigActivity.SETTING_CRITICAL_UPDATE_REMINDER, true);
@@ -419,17 +419,17 @@ public class MainActivity extends BasePermissionAppCompatActivity {
             if (!optOutFile.exists() && !granted) {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
                 dialog.setIcon(R.drawable.ic_expire_48dp);
-                dialog.setTitle("Доступ к хранилищу Android 11");
-                dialog.setMessage("Начиная с Android 11, Sketchware Pro требуется новое разрешение, чтобы избежать " + "на создание проектов уходит целая вечность. Не волнуйтесь, мы можем сделать для хранилища не больше, чем " + "с текущими предоставленными разрешениями.");
+                dialog.setTitle("Р”РѕСЃС‚СѓРї Рє С…СЂР°РЅРёР»РёС‰Сѓ Android 11");
+                dialog.setMessage("РќР°С‡РёРЅР°СЏ СЃ Android 11, Sketchware Pro С‚СЂРµР±СѓРµС‚СЃСЏ РЅРѕРІРѕРµ СЂР°Р·СЂРµС€РµРЅРёРµ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ " + "РЅР° СЃРѕР·РґР°РЅРёРµ РїСЂРѕРµРєС‚РѕРІ СѓС…РѕРґРёС‚ С†РµР»Р°СЏ РІРµС‡РЅРѕСЃС‚СЊ. РќРµ РІРѕР»РЅСѓР№С‚РµСЃСЊ, РјС‹ РјРѕР¶РµРј СЃРґРµР»Р°С‚СЊ РґР»СЏ С…СЂР°РЅРёР»РёС‰Р° РЅРµ Р±РѕР»СЊС€Рµ, С‡РµРј " + "СЃ С‚РµРєСѓС‰РёРјРё РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРЅС‹РјРё СЂР°Р·СЂРµС€РµРЅРёСЏРјРё.");
                 dialog.setPositiveButton(Helper.getResString(R.string.common_word_settings), (v, which) -> {
                     FileUtil.requestAllFilesAccessPermission(this);
                     v.dismiss();
                 });
-                dialog.setNegativeButton("Пропустить", null);
-                dialog.setNeutralButton("Больше не показывать", (v, which) -> {
+                dialog.setNegativeButton("РџСЂРѕРїСѓСЃС‚РёС‚СЊ", null);
+                dialog.setNeutralButton("Р‘РѕР»СЊС€Рµ РЅРµ РїРѕРєР°Р·С‹РІР°С‚СЊ", (v, which) -> {
                     try {
                         if (!optOutFile.createNewFile())
-                            throw new IOException("Не удалось создать файл " + optOutFile);
+                            throw new IOException("РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» " + optOutFile);
                     } catch (IOException e) {
                         Log.e("MainActivity", "Error while trying to create " + "\"Don't show Android 11 hint\" dialog file: " + e.getMessage(), e);
                     }

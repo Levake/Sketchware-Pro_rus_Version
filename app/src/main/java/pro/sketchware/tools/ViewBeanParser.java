@@ -167,7 +167,7 @@ public class ViewBeanParser {
                     if (!isRootSkipped) {
                         var view = InvokeUtil.createView(getContext(), name);
                         if (!(view instanceof ViewGroup)) {
-                            throw new IOException("Корневое представление должно быть ViewGroup");
+                            throw new IOException("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ ViewGroup");
                         }
                         Map<String, String> attributes = new LinkedHashMap<>();
                         for (int i = 0; i < parser.getAttributeCount(); i++) {

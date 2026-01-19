@@ -62,7 +62,7 @@ public class BlockSelectorManagerFragment extends qA {
         if (FileUtil.isExistFile(BlockSelectorConsts.BLOCK_SELECTORS_FILE.getAbsolutePath())) {
             selectors = parseJson(FileUtil.readFile(BlockSelectorConsts.BLOCK_SELECTORS_FILE.getAbsolutePath()));
         } else {
-            selectors.add(new Selector("Выбрать typeview:", "typeview", getTypeViewList()));
+            selectors.add(new Selector("Р’С‹Р±СЂР°С‚СЊ typeview:", "typeview", getTypeViewList()));
             saveAllSelectors();
         }
 
@@ -123,8 +123,8 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showCreateEditDialog(int index, boolean isEdit) {
         DialogBlockConfigurationBinding dialogBinding = DialogBlockConfigurationBinding.inflate(LayoutInflater.from(requireContext()));
-        dialogBinding.tilPalettesPath.setHint("Имя селектора");
-        dialogBinding.tilBlocksPath.setHint("Заголовок селектора (например, Select View:)");
+        dialogBinding.tilPalettesPath.setHint("РРјСЏ СЃРµР»РµРєС‚РѕСЂР°");
+        dialogBinding.tilBlocksPath.setHint("Р—Р°РіРѕР»РѕРІРѕРє СЃРµР»РµРєС‚РѕСЂР° (РЅР°РїСЂРёРјРµСЂ, Select View:)");
 
         if (isEdit) {
             dialogBinding.palettesPath.setText(selectors.get(index).getName());
@@ -133,7 +133,7 @@ public class BlockSelectorManagerFragment extends qA {
 
         addBasicTextChangedListener(dialogBinding.palettesPath, str -> {
             if (itemAlreadyExists(str)) {
-                dialogBinding.tilPalettesPath.setError("Элемент с таким именем уже существует");
+                dialogBinding.tilPalettesPath.setError("Р­Р»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
             } else {
                 dialogBinding.tilPalettesPath.setError(null);
             }
@@ -141,29 +141,29 @@ public class BlockSelectorManagerFragment extends qA {
 
         if ("typeview".equals(Objects.requireNonNull(dialogBinding.palettesPath.getText()).toString())) {
             dialogBinding.palettesPath.setEnabled(false);
-            dialogBinding.tilPalettesPath.setOnClickListener(v -> SketchwareUtil.toast("Вы не можете изменить имя этого селектора"));
+            dialogBinding.tilPalettesPath.setOnClickListener(v -> SketchwareUtil.toast("Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РёР·РјРµРЅРёС‚СЊ РёРјСЏ СЌС‚РѕРіРѕ СЃРµР»РµРєС‚РѕСЂР°"));
         }
 
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle(!isEdit ? "Новый селектор" : "Редактировать селектор");
+        dialog.setTitle(!isEdit ? "РќРѕРІС‹Р№ СЃРµР»РµРєС‚РѕСЂ" : "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРµР»РµРєС‚РѕСЂ");
         dialog.setView(dialogBinding.getRoot());
-        dialog.setPositiveButton(!isEdit ? "Создать" : "Сохранить", (v, which) -> {
+        dialog.setPositiveButton(!isEdit ? "РЎРѕР·РґР°С‚СЊ" : "РЎРѕС…СЂР°РЅРёС‚СЊ", (v, which) -> {
             String selectorName = Helper.getText(dialogBinding.palettesPath);
             String selectorTitle = Objects.requireNonNull(dialogBinding.blocksPath.getText()).toString();
 
             if (selectorName.isEmpty()) {
-                SketchwareUtil.toast("Пожалуйста, введите имя селектора");
+                SketchwareUtil.toast("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РёРјСЏ СЃРµР»РµРєС‚РѕСЂР°");
                 return;
             }
             if (selectorTitle.isEmpty()) {
-                SketchwareUtil.toast("Пожалуйста, введите название селектора");
+                SketchwareUtil.toast("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ СЃРµР»РµРєС‚РѕСЂР°");
                 return;
             }
             if (!isEdit) {
                 if (!itemAlreadyExists(selectorName)) {
                     selectors.add(new Selector(selectorTitle, selectorName, new ArrayList<>()));
                 } else {
-                    SketchwareUtil.toast("Элемент с таким именем уже существует");
+                    SketchwareUtil.toast("Р­Р»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
                 }
             } else {
                 selectors.set(index, new Selector(selectorTitle, selectorName, selectors.get(index).getData()));
@@ -172,14 +172,14 @@ public class BlockSelectorManagerFragment extends qA {
             adapter.notifyDataSetChanged();
             v.dismiss();
         });
-        dialog.setNegativeButton("Отмена", (v, which) -> v.dismiss());
+        dialog.setNegativeButton("РћС‚РјРµРЅР°", (v, which) -> v.dismiss());
         dialog.show();
     }
 
     private void showActionsDialog(int index) {
         DialogSelectorActionsBinding dialogBinding = DialogSelectorActionsBinding.inflate(LayoutInflater.from(requireContext()));
         AlertDialog dialog = new MaterialAlertDialogBuilder(requireActivity()).create();
-        dialog.setTitle("События");
+        dialog.setTitle("РЎРѕР±С‹С‚РёСЏ");
         dialog.setView(dialogBinding.getRoot());
 
         dialogBinding.edit.setOnClickListener(v -> {
@@ -195,7 +195,7 @@ public class BlockSelectorManagerFragment extends qA {
         }
         dialogBinding.delete.setOnClickListener(v -> {
             dialog.dismiss();
-            showConfirmationDialog("Вы уверены, что хотите удалить этот селектор?", confirmDialog -> {
+            showConfirmationDialog("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЌС‚РѕС‚ СЃРµР»РµРєС‚РѕСЂ?", confirmDialog -> {
                 selectors.remove(index);
                 saveAllSelectors();
                 adapter.notifyDataSetChanged();
@@ -207,10 +207,10 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showConfirmationDialog(String message, ConfirmListener onConfirm, CancelListener onCancel) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle("Внимание");
+        dialog.setTitle("Р’РЅРёРјР°РЅРёРµ");
         dialog.setMessage(message);
-        dialog.setPositiveButton("Да", (v, which) -> onConfirm.onConfirm(v));
-        dialog.setNegativeButton("Отмена", (v, which) -> onCancel.onCancel(v));
+        dialog.setPositiveButton("Р”Р°", (v, which) -> onConfirm.onConfirm(v));
+        dialog.setNegativeButton("РћС‚РјРµРЅР°", (v, which) -> onCancel.onCancel(v));
         dialog.setCancelable(false);
         dialog.show();
     }
@@ -223,7 +223,7 @@ public class BlockSelectorManagerFragment extends qA {
                 showImportSelectorDialog();
                 return true;
             } else if (item.getItemId() == R.id.export_all_block_selector_menus) {
-                saveAllSelectors(BlockSelectorConsts.EXPORT_FILE.getAbsolutePath(), "Экспортируется в " + BlockSelectorConsts.EXPORT_FILE.getAbsolutePath());
+                saveAllSelectors(BlockSelectorConsts.EXPORT_FILE.getAbsolutePath(), "Р­РєСЃРїРѕСЂС‚РёСЂСѓРµС‚СЃСЏ РІ " + BlockSelectorConsts.EXPORT_FILE.getAbsolutePath());
                 return true;
             }
             return false;
@@ -232,7 +232,7 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showImportSelectorDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Выбрать файл селектора .json");
+        options.setTitle("Р’С‹Р±СЂР°С‚СЊ С„Р°Р№Р» СЃРµР»РµРєС‚РѕСЂР° .json");
         options.setExtensions(new String[]{"json"});
 
         FilePickerCallback callback = new FilePickerCallback() {
@@ -249,7 +249,7 @@ public class BlockSelectorManagerFragment extends qA {
     }
 
     private void saveAllSelectors() {
-        saveAllSelectors(BlockSelectorConsts.BLOCK_SELECTORS_FILE.getAbsolutePath(), "Сохранено");
+        saveAllSelectors(BlockSelectorConsts.BLOCK_SELECTORS_FILE.getAbsolutePath(), "РЎРѕС…СЂР°РЅРµРЅРѕ");
     }
 
     private void saveAllSelectors(String path, String message) {
@@ -260,7 +260,7 @@ public class BlockSelectorManagerFragment extends qA {
     private void exportSelector(Selector selector) {
         String path = BlockSelectorConsts.EXPORT_FILE.getAbsolutePath().replace("All_Menus", selector.getName());
         FileUtil.writeFile(path, getGson().toJson(selector));
-        SketchwareUtil.toast("Экспортируется в" + path);
+        SketchwareUtil.toast("Р­РєСЃРїРѕСЂС‚РёСЂСѓРµС‚СЃСЏ РІ" + path);
     }
 
     private void handleToImportFile(File file) {
@@ -273,7 +273,7 @@ public class BlockSelectorManagerFragment extends qA {
                     saveAllSelectors();
                     adapter.notifyDataSetChanged();
                 } else {
-                    SketchwareUtil.toastError("Убедитесь, что вы выбрали файл, содержащий элементы выбора.");
+                    SketchwareUtil.toastError("РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ РІС‹Р±СЂР°Р»Рё С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ СЌР»РµРјРµРЅС‚С‹ РІС‹Р±РѕСЂР°.");
                 }
             } else {
                 List<Selector> selectorsN = getSelectorsFromFile(file);
@@ -282,12 +282,12 @@ public class BlockSelectorManagerFragment extends qA {
                     saveAllSelectors();
                     adapter.notifyDataSetChanged();
                 } else {
-                    SketchwareUtil.toastError("Убедитесь, что вы выбрали файл, содержащий элементы выбора.");
+                    SketchwareUtil.toastError("РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ РІС‹Р±СЂР°Р»Рё С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ СЌР»РµРјРµРЅС‚С‹ РІС‹Р±РѕСЂР°.");
                 }
             }
         } catch (Exception e) {
             Log.e(BlockSelectorConsts.TAG, e.toString());
-            SketchwareUtil.toastError("Убедитесь, что вы выбрали файл, содержащий элемент(ы) выбора.");
+            SketchwareUtil.toastError("РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІС‹ РІС‹Р±СЂР°Р»Рё С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ СЌР»РµРјРµРЅС‚(С‹) РІС‹Р±РѕСЂР°.");
         }
     }
 
@@ -297,7 +297,7 @@ public class BlockSelectorManagerFragment extends qA {
             return getGson().fromJson(json, Selector.class);
         } catch (Exception e) {
             Log.e(BlockSelectorConsts.TAG, e.toString());
-            SketchwareUtil.toastError("При попытке получить селектор произошла ошибка");
+            SketchwareUtil.toastError("РџСЂРё РїРѕРїС‹С‚РєРµ РїРѕР»СѓС‡РёС‚СЊ СЃРµР»РµРєС‚РѕСЂ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
             return null;
         }
     }
@@ -310,7 +310,7 @@ public class BlockSelectorManagerFragment extends qA {
             return getGson().fromJson(json, itemListType);
         } catch (Exception e) {
             Log.e(BlockSelectorConsts.TAG, e.toString());
-            SketchwareUtil.toastError("При попытке получить селекторов произошла ошибка");
+            SketchwareUtil.toastError("РџСЂРё РїРѕРїС‹С‚РєРµ РїРѕР»СѓС‡РёС‚СЊ СЃРµР»РµРєС‚РѕСЂРѕРІ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
             return null;
         }
     }

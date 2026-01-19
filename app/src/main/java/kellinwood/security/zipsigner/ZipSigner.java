@@ -213,13 +213,13 @@ public class ZipSigner
         
         if (mode.equals( MODE_AUTO_TESTKEY)) {
             // in auto-testkey mode, fallback to the testkey if it couldn't be determined
-            if (debug) log.debug("Возвращаясь к key="+ keyName);
+            if (debug) log.debug("Р’РѕР·РІСЂР°С‰Р°СЏСЃСЊ Рє key="+ keyName);
             return KEY_TESTKEY;
             
         }
         else if (mode.equals(MODE_AUTO_NONE)) {
             // in auto-node mode, simply copy the input to the output when the key can't be determined.
-            if (debug) log.debug("Не удается определить ключ, возвращаю: " + KEY_NONE);
+            if (debug) log.debug("РќРµ СѓРґР°РµС‚СЃСЏ РѕРїСЂРµРґРµР»РёС‚СЊ РєР»СЋС‡, РІРѕР·РІСЂР°С‰Р°СЋ: " + KEY_NONE);
             return KEY_NONE;
         }
         
@@ -340,7 +340,7 @@ public class ZipSigner
         try {
             return epkInfo.getKeySpec(cipher);
         } catch (InvalidKeySpecException ex) {
-            log.error("signapk: Пароль для секретного ключа может быть неверным.");
+            log.error("signapk: РџР°СЂРѕР»СЊ РґР»СЏ СЃРµРєСЂРµС‚РЅРѕРіРѕ РєР»СЋС‡Р° РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµРІРµСЂРЅС‹Рј.");
             throw ex;
         }
     }
@@ -680,7 +680,7 @@ public class ZipSigner
         progressHelper.initProgress();
         if (keySet == null) {
             if (!keymode.startsWith(MODE_AUTO)) 
-                throw new IllegalStateException("Нет ключей, настроенных для подписи файла!");
+                throw new IllegalStateException("РќРµС‚ РєР»СЋС‡РµР№, РЅР°СЃС‚СЂРѕРµРЅРЅС‹С… РґР»СЏ РїРѕРґРїРёСЃРё С„Р°Р№Р»Р°!");
             
             // Auto-determine which keys to use
             String keyName = this.autoDetectKey( keymode, zioEntries);

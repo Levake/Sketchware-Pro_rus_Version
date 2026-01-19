@@ -283,7 +283,7 @@ public class JKS extends KeyStoreSpi
     {
         alias = alias.toLowerCase();
         if (privateKeys.containsKey(alias))
-            throw new KeyStoreException("\"" + alias + "\" это запись с закрытым ключом");
+            throw new KeyStoreException("\"" + alias + "\" СЌС‚Рѕ Р·Р°РїРёСЃСЊ СЃ Р·Р°РєСЂС‹С‚С‹Рј РєР»СЋС‡РѕРј");
         if (cert == null)
             throw new NullPointerException();
         trustedCerts.put(alias, cert);
@@ -431,7 +431,7 @@ public class JKS extends KeyStoreSpi
             byte[] storedHash = new byte[20];
             din.read(storedHash);
             if (!MessageDigest.isEqual(storedHash, computedHash)) {
-                throw new LoadKeystoreException("Неверный пароль или ошибка проверки целостности.");
+                throw new LoadKeystoreException("РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ РёР»Рё РѕС€РёР±РєР° РїСЂРѕРІРµСЂРєРё С†РµР»РѕСЃС‚РЅРѕСЃС‚Рё.");
             }
         }
     }

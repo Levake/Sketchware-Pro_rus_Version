@@ -76,7 +76,7 @@ public class ManageGoogleMapActivity extends BaseAppCompatActivity implements Vi
         intent.putExtra("google_map", googleMapLibraryBean);
         setResult(RESULT_OK, intent);
         if (Helper.getText(editApiKey).isEmpty() && libSwitch.isChecked()) {
-            bB.a(getApplicationContext(), "Êëþ÷ Api íå ìîæåò áûòü ïóñòûì!", Toast.LENGTH_SHORT).show();
+            bB.a(getApplicationContext(), "ÐšÐ»ÑŽÑ‡ Api Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼!", Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
         }
@@ -118,7 +118,7 @@ public class ManageGoogleMapActivity extends BaseAppCompatActivity implements Vi
             googleMapLibraryBean = savedInstanceState.getParcelable("google_map");
         }
 
-        getSupportActionBar().setTitle("GoogleMap Íàñòðîéêè");
+        getSupportActionBar().setTitle("GoogleMap ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());

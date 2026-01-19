@@ -78,7 +78,7 @@ public class PasswordObfuscator {
             byte[] encoded = cipher.doFinal( baos.toByteArray());
             return Base64.encode( encoded);
         } catch (Exception x) {
-            logger.error("Не удалось зашифровать пароль", x);
+            logger.error("РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°С€РёС„СЂРѕРІР°С‚СЊ РїР°СЂРѕР»СЊ", x);
         }
         return null;
     }
@@ -111,7 +111,7 @@ public class PasswordObfuscator {
             return result;
             
         } catch (Exception x) {
-            logger.error("Не удалось расшифровать пароль", x);
+            logger.error("РќРµ СѓРґР°Р»РѕСЃСЊ СЂР°СЃС€РёС„СЂРѕРІР°С‚СЊ РїР°СЂРѕР»СЊ", x);
         }
         return null;
     }

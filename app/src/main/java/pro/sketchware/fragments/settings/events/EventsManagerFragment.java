@@ -54,7 +54,7 @@ public class EventsManagerFragment extends qA {
                 }
             }
         }
-        return "Ñîáûòèÿ: " + eventAmount;
+        return "Ð¡Ð¾Ð±Ñ‹Ñ‚Ð¸Ñ: " + eventAmount;
     }
 
     @Override
@@ -148,9 +148,9 @@ public class EventsManagerFragment extends qA {
         }
 
         var dialog = new MaterialAlertDialogBuilder(requireContext())
-                .setTitle(existingListener == null ? "Íîâûé ñëóøàòåëü" : "Ðåäàêòèðîâàíèå ñëóøàòåëÿ")
+                .setTitle(existingListener == null ? "ÐÐ¾Ð²Ñ‹Ð¹ ÑÐ»ÑƒÑˆÐ°Ñ‚ÐµÐ»ÑŒ" : "Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÐ»ÑƒÑˆÐ°Ñ‚ÐµÐ»Ñ")
                 .setView(listenerBinding.getRoot())
-                .setPositiveButton("Ñîõðàíèòü", (di, i) -> {
+                .setPositiveButton("Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ", (di, i) -> {
                     String listenerName = Helper.getText(listenerBinding.listenerName);
                     if (!listenerName.isEmpty()) {
                         HashMap<String, Object> hashMap = existingListener != null ? existingListener : new HashMap<>();
@@ -168,10 +168,10 @@ public class EventsManagerFragment extends qA {
                         addListenerItem();
                         di.dismiss();
                     } else {
-                        SketchwareUtil.toastError("Íåäîïóñòèìîå èìÿ!");
+                        SketchwareUtil.toastError("ÐÐµÐ´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ð¾Ðµ Ð¸Ð¼Ñ!");
                     }
                 })
-                .setNegativeButton("Îòìåíà", (di, i) -> di.dismiss()).create();
+                .setNegativeButton("ÐžÑ‚Ð¼ÐµÐ½Ð°", (di, i) -> di.dismiss()).create();
         dialog.show();
     }
 
@@ -187,23 +187,23 @@ public class EventsManagerFragment extends qA {
 
     private void showImportEventsDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Âûáðàòü .txt ôàéë");
+        options.setTitle("Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ .txt Ñ„Ð°Ð¹Ð»");
         options.setExtensions(new String[]{"txt"});
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
             public void onFileSelected(File file) {
                 if (FileUtil.readFile(file.getAbsolutePath()).isEmpty()) {
-                    SketchwareUtil.toastError("Âûáðàííûé ôàéë ïóñò!");
+                    SketchwareUtil.toastError("Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð¿ÑƒÑÑ‚!");
                 } else if (FileUtil.readFile(file.getAbsolutePath()).equals("[]")) {
-                    SketchwareUtil.toastError("Âûáðàííûé ôàéë ïóñò!");
+                    SketchwareUtil.toastError("Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð¿ÑƒÑÑ‚!");
                 } else {
                     try {
                         String[] split = FileUtil.readFile(file.getAbsolutePath()).split("\n");
                         importEvents(new Gson().fromJson(split[0], Helper.TYPE_MAP_LIST),
                                 new Gson().fromJson(split[1], Helper.TYPE_MAP_LIST));
                     } catch (Exception e) {
-                        SketchwareUtil.toastError("Íåäîïóñòèìûé ôàéë");
+                        SketchwareUtil.toastError("ÐÐµÐ´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»");
                     }
                 }
             }
@@ -224,7 +224,7 @@ public class EventsManagerFragment extends qA {
         listMap.addAll(data);
         FileUtil.writeFile(EventsManagerConstants.LISTENERS_FILE.getAbsolutePath(), new Gson().toJson(listMap));
         refreshList();
-        SketchwareUtil.toast("Óñïåøíî èìïîðòèðîâàííûå ñîáûòèÿ");
+        SketchwareUtil.toast("Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ");
     }
 
     private void exportListener(int p) {
@@ -242,7 +242,7 @@ public class EventsManagerFragment extends qA {
             }
         }
         FileUtil.writeFile(concat + ex.get(0).get("name").toString() + ".txt", new Gson().toJson(ex) + "\n" + new Gson().toJson(ex2));
-        SketchwareUtil.toast("Óñïåøíî ýêñïîðòèðîâàííîå ñîáûòèå â:\n" +
+        SketchwareUtil.toast("Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð²:\n" +
                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
     }
 
@@ -253,7 +253,7 @@ public class EventsManagerFragment extends qA {
         }
         FileUtil.writeFile(new File(EventsManagerConstants.EVENT_EXPORT_LOCATION, "All_Events.txt").getAbsolutePath(),
                 new Gson().toJson(listMap) + "\n" + new Gson().toJson(events));
-        SketchwareUtil.toast("Óñïåøíî ýêñïîðòèðîâàííîå ñîáûòèÿ â:\n" +
+        SketchwareUtil.toast("Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ Ð²:\n" +
                 "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
     }
 
@@ -316,7 +316,7 @@ public class EventsManagerFragment extends qA {
             holder.itemView.setOnLongClickListener(v -> {
                 new MaterialAlertDialogBuilder(context)
                         .setTitle(name)
-                        .setItems(new String[]{"Ðåäàêòèðîâàòü", "Ýêñïîðòèðîâàòü", "Óäàëèòü"}, (dialog, which) -> {
+                        .setItems(new String[]{"Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ", "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ", "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"}, (dialog, which) -> {
                             switch (which) {
                                 case 0:
                                     showEditListenerDialog(position);
@@ -326,14 +326,14 @@ public class EventsManagerFragment extends qA {
                                     break;
                                 case 2:
                                     new MaterialAlertDialogBuilder(context)
-                                            .setTitle("Óäàëèòü ñëóøàòåëÿ")
-                                            .setMessage("Âû óâåðåíû, ÷òî õîòèòå óäàëèòü ýòîò ýëåìåíò?")
-                                            .setPositiveButton("Äà", (di, i) -> {
+                                            .setTitle("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÑƒÑˆÐ°Ñ‚ÐµÐ»Ñ")
+                                            .setMessage("Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚?")
+                                            .setPositiveButton("Ð”Ð°", (di, i) -> {
                                                 deleteRelatedEvents(name);
                                                 deleteItem(position);
                                                 di.dismiss();
                                             })
-                                            .setNegativeButton("Íåò", (di, i) -> di.dismiss())
+                                            .setNegativeButton("ÐÐµÑ‚", (di, i) -> di.dismiss())
                                             .show();
                                     break;
                             }

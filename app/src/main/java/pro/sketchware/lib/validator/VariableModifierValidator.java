@@ -27,7 +27,7 @@ public class VariableModifierValidator extends MB {
         String reconsInput = String.join(" ", words);
 
         if (!input.equals(reconsInput)) {
-            b.setError("Дополнительные пробелы между словами или в конце не допускаются.");
+            b.setError("Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїСЂРѕР±РµР»С‹ РјРµР¶РґСѓ СЃР»РѕРІР°РјРё РёР»Рё РІ РєРѕРЅС†Рµ РЅРµ РґРѕРїСѓСЃРєР°СЋС‚СЃСЏ.");
             d = false;
             return;
         }
@@ -36,18 +36,18 @@ public class VariableModifierValidator extends MB {
 
         for (String word : words) {
             if (!PATTERN_MODIFIER.matcher(word).matches()) {
-                b.setError("Недопустимый модификатор: " + word);
+                b.setError("РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ РјРѕРґРёС„РёРєР°С‚РѕСЂ: " + word);
                 d = false;
                 return;
             }
             if (!usedModifiers.add(word)) {
-                b.setError("Повторяющийся модификатор: " + word);
+                b.setError("РџРѕРІС‚РѕСЂСЏСЋС‰РёР№СЃСЏ РјРѕРґРёС„РёРєР°С‚РѕСЂ: " + word);
                 d = false;
                 return;
             }
             if (isAccessModifier(word)) {
                 if (hasAccessModifier) {
-                    b.setError("Модификатор доступа может устанавливать только один из параметров public / protected / private");
+                    b.setError("РњРѕРґРёС„РёРєР°С‚РѕСЂ РґРѕСЃС‚СѓРїР° РјРѕР¶РµС‚ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ РёР· РїР°СЂР°РјРµС‚СЂРѕРІ public / protected / private");
                     d = false;
                     return;
                 }

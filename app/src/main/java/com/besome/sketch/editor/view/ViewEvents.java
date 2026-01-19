@@ -137,8 +137,8 @@ public class ViewEvents extends LinearLayout {
                     binding.container.setOnLongClickListener(v -> {
                         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(itemView.getContext());
                         dialog.setIcon(R.drawable.delete_96);
-                        dialog.setTitle("Ïîäòâåğäèòå óäàëåíèå");
-                        dialog.setMessage("Íàæìèòå íà êíîïêó Ïîäòâåğäèòü, ÷òîáû óäàëèòü âûáğàííîå ñîáûòèå.");
+                        dialog.setTitle("ĞŸĞ¾Ğ´Ñ‚Ğ²ĞµÑ€Ğ´Ğ¸Ñ‚Ğµ ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ");
+                        dialog.setMessage("ĞĞ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ Ğ½Ğ° ĞºĞ½Ğ¾Ğ¿ĞºÑƒ ĞŸĞ¾Ğ´Ñ‚Ğ²ĞµÑ€Ğ´Ğ¸Ñ‚ÑŒ, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ ÑƒĞ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ Ğ²Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ½Ğ¾Ğµ ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ğµ.");
 
                         dialog.setPositiveButton(Helper.getResString(R.string.common_word_delete), (view, which) -> {
                             view.dismiss();

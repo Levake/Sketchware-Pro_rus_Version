@@ -101,7 +101,7 @@ public class ViewCodeEditorActivity extends BaseAppCompatActivity {
         projectLibrary = jC.c(sc_id).c();
         getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setTitle("Редактор XML");
+        getSupportActionBar().setTitle("Р РµРґР°РєС‚РѕСЂ XML");
         getSupportActionBar().setSubtitle(title);
         binding.toolbar.setNavigationOnClickListener(v -> {
             if (onBackPressedCallback.isEnabled()) {
@@ -116,7 +116,7 @@ public class ViewCodeEditorActivity extends BaseAppCompatActivity {
         EditorUtils.loadXmlConfig(editor);
         if (projectFile.fileType == ProjectFileBean.PROJECT_FILE_TYPE_ACTIVITY
                 && projectLibrary.isEnabled()) {
-            setNote("Используйте AppCompat Manager для изменения атрибутов CoordinatorLayout, панели инструментов и других макетов/виджетов appcompat.");
+            setNote("РСЃРїРѕР»СЊР·СѓР№С‚Рµ AppCompat Manager РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ Р°С‚СЂРёР±СѓС‚РѕРІ CoordinatorLayout, РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ Рё РґСЂСѓРіРёС… РјР°РєРµС‚РѕРІ/РІРёРґР¶РµС‚РѕРІ appcompat.");
         }
         binding.close.setOnClickListener(v -> {
             prefs.edit().putInt("note_" + sc_id, 1).apply();
@@ -133,21 +133,21 @@ public class ViewCodeEditorActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, 0, Menu.NONE, "Отменить")
+        menu.add(Menu.NONE, 0, Menu.NONE, "РћС‚РјРµРЅРёС‚СЊ")
                 .setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_undo))
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(Menu.NONE, 1, Menu.NONE, "Повторить")
+        menu.add(Menu.NONE, 1, Menu.NONE, "РџРѕРІС‚РѕСЂРёС‚СЊ")
                 .setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_redo))
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(Menu.NONE, 2, Menu.NONE, "Сохранить")
+        menu.add(Menu.NONE, 2, Menu.NONE, "РЎРѕС…СЂР°РЅРёС‚СЊ")
                 .setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_save))
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         if (projectFile.fileType == ProjectFileBean.PROJECT_FILE_TYPE_ACTIVITY
                 && projectLibrary.isEnabled()) {
-            menu.add(Menu.NONE, 3, Menu.NONE, "Редактировать AppCompat");
+            menu.add(Menu.NONE, 3, Menu.NONE, "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ AppCompat");
         }
-        menu.add(Menu.NONE, 4, Menu.NONE, "Перезагрузите цветовые схемы");
-        menu.add(Menu.NONE, 5, Menu.NONE, "Предварительный просмотр макета");
+        menu.add(Menu.NONE, 4, Menu.NONE, "РџРµСЂРµР·Р°РіСЂСѓР·РёС‚Рµ С†РІРµС‚РѕРІС‹Рµ СЃС…РµРјС‹");
+        menu.add(Menu.NONE, 5, Menu.NONE, "РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№ РїСЂРѕСЃРјРѕС‚СЂ РјР°РєРµС‚Р°");
         return true;
     }
 
@@ -223,8 +223,8 @@ public class ViewCodeEditorActivity extends BaseAppCompatActivity {
                     for (String attr : viewBean.parentAttributes.keySet()) {
                         String targetId = viewBean.parentAttributes.get(attr);
                         if (!detector.isLegalAttribute(targetId, attr)) {
-                            SketchwareUtil.toastError("Циклическая зависимость, обнаруженная в \"" + viewBean.name + "\"\n" +
-                                    "Пожалуйста, устраните проблему перед сохранением");
+                            SketchwareUtil.toastError("Р¦РёРєР»РёС‡РµСЃРєР°СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ, РѕР±РЅР°СЂСѓР¶РµРЅРЅР°СЏ РІ \"" + viewBean.name + "\"\n" +
+                                    "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓСЃС‚СЂР°РЅРёС‚Рµ РїСЂРѕР±Р»РµРјСѓ РїРµСЂРµРґ СЃРѕС…СЂР°РЅРµРЅРёРµРј");
                             return;
                         }
                     }
@@ -235,9 +235,9 @@ public class ViewCodeEditorActivity extends BaseAppCompatActivity {
                 if (!isEdited) {
                     isEdited = true;
                 }
-                SketchwareUtil.toast("Сохранено");
+                SketchwareUtil.toast("РЎРѕС…СЂР°РЅРµРЅРѕ");
             } else {
-                SketchwareUtil.toast("Никаких изменений для сохранения");
+                SketchwareUtil.toast("РќРёРєР°РєРёС… РёР·РјРµРЅРµРЅРёР№ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ");
             }
         } catch (Exception e) {
             SketchwareUtil.toastError(e.toString());

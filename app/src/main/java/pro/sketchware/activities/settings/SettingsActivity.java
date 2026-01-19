@@ -31,7 +31,7 @@ public class SettingsActivity extends BaseAppCompatActivity {
             case SETTINGS_APPEARANCE_FRAGMENT -> new SettingsAppearanceFragment();
             case EVENTS_MANAGER_FRAGMENT -> new EventsManagerFragment();
             case BLOCK_SELECTOR_MANAGER_FRAGMENT -> new BlockSelectorManagerFragment();
-            default -> throw new IllegalArgumentException("ÕÂËÁ‚ÂÒÚÌ˚È ÚÂ„ Ù‡„ÏÂÌÚ‡: " + fragmentTag);
+            default -> throw new IllegalArgumentException("–ù–µ–∏–∑–≤–µ—Å—Ç–Ω—ã–π —Ç–µ–≥ —Ñ—Ä–∞–≥–º–µ–Ω—Ç–∞: " + fragmentTag);
         };
 
         openFragment(fragment);

@@ -64,7 +64,7 @@ public class EventsManagerDetailsFragment extends qA {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         configureToolbar(binding.toolbar);
-        binding.toolbar.setTitle("Äåòàëè ñîáûòèÿ");
+        binding.toolbar.setTitle("Ã„Ã¥Ã²Ã Ã«Ã¨ Ã±Ã®Ã¡Ã»Ã²Ã¨Ã¿");
         binding.toolbar.setSubtitle(listName);
         binding.fabNewEvent.setOnClickListener(v -> {
             Bundle args = new Bundle();
@@ -184,7 +184,7 @@ public class EventsManagerDetailsFragment extends qA {
 
             holder.binding.eventTitle.setText((String) item.get("name"));
             if ("".equals(dataArray.get(position).get("var"))) {
-                holder.binding.eventSubtitle.setText("Àêòèâèòè ñîáûòèÿ");
+                holder.binding.eventSubtitle.setText("Ã€ÃªÃ²Ã¨Ã¢Ã¨Ã²Ã¨ Ã±Ã®Ã¡Ã»Ã²Ã¨Ã¿");
             } else {
                 holder.binding.eventSubtitle.setText((String) dataArray.get(position).get("var"));
             }
@@ -208,9 +208,9 @@ public class EventsManagerDetailsFragment extends qA {
             holder.itemView.setOnLongClickListener(v -> {
                 new MaterialAlertDialogBuilder(requireContext())
                         .setTitle((String) dataArray.get(position).get("name"))
-                        .setMessage("Óäàëèòü ýòî ñîáûòèå?")
-                        .setPositiveButton("Óäàëèòü", (dialog, i) -> deleteItem(position))
-                        .setNeutralButton("Ðåäàêòèðîâàòü", (dialog, i) -> {
+                        .setMessage("Ã“Ã¤Ã Ã«Ã¨Ã²Ã¼ Ã½Ã²Ã® Ã±Ã®Ã¡Ã»Ã²Ã¨Ã¥?")
+                        .setPositiveButton("Ã“Ã¤Ã Ã«Ã¨Ã²Ã¼", (dialog, i) -> deleteItem(position))
+                        .setNeutralButton("ÃÃ¥Ã¤Ã ÃªÃ²Ã¨Ã°Ã®Ã¢Ã Ã²Ã¼", (dialog, i) -> {
                             Bundle args = new Bundle();
                             args.putString("lis_name", listName);
                             args.putString("event", (String) dataArray.get(position).get("name"));

@@ -57,26 +57,26 @@ public class CentralEnd
         boolean debug = log.isDebugEnabled();
 
         numberThisDisk = input.readShort();
-        if (debug) log.debug( String.format("Этот номер диска: 0x%04x", numberThisDisk));
+        if (debug) log.debug( String.format("Р­С‚РѕС‚ РЅРѕРјРµСЂ РґРёСЃРєР°: 0x%04x", numberThisDisk));
 
         centralStartDisk = input.readShort();
-        if (debug) log.debug( String.format("Номер стартового диска центрального каталога: 0x%04x", centralStartDisk));
+        if (debug) log.debug( String.format("РќРѕРјРµСЂ СЃС‚Р°СЂС‚РѕРІРѕРіРѕ РґРёСЃРєР° С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°: 0x%04x", centralStartDisk));
 
         numCentralEntries = input.readShort();
-        if (debug) log.debug( String.format("Основные записи на этом диске: 0x%04x", numCentralEntries));
+        if (debug) log.debug( String.format("РћСЃРЅРѕРІРЅС‹Рµ Р·Р°РїРёСЃРё РЅР° СЌС‚РѕРј РґРёСЃРєРµ: 0x%04x", numCentralEntries));
 
         totalCentralEntries = input.readShort();
-        if (debug) log.debug( String.format("Общее количество центральных записей: 0x%04x", totalCentralEntries));
+        if (debug) log.debug( String.format("РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С†РµРЅС‚СЂР°Р»СЊРЅС‹С… Р·Р°РїРёСЃРµР№: 0x%04x", totalCentralEntries));
 
         centralDirectorySize = input.readInt();
-        if (debug) log.debug( String.format("Размер центрального каталога: 0x%08x", centralDirectorySize));
+        if (debug) log.debug( String.format("Р Р°Р·РјРµСЂ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°: 0x%08x", centralDirectorySize));
 
         centralStartOffset = input.readInt();
-        if (debug) log.debug( String.format("Смещение центрального каталога: 0x%08x", centralStartOffset));
+        if (debug) log.debug( String.format("РЎРјРµС‰РµРЅРёРµ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°: 0x%08x", centralStartOffset));
 
         short zipFileCommentLen = input.readShort();
         fileComment = input.readString(zipFileCommentLen);
-        if (debug) log.debug( ".ZIP комментарий к файлу: " + fileComment);
+        if (debug) log.debug( ".ZIP РєРѕРјРјРµРЅС‚Р°СЂРёР№ Рє С„Р°Р№Р»Сѓ: " + fileComment);
 
 
     }

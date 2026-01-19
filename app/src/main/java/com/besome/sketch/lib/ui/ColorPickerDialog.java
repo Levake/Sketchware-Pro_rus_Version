@@ -208,7 +208,7 @@ public class ColorPickerDialog extends PopupWindow {
                     return;
                 }
                 if (sc_id != null && finalJ == 2 && !material3LibraryManager.isMaterial3Enabled()) {
-                    SketchwareUtil.toastError("Пожалуйста, сначала включите Material3 в менеджере библиотек");
+                    SketchwareUtil.toastError("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРєР»СЋС‡РёС‚Рµ Material3 РІ РјРµРЅРµРґР¶РµСЂРµ Р±РёР±Р»РёРѕС‚РµРє");
                     return;
                 }
                 if (sc_id != null && finalJ == 1) {
@@ -614,7 +614,7 @@ public class ColorPickerDialog extends PopupWindow {
         }
 
         public String attrTitle() {
-            return title + " Цвета :";
+            return title + " Р¦РІРµС‚Р° :";
         }
     }
 

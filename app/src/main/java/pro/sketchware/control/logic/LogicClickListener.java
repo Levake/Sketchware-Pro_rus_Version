@@ -92,11 +92,11 @@ public class LogicClickListener implements View.OnClickListener {
 
     private void addCustomVariable() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(logicEditor);
-        dialog.setTitle("Добавьте новую пользовательскую переменную");
+        dialog.setTitle("Р”РѕР±Р°РІСЊС‚Рµ РЅРѕРІСѓСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ");
 
         AddCustomVariableBinding binding = AddCustomVariableBinding.inflate(logicEditor.getLayoutInflater());
 
-        binding.modifierLayout.setHelperText("Введите модификатор, например, private, public, public static или empty (закрытый пакет).");
+        binding.modifierLayout.setHelperText("Р’РІРµРґРёС‚Рµ РјРѕРґРёС„РёРєР°С‚РѕСЂ, РЅР°РїСЂРёРјРµСЂ, private, public, public static РёР»Рё empty (Р·Р°РєСЂС‹С‚С‹Р№ РїР°РєРµС‚).");
 
         VariableModifierValidator modifiersValidator = new VariableModifierValidator(getContext(), binding.modifierLayout);
         binding.modifier.addTextChangedListener(modifiersValidator);
@@ -128,7 +128,7 @@ public class LogicClickListener implements View.OnClickListener {
             } else {
                 binding.typeLayout.requestFocus();
                 if (variableType.isEmpty()) {
-                    binding.typeLayout.setError("Тип не может быть пустым");
+                    binding.typeLayout.setError("РўРёРї РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
                     binding.typeLayout.setErrorEnabled(true);
                 }
                 return;
@@ -140,7 +140,7 @@ public class LogicClickListener implements View.OnClickListener {
             } else {
                 binding.nameLayout.requestFocus();
                 if (variableName.isEmpty()) {
-                    binding.nameLayout.setError("Имя не может быть пустым");
+                    binding.nameLayout.setError("РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
                     binding.nameLayout.setErrorEnabled(true);
                 }
                 return;
@@ -220,7 +220,7 @@ public class LogicClickListener implements View.OnClickListener {
 
     private void addCustomList() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(logicEditor);
-        dialog.setTitle("Добавьте новый пользовательский список");
+        dialog.setTitle("Р”РѕР±Р°РІСЊС‚Рµ РЅРѕРІС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ СЃРїРёСЃРѕРє");
 
         AddCustomListBinding listBinding = AddCustomListBinding.inflate(logicEditor.getLayoutInflater());
 
@@ -239,18 +239,18 @@ public class LogicClickListener implements View.OnClickListener {
                 listBinding.typeLayout.setErrorEnabled(false);
             } else {
                 if (validName) listBinding.typeLayout.requestFocus();
-                listBinding.typeLayout.setError("Тип не может быть пустым");
+                listBinding.typeLayout.setError("РўРёРї РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
                 listBinding.typeLayout.setErrorEnabled(true);
             }
 
             CharSequence nameError = listBinding.nameLayout.getError();
-            if (nameError == null || "Имя не может быть пустым".contentEquals(nameError)) {
+            if (nameError == null || "РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј".contentEquals(nameError)) {
                 if (validName) {
                     listBinding.nameLayout.setError(null);
                     listBinding.nameLayout.setErrorEnabled(false);
                 } else {
                     listBinding.nameLayout.requestFocus();
-                    listBinding.nameLayout.setError("Имя не может быть пустым");
+                    listBinding.nameLayout.setError("РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
                     listBinding.nameLayout.setErrorEnabled(true);
                 }
             }
@@ -353,7 +353,7 @@ public class LogicClickListener implements View.OnClickListener {
                         LayoutParams.WRAP_CONTENT));
                 return new CheckBoxHolder(checkBox);
             } else {
-                throw new IllegalStateException("Неизвестный тип представления " + viewType);
+                throw new IllegalStateException("РќРµРёР·РІРµСЃС‚РЅС‹Р№ С‚РёРї РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ " + viewType);
             }
         }
 
@@ -388,7 +388,7 @@ public class LogicClickListener implements View.OnClickListener {
                     }
                 });
             } else {
-                throw new IllegalStateException("Неизвестный тип представления " + viewType);
+                throw new IllegalStateException("РќРµРёР·РІРµСЃС‚РЅС‹Р№ С‚РёРї РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ " + viewType);
             }
         }
 

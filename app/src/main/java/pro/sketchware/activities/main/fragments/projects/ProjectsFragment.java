@@ -290,7 +290,7 @@ public class ProjectsFragment extends DA {
         }
 
         dialog.setView(dialogBinding.getRoot());
-        dialog.setPositiveButton("—Óı‡ÌËÚ¸", (v, which) -> {
+        dialog.setPositiveButton("√ë√Æ√µ√∞√†√≠√®√≤√º", (v, which) -> {
             int sortValue = 0;
             if (sortByName.isChecked()) {
                 sortValue |= ProjectComparator.SORT_BY_NAME;
@@ -308,7 +308,7 @@ public class ProjectsFragment extends DA {
             v.dismiss();
             refreshProjectsList();
         });
-        dialog.setNegativeButton("ŒÚÏÂÌ‡", null);
+        dialog.setNegativeButton("√é√≤√¨√•√≠√†", null);
         dialog.show();
     }
 

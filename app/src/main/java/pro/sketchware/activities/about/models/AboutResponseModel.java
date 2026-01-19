@@ -54,7 +54,7 @@ public class AboutResponseModel {
         }
 
         public String getTitle() {
-            return is_core_team ? "Основные члены команды" : "Участники";
+            return is_core_team ? "РћСЃРЅРѕРІРЅС‹Рµ С‡Р»РµРЅС‹ РєРѕРјР°РЅРґС‹" : "РЈС‡Р°СЃС‚РЅРёРєРё";
         }
 
         public String getDescription() {
@@ -98,7 +98,7 @@ public class AboutResponseModel {
 
         public String getCommitterName() {
             String commiterName = safeGetValueFromMap(author, "login");
-            return commiterName.isEmpty() ? "Удаленная учетная запись" : commiterName;
+            return commiterName.isEmpty() ? "РЈРґР°Р»РµРЅРЅР°СЏ СѓС‡РµС‚РЅР°СЏ Р·Р°РїРёСЃСЊ" : commiterName;
         }
 
         public String getCommitterImage() {
@@ -145,15 +145,15 @@ public class AboutResponseModel {
             LocalDate today = LocalDate.now(ZoneOffset.UTC);
 
             if (commitDate.equals(today)) {
-                return "Сегодня";
+                return "РЎРµРіРѕРґРЅСЏ";
             } else if (commitDate.equals(today.minusDays(1))) {
-                return "Вчера";
+                return "Р’С‡РµСЂР°";
             } else if (commitDate.isAfter(today.minusWeeks(1))) {
-                return "На этой неделе";
+                return "РќР° СЌС‚РѕР№ РЅРµРґРµР»Рµ";
             } else if (commitDate.isAfter(today.minusWeeks(2))) {
-                return "Прошлая неделя";
+                return "РџСЂРѕС€Р»Р°СЏ РЅРµРґРµР»СЏ";
             } else if (commitDate.isAfter(today.minusMonths(1))) {
-                return "Прошлый месяц";
+                return "РџСЂРѕС€Р»С‹Р№ РјРµСЃСЏС†";
             } else {
                 long monthsAgo = ChronoUnit.MONTHS.between(commitDate.withDayOfMonth(1), today.withDayOfMonth(1));
                 if (monthsAgo <= 12) {

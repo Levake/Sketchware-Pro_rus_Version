@@ -145,7 +145,7 @@ public class ExtraMenuBean {
                         return;
 
                     case "import":
-                        asdDialog(ss, "Введите путь без импорта и точки с запятой");
+                        asdDialog(ss, "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Р±РµР· РёРјРїРѕСЂС‚Р° Рё С‚РѕС‡РєРё СЃ Р·Р°РїСЏС‚РѕР№");
                         return;
 
                     default:
@@ -480,22 +480,22 @@ public class ExtraMenuBean {
                 break;
 
             case "fragmentAdapter":
-                title = "Выберите компонент FragmentAdapter";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРјРїРѕРЅРµРЅС‚ FragmentAdapter";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FRAGMENT_ADAPTER);
                 break;
 
             case "phoneauth":
-                title = "Выберите компонент FirebasePhone";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРјРїРѕРЅРµРЅС‚ FirebasePhone";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_PHONE);
                 break;
 
             case "cloudmessage":
-                title = "Выберите компонент CloudMessage";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРјРїРѕРЅРµРЅС‚ CloudMessage";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_CLOUD_MESSAGE);
                 break;
 
             case "googlelogin":
-                title = "Выберите компонент FirebaseGoogle";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРјРїРѕРЅРµРЅС‚ FirebaseGoogle";
                 menus = getComponentMenus(ComponentBean.COMPONENT_TYPE_FIREBASE_AUTH_GOOGLE_LOGIN);
                 break;
 
@@ -515,14 +515,14 @@ public class ExtraMenuBean {
                 break;
 
             case "service":
-                title = "Выберите фоновую службу";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С„РѕРЅРѕРІСѓСЋ СЃР»СѓР¶Р±Сѓ";
                 if (FileUtil.isExistFile(fpu.getManifestService(sc_id))) {
                     menus = frc.getServiceManifestList();
                 }
                 break;
 
             case "broadcast":
-                title = "Выберите широковещательный приемник";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С€РёСЂРѕРєРѕРІРµС‰Р°С‚РµР»СЊРЅС‹Р№ РїСЂРёРµРјРЅРёРє";
                 if (FileUtil.isExistFile(fpu.getManifestBroadcast(sc_id))) {
                     menus = frc.getBroadcastManifestList();
                 }
@@ -546,7 +546,7 @@ public class ExtraMenuBean {
                     }
                     if (!activityMenu.isEmpty()) {
                         TextView txt = new TextView(logicEditor);
-                        txt.setText("Пользовательские активити");
+                        txt.setText("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ Р°РєС‚РёРІРёС‚Рё");
                         txt.setPadding((int) getDip(2), (int) getDip(4), (int) getDip(4), (int) getDip(4));
                         txt.setTextSize(14f);
                         viewGroup.addView(txt);
@@ -559,28 +559,28 @@ public class ExtraMenuBean {
                 break;
 
             case "customViews":
-                title = "Выберите пользовательский вид";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ РІРёРґ";
                 for (ProjectFileBean projectFileBean : jC.b(sc_id).c()) {
                     menus.add(projectFileBean.fileName);
                 }
                 break;
 
             case "SignButtonColor":
-                title = "Выберите цвет кнопки для входа";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С†РІРµС‚ РєРЅРѕРїРєРё РґР»СЏ РІС…РѕРґР°";
                 menus.add("COLOR_AUTO");
                 menus.add("COLOR_DARK");
                 menus.add("COLOR_LIGHT");
                 break;
 
             case "SignButtonSize":
-                title = "Выберите размер кнопки входа";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РјРµСЂ РєРЅРѕРїРєРё РІС…РѕРґР°";
                 menus.add("SIZE_ICON_ONLY");
                 menus.add("SIZE_STANDARD");
                 menus.add("SIZE_WIDE");
                 break;
 
             case "ResString":
-                title = "Выберите строку обновления";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂРѕРєСѓ РѕР±РЅРѕРІР»РµРЅРёСЏ";
 
                 String filePath = FileUtil.getExternalStorageDir().concat("/.sketchware/data/").concat(sc_id.concat("/files/resource/values/strings.xml"));
                 ArrayList<HashMap<String, Object>> StringsListMap = new ArrayList<>();
@@ -603,13 +603,13 @@ public class ExtraMenuBean {
             case "ResInteger":
             case "ResAttr":
             case "ResXml":
-                title = "Осуждаемый";
-                dialog.setMessage("Это блочное меню изначально использовалось для анализа значений ресурсов, но из-за большого объема ввода-вывода было удалено. Пожалуйста, используйте вместо этого редактор кода.");
+                title = "РћСЃСѓР¶РґР°РµРјС‹Р№";
+                dialog.setMessage("Р­С‚Рѕ Р±Р»РѕС‡РЅРѕРµ РјРµРЅСЋ РёР·РЅР°С‡Р°Р»СЊРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°Р»РѕСЃСЊ РґР»СЏ Р°РЅР°Р»РёР·Р° Р·РЅР°С‡РµРЅРёР№ СЂРµСЃСѓСЂСЃРѕРІ, РЅРѕ РёР·-Р·Р° Р±РѕР»СЊС€РѕРіРѕ РѕР±СЉРµРјР° РІРІРѕРґР°-РІС‹РІРѕРґР° Р±С‹Р»Рѕ СѓРґР°Р»РµРЅРѕ. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РІРјРµСЃС‚Рѕ СЌС‚РѕРіРѕ СЂРµРґР°РєС‚РѕСЂ РєРѕРґР°.");
                 break;
 
             case "AdUnit":
                 dialog.setIcon(R.drawable.unit_96);
-                title = "Выберите рекламный блок";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµРєР»Р°РјРЅС‹Р№ Р±Р»РѕРє";
                 for (AdUnitBean bean : jC.c(sc_id).e.adUnits) {
                     menus.add(bean.id);
                 }
@@ -617,39 +617,39 @@ public class ExtraMenuBean {
 
             case "TestDevice":
                 dialog.setIcon(R.drawable.ic_test_device_48dp);
-                title = "Выберите тестовое устройство";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С‚РµСЃС‚РѕРІРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ";
                 for (AdTestDeviceBean testDevice : jC.c(sc_id).e.testDevices) {
                     menus.add(testDevice.deviceId);
                 }
                 break;
 
             case "IntentKey":
-                title = "Выберите ключ Intent";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєР»СЋС‡ Intent";
                 menus.addAll(new ArrayList<>(Arrays.asList(intentKey)));
                 break;
 
             case "PatternFlag":
-                title = "Выберите шаблон флагов";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С€Р°Р±Р»РѕРЅ С„Р»Р°РіРѕРІ";
                 menus.addAll(new ArrayList<>(Arrays.asList(patternFlags)));
                 break;
 
             case "Permission":
-                title = "Выберите разрешение";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·СЂРµС€РµРЅРёРµ";
                 menus.addAll(new ArrayList<>(Arrays.asList(permission)));
                 break;
 
             case "AdSize":
-                title = "Выберите размер объявления";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РјРµСЂ РѕР±СЉСЏРІР»РµРЅРёСЏ";
                 menus.addAll(new ArrayList<>(Arrays.asList(adSize)));
                 break;
 
             case "PixelFormat":
-                title = "Выберите формат пикселя";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С„РѕСЂРјР°С‚ РїРёРєСЃРµР»СЏ";
                 menus.addAll(new ArrayList<>(Arrays.asList(pixelFormat)));
                 break;
 
             case "Variable":
-                title = "Выберите переменную";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ";
                 for (Pair<Integer, String> integerStringPair : projectDataManager.k(javaName)) {
                     String variable = integerStringPair.second;
                     String variableName = CustomVariableUtil.getVariableName(variable);
@@ -658,14 +658,14 @@ public class ExtraMenuBean {
                 break;
 
             case "Component":
-                title = "Выберите компонент";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРјРїРѕРЅРµРЅС‚";
                 for (ComponentBean componentBean : projectDataManager.e(javaName)) {
                     menus.add(componentBean.componentId);
                 }
                 break;
 
             case "CustomVar":
-                title = "Выберите пользовательскую переменную";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ";
                 for (String s : projectDataManager.e(javaName, 5)) {
                     Matcher matcher = Pattern.compile("^(\\w+)[\\s]+(\\w+)").matcher(s);
                     while (matcher.find()) {
@@ -710,7 +710,7 @@ public class ExtraMenuBean {
             v.dismiss();
         });
         dialog.setNegativeButton(R.string.common_word_cancel, null);
-        dialog.setNeutralButton("Редактор кода", (v, which) -> {
+        dialog.setNeutralButton("Р РµРґР°РєС‚РѕСЂ РєРѕРґР°", (v, which) -> {
             AsdDialog editor = new AsdDialog(logicEditor);
             editor.setContent(menu.getArgValue().toString());
             editor.show();
@@ -758,7 +758,7 @@ public class ExtraMenuBean {
             v.dismiss();
         });
         dialog.setNegativeButton(R.string.common_word_cancel, null);
-        dialog.setNeutralButton("Редактор кода", (v, which) -> {
+        dialog.setNeutralButton("Р РµРґР°РєС‚РѕСЂ РєРѕРґР°", (v, which) -> {
             AsdDialog asdDialog = new AsdDialog(logicEditor);
             asdDialog.setContent(Helper.getText(edittext));
             asdDialog.show();
@@ -776,11 +776,11 @@ public class ExtraMenuBean {
         mOptions.setSelectionMode(SelectionMode.BOTH);
         String path = null;
         if (menuName.equals("Assets")) {
-            mOptions.setTitle("Выберите актив");
+            mOptions.setTitle("Р’С‹Р±РµСЂРёС‚Рµ Р°РєС‚РёРІ");
             path = String.format(ASSETS_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
         } else if (menuName.equals("NativeLib")) {
-            mOptions.setTitle("Выберите собственную библиотеку");
+            mOptions.setTitle("Р’С‹Р±РµСЂРёС‚Рµ СЃРѕР±СЃС‚РІРµРЅРЅСѓСЋ Р±РёР±Р»РёРѕС‚РµРєСѓ");
             path = String.format(NATIVE_PATH, sc_id);
             markedPath.add(0, path + ss.getArgValue().toString());
         }

@@ -177,7 +177,7 @@ public class ShowMoreBlockCollectionActivity extends BaseAppCompatActivity imple
             addBlocks(moreBlock.blocks);
             resizeBottomViews();
         } else {
-            SketchwareUtil.toastError("Не удается открыть поврежденный More Block");
+            SketchwareUtil.toastError("РќРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РїРѕРІСЂРµР¶РґРµРЅРЅС‹Р№ More Block");
             finish();
         }
     }
@@ -188,7 +188,7 @@ public class ShowMoreBlockCollectionActivity extends BaseAppCompatActivity imple
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem saveImageItem = menu.add(0, 12, 0, "Сохранить изображение");
+        MenuItem saveImageItem = menu.add(0, 12, 0, "РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ");
         saveImageItem.setIcon(R.drawable.full_image_48);
         saveImageItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -199,9 +199,9 @@ public class ShowMoreBlockCollectionActivity extends BaseAppCompatActivity imple
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == 12) {
             if (ImageFactory.saveBitmap(binding.editor.getChildAt(0), moreBlockName).exists()) {
-                SketchwareUtil.toast("Сохраненное изображение в /Внутреняя память/sketchware/saved_block/" + moreBlockName + ".png!");
+                SketchwareUtil.toast("РЎРѕС…СЂР°РЅРµРЅРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РІ /Р’РЅСѓС‚СЂРµРЅСЏСЏ РїР°РјСЏС‚СЊ/sketchware/saved_block/" + moreBlockName + ".png!");
             } else {
-                SketchwareUtil.toastError("Не удалось сохранить изображение");
+                SketchwareUtil.toastError("РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ");
             }
         }
 

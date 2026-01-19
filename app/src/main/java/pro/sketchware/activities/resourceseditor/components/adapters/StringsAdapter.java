@@ -104,7 +104,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.ViewHold
                 String keyInput = Objects.requireNonNull(dialogBinding.stringKeyInput.getText()).toString();
                 String valueInput = Objects.requireNonNull(dialogBinding.stringValueInput.getText()).toString();
                 if (keyInput.isEmpty() || valueInput.isEmpty()) {
-                    SketchwareUtil.toast("Ïîæàëóéñòà, çàïîëíèòå âñå ïîëÿ", Toast.LENGTH_SHORT);
+                    SketchwareUtil.toast("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚Ðµ Ð²ÑÐµ Ð¿Ð¾Ð»Ñ", Toast.LENGTH_SHORT);
                     return;
                 }
                 currentItem.put("key", keyInput);

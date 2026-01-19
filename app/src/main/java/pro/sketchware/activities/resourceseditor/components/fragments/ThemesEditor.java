@@ -122,14 +122,14 @@ public class ThemesEditor extends Fragment {
     public void showAddThemeDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
         StyleEditorAddBinding binding = StyleEditorAddBinding.inflate(getLayoutInflater());
-        dialog.setTitle("Создать новую тему");
-        dialog.setPositiveButton("Создать", (d, which) -> {
+        dialog.setTitle("РЎРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ С‚РµРјСѓ");
+        dialog.setPositiveButton("РЎРѕР·РґР°С‚СЊ", (d, which) -> {
             String themeName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
 
             if (themeName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное название темы пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ С‚РµРјС‹ РїСѓСЃС‚РѕРµ");
                 return;
             }
 
@@ -159,14 +159,14 @@ public class ThemesEditor extends Fragment {
             binding.styleHeaderInput.setText(notesMap.get(position));
         }
 
-        dialog.setTitle("Редактировать тему");
-        dialog.setPositiveButton("Редактировать", (d, which) -> {
+        dialog.setTitle("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С‚РµРјСѓ");
+        dialog.setPositiveButton("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ", (d, which) -> {
             String themeName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
 
             if (themeName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное название темы пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ С‚РµРјС‹ РїСѓСЃС‚РѕРµ");
                 return;
             }
 
@@ -182,8 +182,8 @@ public class ThemesEditor extends Fragment {
             hasUnsavedChanges = true;
         });
         dialog.setNeutralButton(Helper.getResString(R.string.common_word_delete), (d, which) -> new MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Предупреждение")
-                .setMessage("Вы уверены, что хотите удалить " + theme.getStyleName() + "?")
+                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + theme.getStyleName() + "?")
                 .setPositiveButton(R.string.common_word_yes, (d2, w) -> {
                     themesList.remove(position);
                     notesMap.remove(position);
@@ -192,7 +192,7 @@ public class ThemesEditor extends Fragment {
                     updateNoContentLayout();
                     hasUnsavedChanges = true;
                 })
-                .setNegativeButton("Отмена", null)
+                .setNegativeButton("РћС‚РјРµРЅР°", null)
                 .show());
         dialog.setNegativeButton(getString(R.string.cancel), null);
         dialog.setView(binding.getRoot());
@@ -206,7 +206,7 @@ public class ThemesEditor extends Fragment {
         dialog.setContentView(binding.getRoot());
         dialog.show();
 
-        binding.title.setText(theme.getStyleName() + " атрибуты");
+        binding.title.setText(theme.getStyleName() + " Р°С‚СЂРёР±СѓС‚С‹");
 
         attributesAdapter = new PropertyInputItem.AttributesAdapter();
         attributesAdapter.setOnItemClickListener(
@@ -219,15 +219,15 @@ public class ThemesEditor extends Fragment {
                     @Override
                     public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                         new MaterialAlertDialogBuilder(requireContext())
-                                .setTitle("Предупреждение")
-                                .setMessage("Вы уверены, что хотите удалить " + attr + "?")
+                                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + attr + "?")
                                 .setPositiveButton(R.string.common_word_yes, (d, w) -> {
                                     attributes.remove(attr);
                                     theme.setAttributes(attributes);
                                     attributesAdapter.submitList(new ArrayList<>(attributes.keySet()));
                                     hasUnsavedChanges = true;
                                 })
-                                .setNegativeButton("Отмена", null)
+                                .setNegativeButton("РћС‚РјРµРЅР°", null)
                                 .create()
                                 .show();
                     }
@@ -257,14 +257,14 @@ public class ThemesEditor extends Fragment {
             binding.attrValue.setText(theme.getAttribute(attr));
         }
 
-        dialog.setTitle(isEditing ? "Редактировать атрибуты " : "Создать новый атрибут");
+        dialog.setTitle(isEditing ? "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р°С‚СЂРёР±СѓС‚С‹ " : "РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ Р°С‚СЂРёР±СѓС‚");
 
         dialog.setPositiveButton(Helper.getResString(R.string.common_word_save), (d, which) -> {
             String attribute = Objects.requireNonNull(binding.attrName.getText()).toString();
             String value = Objects.requireNonNull(binding.attrValue.getText()).toString();
 
             if (attribute.isEmpty() || value.isEmpty()) {
-                SketchwareUtil.toastError("Пожалуйста, заполните все поля");
+                SketchwareUtil.toastError("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ");
                 return;
             }
 

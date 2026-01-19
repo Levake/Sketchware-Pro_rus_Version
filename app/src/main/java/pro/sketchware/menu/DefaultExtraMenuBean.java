@@ -68,7 +68,7 @@ public class DefaultExtraMenuBean {
             Matcher matcher2 = Pattern.compile("^(\\w+)[\\s]+(\\w+)").matcher(s);
             while (matcher2.find()) {
                 if (menuName.equals(matcher2.group(1))) {
-                    title = "Выбрать " + matcher2.group(1) + " Переменная";
+                    title = "Р’С‹Р±СЂР°С‚СЊ " + matcher2.group(1) + " РџРµСЂРµРјРµРЅРЅР°СЏ";
                     menus.add(matcher2.group(2));
                 }
             }
@@ -77,24 +77,24 @@ public class DefaultExtraMenuBean {
             String variableType = CustomVariableUtil.getVariableType(variable);
             String variableName = CustomVariableUtil.getVariableName(variable);
             if (menuName.equals(variableType)) {
-                title = "Выбрать " + variableType + " Переменная";
+                title = "Р’С‹Р±СЂР°С‚СЊ " + variableType + " РџРµСЂРµРјРµРЅРЅР°СЏ";
                 menus.add(variableName);
             }
         }
         for (ComponentBean componentBean : projectDataManager.e(javaName)) {
             if (componentBean.type > 36
                     && menuName.equals(ComponentBean.getComponentTypeName(componentBean.type))) {
-                title = "Выбрать " + ComponentBean.getComponentTypeName(componentBean.type);
+                title = "Р’С‹Р±СЂР°С‚СЊ " + ComponentBean.getComponentTypeName(componentBean.type);
                 menus.add(componentBean.componentId);
             }
         }
         switch (menuName) {
             case "LayoutParam" -> {
-                title = "Выберите параметры макета";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂС‹ РјР°РєРµС‚Р°";
                 menus.addAll(Helper.createStringList("MATCH_PARENT", "WRAP_CONTENT"));
             }
             case "Command" -> {
-                title = "Выбрать команду";
+                title = "Р’С‹Р±СЂР°С‚СЊ РєРѕРјР°РЅРґСѓ";
                 menus.addAll(
                         Helper.createStringList(
                                 "insert",
@@ -108,7 +108,7 @@ public class DefaultExtraMenuBean {
             //start
             case "menu", "layout", "anim", "drawable" -> {
                 String path = getPath(sc_id, menuName);
-                title = "Выбрать " + menuName;
+                title = "Р’С‹Р±СЂР°С‚СЊ " + menuName;
                 if (menuName.equals("layout")) {
                     for (String name : jC.b(sc_id).e()) {
                         menus.add(name.substring(0, name.indexOf(".xml")));
@@ -120,7 +120,7 @@ public class DefaultExtraMenuBean {
             }
             case "image" -> {
                 String path = getPath(sc_id, "drawable-xhdpi");
-                title = "Выбрать изображение";
+                title = "Р’С‹Р±СЂР°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ";
                 for (String drawable_xhdpi : FileUtil.listFiles(path, "")) {
                     if (drawable_xhdpi.contains(".png") || drawable_xhdpi.contains(".jpg")) {
                         menus.add(
@@ -131,73 +131,73 @@ public class DefaultExtraMenuBean {
                 }
             }
             case "til_box_mode" -> {
-                title = "Выберите режим коробки";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј РєРѕСЂРѕР±РєРё";
                 menus.addAll(Arrays.asList(uq.TIL_BOX_MODE));
             }
             case "fabsize" -> {
-                title = "Выберите размер fab";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РјРµСЂ fab";
                 menus.addAll(Arrays.asList(uq.FAB_SIZE));
             }
             case "fabvisible" -> {
-                title = "Выберите видимость fab";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РІРёРґРёРјРѕСЃС‚СЊ fab";
                 menus.addAll(Arrays.asList(uq.FAB_VISIBLE));
             }
             case "menuaction" -> {
-                title = "Выберите меню событий";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РјРµРЅСЋ СЃРѕР±С‹С‚РёР№";
                 menus.addAll(Arrays.asList(uq.MENU_ACTION));
             }
             case "porterduff" -> {
-                title = "Выберите режим закрывания двери";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј Р·Р°РєСЂС‹РІР°РЅРёСЏ РґРІРµСЂРё";
                 menus.addAll(Arrays.asList(uq.PORTER_DUFF));
             }
             case "transcriptmode" -> {
-                title = "Выберите режим расшифровки";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј СЂР°СЃС€РёС„СЂРѕРІРєРё";
                 menus.addAll(Arrays.asList(uq.TRANSCRIPT_MODE));
             }
             // idk, but it seems this isn't used anywhere, yet it was included in the menu file.
             case "listscrollparam" -> {
-                title = "Выберите параметр прокрутки";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ РїСЂРѕРєСЂСѓС‚РєРё";
                 menus.addAll(Arrays.asList(uq.LIST_SCROLL_STATES));
             }
             // same with listscrollparam
             case "recyclerscrollparam", "pagerscrollparam" -> {
-                title = "Выберите параметр прокрутки";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РїР°СЂР°РјРµС‚СЂ РїСЂРѕРєСЂСѓС‚РєРё";
                 menus.addAll(Arrays.asList(uq.RECYCLER_SCROLL_STATES));
             }
             case "gridstretchmode" -> {
-                title = "Выберите режим растягивания";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј СЂР°СЃС‚СЏРіРёРІР°РЅРёСЏ";
                 menus.addAll(Arrays.asList(uq.GRID_STRETCH_MODE));
             }
             case "gravity_v" -> {
-                title = "Выберите гравитацию по вертикали";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РіСЂР°РІРёС‚Р°С†РёСЋ РїРѕ РІРµСЂС‚РёРєР°Р»Рё";
                 menus.addAll(Arrays.asList(uq.GRAVITY_VERTICAL));
             }
             case "gravity_h" -> {
-                title = "Выберите гравитацию по горизонтали";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РіСЂР°РІРёС‚Р°С†РёСЋ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё";
                 menus.addAll(Arrays.asList(uq.GRAVITY_HORIZONTAL));
             }
             case "gravity_t" -> {
-                title = "Выберите гравитацию тост";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ РіСЂР°РІРёС‚Р°С†РёСЋ С‚РѕСЃС‚";
                 menus.addAll(Arrays.asList(uq.GRAVITY_TOAST));
             }
             case "patternviewmode" -> {
-                title = "Выберите режим просмотра шаблона";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј РїСЂРѕСЃРјРѕС‚СЂР° С€Р°Р±Р»РѕРЅР°";
                 menus.addAll(Arrays.asList(uq.PATTERNVIEW_MODE));
             }
             case "styleprogress" -> {
-                title = "Выберите стиль выполнения";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЃС‚РёР»СЊ РІС‹РїРѕР»РЅРµРЅРёСЏ";
                 menus.addAll(Arrays.asList(uq.PROGRESS_STYLE));
             }
             case "cv_theme" -> {
-                title = "Выберите тему";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ С‚РµРјСѓ";
                 menus.addAll(Arrays.asList(uq.CODEVIEW_THEME));
             }
             case "cv_language" -> {
-                title = "Выберите язык";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЏР·С‹Рє";
                 menus.addAll(Arrays.asList(uq.CODEVIEW_LANGUAGE));
             }
             case "import" -> {
-                title = "Выберите язык";
+                title = "Р’С‹Р±РµСЂРёС‚Рµ СЏР·С‹Рє";
                 menus.addAll(Arrays.asList(uq.IMPORT_CLASS_PATH));
             }
             //end

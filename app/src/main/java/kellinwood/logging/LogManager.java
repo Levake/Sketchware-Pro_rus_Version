@@ -83,6 +83,6 @@ public class LogManager {
     public static void main(String[] args) {
         Logger log = getLogger(LogManager.class);
 
-        log.info("Это работает!");
+        log.info("Р­С‚Рѕ СЂР°Р±РѕС‚Р°РµС‚!");
     }
 }

@@ -129,19 +129,19 @@ public class StylesEditor extends Fragment {
     public void showAddStyleDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
         StyleEditorAddBinding binding = StyleEditorAddBinding.inflate(getLayoutInflater());
-        dialog.setTitle("Создать новый стиль");
-        dialog.setPositiveButton("Создать", (d, which) -> {
+        dialog.setTitle("РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЃС‚РёР»СЊ");
+        dialog.setPositiveButton("РЎРѕР·РґР°С‚СЊ", (d, which) -> {
             String styleName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
 
             if (styleName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное название стиля пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ СЃС‚РёР»СЏ РїСѓСЃС‚РѕРµ");
                 return;
             }
 
             if (stylesEditorManager.isStyleExist(stylesList, styleName)) {
-                SketchwareUtil.toastError("\"" + styleName + "\" уже существует");
+                SketchwareUtil.toastError("\"" + styleName + "\" СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
                 return;
             }
 
@@ -171,14 +171,14 @@ public class StylesEditor extends Fragment {
             binding.styleHeaderInput.setText(notesMap.get(position));
         }
 
-        dialog.setTitle("Редактировать стиль");
-        dialog.setPositiveButton("Редактировать", (d, which) -> {
+        dialog.setTitle("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃС‚РёР»СЊ");
+        dialog.setPositiveButton("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ", (d, which) -> {
             String styleName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
 
             if (styleName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное название стиля пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ СЃС‚РёР»СЏ РїСѓСЃС‚РѕРµ");
                 return;
             }
 
@@ -193,8 +193,8 @@ public class StylesEditor extends Fragment {
             adapter.notifyItemChanged(position);
         });
         dialog.setNeutralButton(Helper.getResString(R.string.common_word_delete), (d, which) -> new MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Предупреждение")
-                .setMessage("Вы уверены, что хотите удалить " + style.getStyleName() + "?")
+                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + style.getStyleName() + "?")
                 .setPositiveButton(R.string.common_word_yes, (d2, w) -> {
                     stylesList.remove(position);
                     notesMap.remove(position);
@@ -218,7 +218,7 @@ public class StylesEditor extends Fragment {
         dialog.setContentView(binding.getRoot());
         dialog.show();
 
-        binding.title.setText(style.getStyleName() + " атрибуты");
+        binding.title.setText(style.getStyleName() + " Р°С‚СЂРёР±СѓС‚С‹");
 
         attributesAdapter = new PropertyInputItem.AttributesAdapter();
         attributesAdapter.setOnItemClickListener(
@@ -231,15 +231,15 @@ public class StylesEditor extends Fragment {
                     @Override
                     public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                         new MaterialAlertDialogBuilder(requireContext())
-                                .setTitle("Предупреждение")
-                                .setMessage("Вы уверены, что хотите удалить " + attr + "?")
+                                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + attr + "?")
                                 .setPositiveButton(R.string.common_word_yes, (d, w) -> {
                                     attributes.remove(attr);
                                     style.setAttributes(attributes);
                                     attributesAdapter.submitList(new ArrayList<>(attributes.keySet()));
                                     hasUnsavedChanges = true;
                                 })
-                                .setNegativeButton("Отмена", null)
+                                .setNegativeButton("РћС‚РјРµРЅР°", null)
                                 .create()
                                 .show();
                     }
@@ -269,14 +269,14 @@ public class StylesEditor extends Fragment {
             binding.attrValue.setText(style.getAttribute(attr));
         }
 
-        dialog.setTitle(isEditing ? "Редактировать атрибут" : "Создать новый атрибут");
+        dialog.setTitle(isEditing ? "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р°С‚СЂРёР±СѓС‚" : "РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ Р°С‚СЂРёР±СѓС‚");
 
         dialog.setPositiveButton(Helper.getResString(R.string.common_word_save), (d, which) -> {
             String attribute = Objects.requireNonNull(binding.attrName.getText()).toString();
             String value = Objects.requireNonNull(binding.attrValue.getText()).toString();
 
             if (attribute.isEmpty() || value.isEmpty()) {
-                SketchwareUtil.toastError("Пожалуйста, заполните все поля");
+                SketchwareUtil.toastError("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ");
                 return;
             }
 

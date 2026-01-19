@@ -17,7 +17,7 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
+        throw new IllegalArgumentException("РќРµРёР·РІРµСЃС‚РЅР°СЏ РІСЃС‚СЂРѕРµРЅРЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° '" + libraryName + "'!");
     }
 
     /**
@@ -30,7 +30,7 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
+        throw new IllegalArgumentException("РќРµРёР·РІРµСЃС‚РЅР°СЏ РІСЃС‚СЂРѕРµРЅРЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° '" + libraryName + "'!");
     }
 
     /**
@@ -44,6 +44,6 @@ public class BuiltInLibraryUtils {
             }
         }
 
-        throw new IllegalArgumentException("Неизвестная встроенная библиотека '" + libraryName + "'!");
+        throw new IllegalArgumentException("РќРµРёР·РІРµСЃС‚РЅР°СЏ РІСЃС‚СЂРѕРµРЅРЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° '" + libraryName + "'!");
     }
 }

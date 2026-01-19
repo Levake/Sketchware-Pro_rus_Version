@@ -20,18 +20,18 @@ public class ApkSignatures {
         try {
             abMsg = "SHA-1: " + getSha1() + "\n\nSHA-256: " + getSha256();
         } catch (Exception e) {
-            abMsg = "Ошибка при получении подписей: " + e.getMessage();
+            abMsg = "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РїРѕРґРїРёСЃРµР№: " + e.getMessage();
         }
     }
 
     public String getSha1() {
         String sha1 = ApkUtils.getSHA1();
-        return sha1 != null ? sha1 : "Ключ SHA 1 не найден.";
+        return sha1 != null ? sha1 : "РљР»СЋС‡ SHA 1 РЅРµ РЅР°Р№РґРµРЅ.";
     }
 
     public String getSha256() {
         String sha256 = ApkUtils.getSHA256();
-        return sha256 != null ? sha256 : "Ключ SHA 256 не найден.";
+        return sha256 != null ? sha256 : "РљР»СЋС‡ SHA 256 РЅРµ РЅР°Р№РґРµРЅ.";
     }
 
     public void showSignaturesDialog() {

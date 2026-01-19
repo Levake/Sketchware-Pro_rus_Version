@@ -98,8 +98,8 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
         adapter.setOnItemClickListener(
                 item -> {
                     PopupMenu popupMenu = new PopupMenu(this, item.first);
-                    popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Редактировать");
-                    popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Удалить");
+                    popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ");
+                    popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "РЈРґР°Р»РёС‚СЊ");
                     popupMenu.setOnMenuItemClickListener(
                             itemMenu -> {
                                 int position = adapter.getCurrentList().indexOf(item.second);
@@ -157,7 +157,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                     appCompats.add("NavigationDrawer");
                 }
                 if (appCompats.isEmpty()) {
-                    setNote("Никаких вариантов не найдено.", "В настоящее время в этом упражнении не доступны параметры AppCompat.");
+                    setNote("РќРёРєР°РєРёС… РІР°СЂРёР°РЅС‚РѕРІ РЅРµ РЅР°Р№РґРµРЅРѕ.", "Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ РІ СЌС‚РѕРј СѓРїСЂР°Р¶РЅРµРЅРёРё РЅРµ РґРѕСЃС‚СѓРїРЅС‹ РїР°СЂР°РјРµС‚СЂС‹ AppCompat.");
                 } else {
                     for (int i = 0; i < appCompats.size(); i++) {
                         TabLayout.Tab tab = binding.tabLayout.newTab();
@@ -171,10 +171,10 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                 }
             } else {
                 setNote(
-                        "Функция AppCompat отключена.", "Пожалуйста, включите AppCompat в менеджере библиотек, чтобы использовать его.");
+                        "Р¤СѓРЅРєС†РёСЏ AppCompat РѕС‚РєР»СЋС‡РµРЅР°.", "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРєР»СЋС‡РёС‚Рµ AppCompat РІ РјРµРЅРµРґР¶РµСЂРµ Р±РёР±Р»РёРѕС‚РµРє, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РµРіРѕ.");
             }
         } else {
-            setNote("Не доступен.", "В данный момент вы не находитесь в макете активити.");
+            setNote("РќРµ РґРѕСЃС‚СѓРїРµРЅ.", "Р’ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІС‹ РЅРµ РЅР°С…РѕРґРёС‚РµСЃСЊ РІ РјР°РєРµС‚Рµ Р°РєС‚РёРІРёС‚Рё.");
         }
     }
 
@@ -200,7 +200,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
                 dialog.setTitle(R.string.common_word_reset);
                 dialog.setMessage(
-                        "Вы уверены, что хотите сбросить атрибуты appcompat для " + filename + "?");
+                        "Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СЃР±СЂРѕСЃРёС‚СЊ Р°С‚СЂРёР±СѓС‚С‹ appcompat РґР»СЏ " + filename + "?");
                 dialog.setPositiveButton(
                         R.string.common_word_yes,
                         (d, w) -> {
@@ -252,7 +252,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
 
     private void dialog(String type, int position) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
-        dialog.setTitle(type.equals("create") ? "Добавить новый атрибут" : "Редактировать атрибут");
+        dialog.setTitle(type.equals("create") ? "Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р°С‚СЂРёР±СѓС‚" : "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р°С‚СЂРёР±СѓС‚");
         CustomDialogAttributeBinding attributeBinding =
                 CustomDialogAttributeBinding.inflate(getLayoutInflater());
         dialog.setView(attributeBinding.getRoot());

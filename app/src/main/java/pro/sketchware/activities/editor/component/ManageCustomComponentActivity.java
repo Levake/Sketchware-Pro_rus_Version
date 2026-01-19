@@ -130,7 +130,7 @@ public class ManageCustomComponentActivity extends BaseAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, "Импорт");
+        menu.add(0, 0, 0, "Г€Г¬ГЇГ®Г°ГІ");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -176,7 +176,7 @@ public class ManageCustomComponentActivity extends BaseAppCompatActivity {
 
     private void showFilePickerDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Выбирать.файл выбора в формате json");
+        options.setTitle("Г‚Г»ГЎГЁГ°Г ГІГј.ГґГ Г©Г« ГўГ»ГЎГ®Г°Г  Гў ГґГ®Г°Г¬Г ГІГҐ json");
         options.setExtensions(new String[]{"json"});
 
         FilePickerCallback callback = new FilePickerCallback() {

@@ -90,7 +90,7 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                 try {
                     Np.g().a(sc_id, resourceBean);
                 } catch (Exception e) {
-                    Log.e("AddFontActivity", "Не удалось добавить шрифт в коллекцию", e);
+                    Log.e("AddFontActivity", "РќРµ СѓРґР°Р»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ С€СЂРёС„С‚ РІ РєРѕР»Р»РµРєС†РёСЋ", e);
                     // Well, (parts of) the bytecode's lying, yy can be thrown.
                     //noinspection ConstantConditions
                     if (e instanceof yy) {
@@ -134,7 +134,7 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                 try {
                     Typeface typeface = Typeface.createFromFile(tempFontFile);
                     if (typeface.equals(Typeface.DEFAULT)) {
-                        SketchwareUtil.toastError("Warning: Шрифт, по-видимому, недопустим");
+                        SketchwareUtil.toastError("Warning: РЁСЂРёС„С‚, РїРѕ-РІРёРґРёРјРѕРјСѓ, РЅРµРґРѕРїСѓСЃС‚РёРј");
                         return;
                     }
                     validFontPicked = true;
@@ -149,13 +149,13 @@ public class AddFontActivity extends BaseDialogActivity implements View.OnClickL
                     e.printStackTrace();
                     validFontPicked = false;
                     binding.fontPreviewView.setVisibility(View.GONE);
-                    SketchwareUtil.toast("Не удалось загрузить шрифт: " + e.getMessage());
-                    LogUtil.e("AddFontActivity", "Не удалось загрузить шрифт", e);
+                    SketchwareUtil.toast("РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ С€СЂРёС„С‚: " + e.getMessage());
+                    LogUtil.e("AddFontActivity", "РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ С€СЂРёС„С‚", e);
                 }
             }, e -> {
-                SketchwareUtil.toastError("Ошибка при загрузке шрифта: " + e.getMessage());
+                SketchwareUtil.toastError("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С€СЂРёС„С‚Р°: " + e.getMessage());
                 e.printStackTrace();
-                LogUtil.e("AddFontActivity", "Не удалось загрузить шрифт", e);
+                LogUtil.e("AddFontActivity", "РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ С€СЂРёС„С‚", e);
             });
         }
     }

@@ -152,8 +152,8 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
                     firebaseLibraryBean.useYn = "Y";
                 }
             } else {
-                SketchwareUtil.toast("Сначала настройте параметры Firebase, либо импортировав файл google-services.json, " +
-                        "или путем ручного ввода сведений о проекте.", Toast.LENGTH_LONG);
+                SketchwareUtil.toast("РЎРЅР°С‡Р°Р»Р° РЅР°СЃС‚СЂРѕР№С‚Рµ РїР°СЂР°РјРµС‚СЂС‹ Firebase, Р»РёР±Рѕ РёРјРїРѕСЂС‚РёСЂРѕРІР°РІ С„Р°Р№Р» google-services.json, " +
+                        "РёР»Рё РїСѓС‚РµРј СЂСѓС‡РЅРѕРіРѕ РІРІРѕРґР° СЃРІРµРґРµРЅРёР№ Рѕ РїСЂРѕРµРєС‚Рµ.", Toast.LENGTH_LONG);
             }
         }
     }
@@ -201,8 +201,8 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Помощь").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_help)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Конфигурация").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_settings)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "РџРѕРјРѕС‰СЊ").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_help)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(Menu.NONE, Menu.NONE, Menu.NONE, "РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ").setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_mtrl_settings)).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -272,7 +272,7 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
     private void showImportJsonDialog() {
         FilePickerOptions options = new FilePickerOptions();
         options.setExtensions(new String[]{"json"});
-        options.setTitle("Выберите свой google-services.json");
+        options.setTitle("Р’С‹Р±РµСЂРёС‚Рµ СЃРІРѕР№ google-services.json");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -305,33 +305,33 @@ public class ManageFirebaseActivity extends BaseAppCompatActivity implements Vie
 
         StringBuilder notFoundLog = new StringBuilder();
         boolean hasNullConfig = false;
-        notFoundLog.append("В сервисах Google выбранный вами файл json не содержит следующих конфигураций:\n");
+        notFoundLog.append("Р’ СЃРµСЂРІРёСЃР°С… Google РІС‹Р±СЂР°РЅРЅС‹Р№ РІР°РјРё С„Р°Р№Р» json РЅРµ СЃРѕРґРµСЂР¶РёС‚ СЃР»РµРґСѓСЋС‰РёС… РєРѕРЅС„РёРіСѓСЂР°С†РёР№:\n");
 
         if (storageBucketMatcher.find()) {
             configureImportFirebaseConfigFromJson(storage_bucket, storageBucketMatcher.group(1));
         } else {
-            notFoundLog.append("Корзина для хранения, ");
+            notFoundLog.append("РљРѕСЂР·РёРЅР° РґР»СЏ С…СЂР°РЅРµРЅРёСЏ, ");
             configureImportFirebaseConfigFromJson(storage_bucket, "");
             hasNullConfig = true;
         }
         if (appIdMatcher.find()) {
             configureImportFirebaseConfigFromJson(app_id, appIdMatcher.group(1));
         } else {
-            notFoundLog.append("ID приложения, ");
+            notFoundLog.append("ID РїСЂРёР»РѕР¶РµРЅРёСЏ, ");
             configureImportFirebaseConfigFromJson(app_id, "");
             hasNullConfig = true;
         }
         if (apiKeyMatcher.find()) {
             configureImportFirebaseConfigFromJson(api_key, apiKeyMatcher.group(1));
         } else {
-            notFoundLog.append("API ключ, ");
+            notFoundLog.append("API РєР»СЋС‡, ");
             configureImportFirebaseConfigFromJson(api_key, "");
             hasNullConfig = true;
         }
         if (rtdbMatcher.find()) {
             configureImportFirebaseConfigFromJson(realtime_db, rtdbMatcher.group(1).replace("https://", ""));
         } else {
-            notFoundLog.append("База данных в реальном времени, ");
+            notFoundLog.append("Р‘Р°Р·Р° РґР°РЅРЅС‹С… РІ СЂРµР°Р»СЊРЅРѕРј РІСЂРµРјРµРЅРё, ");
             configureImportFirebaseConfigFromJson(realtime_db, "");
             hasNullConfig = true;
 

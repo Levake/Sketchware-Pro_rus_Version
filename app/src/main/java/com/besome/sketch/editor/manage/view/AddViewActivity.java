@@ -192,7 +192,7 @@ public class AddViewActivity extends BaseAppCompatActivity {
         binding = ManageScreenActivityAddTempBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.toolbar.setTitle("Создать новый");
+        binding.toolbar.setTitle("РЎРѕР·РґР°РІР°С‚СЊ РЅРѕРІРѕРµ");
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
         Intent intent1 = getIntent();
@@ -200,7 +200,7 @@ public class AddViewActivity extends BaseAppCompatActivity {
         requestCode = intent1.getIntExtra("request_code", REQUEST_CODE_ADD);
         projectFileBean = intent1.getParcelableExtra("project_file");
         if (projectFileBean != null) {
-            binding.toolbar.setTitle("Редактировать " + projectFileBean.fileName);
+            binding.toolbar.setTitle("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ " + projectFileBean.fileName);
         }
 
         featuresAdapter = new FeaturesAdapter();

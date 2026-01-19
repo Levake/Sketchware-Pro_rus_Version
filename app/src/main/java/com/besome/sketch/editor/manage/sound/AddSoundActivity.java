@@ -250,8 +250,8 @@ public class AddSoundActivity extends BaseDialogActivity implements View.OnClick
                             finish();
                         }
                     }, e -> {
-                        SketchwareUtil.toastError("Ошибка при загрузке звука: " + e.getMessage());
-                        LogUtil.e("AddSoundActivity", "Не удалось загрузить звук", e);
+                        SketchwareUtil.toastError("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ Р·РІСѓРєР°: " + e.getMessage());
+                        LogUtil.e("AddSoundActivity", "РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ Р·РІСѓРє", e);
                     });
         }
     }
@@ -376,7 +376,7 @@ public class AddSoundActivity extends BaseDialogActivity implements View.OnClick
         Optional<String> displayName = SketchwareUtil.getSafDocumentDisplayName(input);
 
         //noinspection SimplifyOptionalCallChains
-        if (!displayName.isPresent()) return "Неизвестное имя файла";
+        if (!displayName.isPresent()) return "РќРµРёР·РІРµСЃС‚РЅРѕРµ РёРјСЏ С„Р°Р№Р»Р°";
         String name = displayName.get();
 
         if (name.contains(".")) {

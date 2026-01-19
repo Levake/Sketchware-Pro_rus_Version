@@ -154,11 +154,11 @@ public class EventsManagerCreatorFragment extends qA {
 
     private void save() {
         if (!filledIn()) {
-            SketchwareUtil.toast("Некоторые обязательные для заполнения поля пусты!");
+            SketchwareUtil.toast("РќРµРєРѕС‚РѕСЂС‹Рµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РїРѕР»СЏ РїСѓСЃС‚С‹!");
             return;
         }
         if (!OldResourceIdMapper.isValidIconId(Helper.getText(binding.eventsCreatorIcon))) {
-            binding.eventsCreatorIconTil.setError("Неверный ID значка");
+            binding.eventsCreatorIconTil.setError("РќРµРІРµСЂРЅС‹Р№ ID Р·РЅР°С‡РєР°");
             binding.eventsCreatorIcon.requestFocus();
             return;
         }
@@ -210,12 +210,12 @@ public class EventsManagerCreatorFragment extends qA {
         configureToolbar(binding.toolbar);
 
         if (isEdit) {
-            binding.toolbar.setTitle("Свойства события");
+            binding.toolbar.setTitle("РЎРІРѕР№СЃС‚РІР° СЃРѕР±С‹С‚РёСЏ");
             binding.toolbar.setSubtitle(event_name);
         } else if (isActivityEvent) {
-            binding.toolbar.setTitle("Новое событие активити");
+            binding.toolbar.setTitle("РќРѕРІРѕРµ СЃРѕР±С‹С‚РёРµ Р°РєС‚РёРІРёС‚Рё");
         } else {
-            binding.toolbar.setTitle("Новое событие");
+            binding.toolbar.setTitle("РќРѕРІРѕРµ СЃРѕР±С‹С‚РёРµ");
             binding.toolbar.setSubtitle(lisName);
         }
     }

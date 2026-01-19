@@ -13,7 +13,7 @@ public class StringSignature implements Key {
 
     public StringSignature(String key) {
         if (key == null) {
-            throw new NullPointerException("Подпись не может быть нулевой!");
+            throw new NullPointerException("РџРѕРґРїРёСЃСЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅСѓР»РµРІРѕР№!");
         }
         signature = key;
     }

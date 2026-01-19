@@ -91,7 +91,7 @@ public class KeyStoreFileManager {
                 fis.close();
                 return ks;
             } catch (Exception e) {
-                throw new RuntimeException("Не удалось загрузить хранилище ключей: " + e.getMessage(), e);
+                throw new RuntimeException("РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ С…СЂР°РЅРёР»РёС‰Рµ РєР»СЋС‡РµР№: " + e.getMessage(), e);
             }
         }
     }
@@ -152,7 +152,7 @@ public class KeyStoreFileManager {
 
     static void copyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
         if (destFile.exists() && destFile.isDirectory()) {
-            throw new IOException("Описание '" + destFile + "' существует, но является каталогом");
+            throw new IOException("РћРїРёСЃР°РЅРёРµ '" + destFile + "' СЃСѓС‰РµСЃС‚РІСѓРµС‚, РЅРѕ СЏРІР»СЏРµС‚СЃСЏ РєР°С‚Р°Р»РѕРіРѕРј");
         }
 
         FileInputStream input = new FileInputStream(srcFile);
@@ -174,8 +174,8 @@ public class KeyStoreFileManager {
         }
 
         if (srcFile.length() != destFile.length()) {
-            throw new IOException("Не удалось скопировать полное содержимое из '" +
-                srcFile + "' к '" + destFile + "'");
+            throw new IOException("РќРµ СѓРґР°Р»РѕСЃСЊ СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РїРѕР»РЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РёР· '" +
+                srcFile + "' Рє '" + destFile + "'");
         }
         if (preserveFileDate) {
             destFile.setLastModified(srcFile.lastModified());
@@ -187,7 +187,7 @@ public class KeyStoreFileManager {
         throws IOException
     {
         copyFile(fromFile, toFile, true);
-        if (!fromFile.delete()) throw new IOException("Не удалось удалить " + fromFile);
+        if (!fromFile.delete()) throw new IOException("РќРµ СѓРґР°Р»РѕСЃСЊ СѓРґР°Р»РёС‚СЊ " + fromFile);
     }
 
     public static void deleteKey(String storePath, String storePass, String keyName)

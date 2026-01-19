@@ -360,7 +360,7 @@ public class AddImageActivity extends BaseDialogActivity implements View.OnClick
         public void b() throws By {
             var activity = this.activity.get();
             try {
-                publishProgress("Сейчас обрабатываю..");
+                publishProgress("РЎРµР№С‡Р°СЃ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋ..");
                 if (!activity.multipleImagesPicked) {
                     if (!activity.editing) {
                         var image = new ProjectResourceBean(ProjectResourceBean.PROJECT_RES_TYPE_FILE,

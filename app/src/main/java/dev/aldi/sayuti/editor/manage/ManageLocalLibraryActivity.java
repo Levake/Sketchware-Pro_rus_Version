@@ -173,7 +173,7 @@ public class ManageLocalLibraryActivity extends BaseAppCompatActivity {
                     deleteSelectedLocalLibraries(scId, adapter.getLocalLibraries(), projectUsedLibs);
                     runOnUiThread(() -> {
                         h();
-                        SketchwareUtil.toast("Óñïåøíî óäàëåí");
+                        SketchwareUtil.toast("Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½");
                         adapter.isSelectionModeEnabled = false;
                         adapter.notifyDataSetChanged();
                         collapseContextualToolbar();
@@ -407,8 +407,8 @@ public class ManageLocalLibraryActivity extends BaseAppCompatActivity {
             }
             if (library.isSelected() && isUsedLibrary(library.getName())) {
                 new MaterialAlertDialogBuilder(ManageLocalLibraryActivity.this)
-                        .setTitle("Ïðåäóïðåæäåíèå")
-                        .setMessage("Ýòà áèáëèîòåêà \"" + library.getName() + "\" îí óæå èñïîëüçóåòñÿ â âàøåì ïðîåêòå, åãî óäàëåíèå ìîæåò ïðèâåñòè ê ïîëîìêå âàøåãî ïðîåêòà.\rÕîòèòå ëè âû ïðîäîëæèòü åãî óäàëåíèå?")
+                        .setTitle("ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ")
+                        .setMessage("Ð­Ñ‚Ð° Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° \"" + library.getName() + "\" Ð¾Ð½ ÑƒÐ¶Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð² Ð²Ð°ÑˆÐµÐ¼ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ðµ, ÐµÐ³Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¸Ð²ÐµÑÑ‚Ð¸ Ðº Ð¿Ð¾Ð»Ð¾Ð¼ÐºÐµ Ð²Ð°ÑˆÐµÐ³Ð¾ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°.\rÐ¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð»Ð¸ Ð²Ñ‹ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ ÐµÐ³Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ?")
                         .setPositiveButton(Helper.getResString(R.string.common_word_yes), (dialog, which) -> dialog.dismiss())
                         .setNegativeButton(Helper.getResString(R.string.common_word_cancel), (dialog, which) -> {
                             toggleLocalLibrary(card, library, onLocalLibrarySelectedStateChangedListener);

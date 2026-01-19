@@ -73,11 +73,11 @@ public class CommitAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             int activeBackgroundColor;
             int activeBackgroundTextColor;
             if (isCoreTeamMember(commitDetails.getCommitterName())) {
-                itemHolder.binding.tvStatus.setText("Основная команда");
+                itemHolder.binding.tvStatus.setText("РћСЃРЅРѕРІРЅР°СЏ РєРѕРјР°РЅРґР°");
                 activeBackgroundColor = MaterialColors.getColor(itemHolder.binding.tvStatus, R.attr.colorCoolGreenContainer);
                 activeBackgroundTextColor = MaterialColors.getColor(itemHolder.binding.tvStatus, R.attr.colorOnCoolGreenContainer);
             } else {
-                itemHolder.binding.tvStatus.setText("Участник");
+                itemHolder.binding.tvStatus.setText("РЈС‡Р°СЃС‚РЅРёРє");
                 activeBackgroundColor = MaterialColors.getColor(itemHolder.binding.tvStatus, R.attr.colorAmberContainer);
                 activeBackgroundTextColor = MaterialColors.getColor(itemHolder.binding.tvStatus, R.attr.colorOnAmberContainer);
             }
@@ -85,17 +85,17 @@ public class CommitAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             itemHolder.binding.tvStatus.setTextColor(activeBackgroundTextColor);
 
             if (shaPosition > position || shaPosition == -1) {
-                itemHolder.binding.updateStatus.setText("Новое обновление");
+                itemHolder.binding.updateStatus.setText("РќРѕРІРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ");
                 activeBackgroundColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorCoolGreenContainer);
                 activeBackgroundTextColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorOnCoolGreenContainer);
                 advancedCorners(itemHolder.binding.viewLeftline, MaterialColors.getColor(itemHolder.binding.viewLeftline, R.attr.colorGreen));
             } else if (shaPosition < position) {
-                itemHolder.binding.updateStatus.setText("Старая версия");
+                itemHolder.binding.updateStatus.setText("РЎС‚Р°СЂР°СЏ РІРµСЂСЃРёСЏ");
                 activeBackgroundColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorVioletContainer);
                 activeBackgroundTextColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorViolet);
                 advancedCorners(itemHolder.binding.viewLeftline, MaterialColors.getColor(itemHolder.binding.viewLeftline, R.attr.colorViolet));
             } else {
-                itemHolder.binding.updateStatus.setText("Текущая версия");
+                itemHolder.binding.updateStatus.setText("РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ");
                 activeBackgroundColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorAmberContainer);
                 activeBackgroundTextColor = MaterialColors.getColor(itemHolder.binding.updateStatus, R.attr.colorOnAmberContainer);
                 advancedCorners(itemHolder.binding.viewLeftline, MaterialColors.getColor(itemHolder.binding.viewLeftline, R.attr.colorAmber));

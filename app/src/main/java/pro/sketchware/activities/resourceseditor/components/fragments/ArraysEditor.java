@@ -128,12 +128,12 @@ public class ArraysEditor extends Fragment {
     public void showAddArrayDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
         ArraysEditorAddBinding binding = ArraysEditorAddBinding.inflate(getLayoutInflater());
-        dialog.setTitle("Создать новый массив");
+        dialog.setTitle("РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ");
 
         binding.arrayType.setOnClickListener(view -> {
             String[] arrayTypes = {"STRING", "INTEGER", "OBJECT"};
             new MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("Выберите тип массива")
+                    .setTitle("Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РјР°СЃСЃРёРІР°")
                     .setSingleChoiceItems(arrayTypes, -1, (dialogInterface, which) -> {
                         binding.arrayType.setText(arrayTypes[which]);
                         dialogInterface.dismiss();
@@ -141,18 +141,18 @@ public class ArraysEditor extends Fragment {
                     .show();
         });
 
-        dialog.setPositiveButton("Создпть", (d, which) -> {
+        dialog.setPositiveButton("РЎРѕР·РґРїС‚СЊ", (d, which) -> {
             String arrayName = Objects.requireNonNull(binding.arrayName.getText()).toString();
             String arrayTypeString = Objects.requireNonNull(binding.arrayType.getText()).toString();
             String header = Objects.requireNonNull(binding.arrayHeaderInput.getText()).toString();
 
             if (arrayName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное имя массива пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РёРјСЏ РјР°СЃСЃРёРІР° РїСѓСЃС‚РѕРµ");
                 return;
             }
 
             if (arrayTypeString.isEmpty()) {
-                SketchwareUtil.toastError("Тип массива не выбран");
+                SketchwareUtil.toastError("РўРёРї РјР°СЃСЃРёРІР° РЅРµ РІС‹Р±СЂР°РЅ");
                 return;
             }
 
@@ -187,7 +187,7 @@ public class ArraysEditor extends Fragment {
         binding.arrayType.setOnClickListener(view -> {
             String[] arrayTypes = {"STRING", "INTEGER", "OBJECT"};
             new MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("Выберите тип массива")
+                    .setTitle("Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РјР°СЃСЃРёРІР°")
                     .setSingleChoiceItems(arrayTypes, -1, (dialogInterface, which) -> {
                         binding.arrayType.setText(arrayTypes[which]);
                         dialogInterface.dismiss();
@@ -195,14 +195,14 @@ public class ArraysEditor extends Fragment {
                     .show();
         });
 
-        dialog.setTitle("Редактировать массив");
-        dialog.setPositiveButton("Редактировать", (d, which) -> {
+        dialog.setTitle("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ");
+        dialog.setPositiveButton("Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ", (d, which) -> {
             String arrayName = Objects.requireNonNull(binding.arrayName.getText()).toString();
             String arrayType = Objects.requireNonNull(binding.arrayType.getText()).toString();
             String header = Objects.requireNonNull(binding.arrayHeaderInput.getText()).toString();
 
             if (arrayName.isEmpty()) {
-                SketchwareUtil.toastError("Введенное имя массива пустое");
+                SketchwareUtil.toastError("Р’РІРµРґРµРЅРЅРѕРµ РёРјСЏ РјР°СЃСЃРёРІР° РїСѓСЃС‚РѕРµ");
                 return;
             }
 
@@ -217,8 +217,8 @@ public class ArraysEditor extends Fragment {
             hasUnsavedChanges = true;
         });
         dialog.setNeutralButton(Helper.getResString(R.string.common_word_delete), (d, which) -> new MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Предупреждение")
-                .setMessage("Вы уверены, что хотите удалить " + array.getArrayName() + "?")
+                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + array.getArrayName() + "?")
                 .setPositiveButton(R.string.common_word_yes, (d2, w) -> {
                     arraysList.remove(position);
                     notesMap.remove(position);
@@ -227,7 +227,7 @@ public class ArraysEditor extends Fragment {
                     updateNoContentLayout();
                     hasUnsavedChanges = true;
                 })
-                .setNegativeButton("Отмена", null)
+                .setNegativeButton("РћС‚РјРµРЅР°", null)
                 .show());
         dialog.setNegativeButton(getString(R.string.cancel), null);
         dialog.setView(binding.getRoot());
@@ -254,15 +254,15 @@ public class ArraysEditor extends Fragment {
                     @Override
                     public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                         new MaterialAlertDialogBuilder(requireContext())
-                                .setTitle("Предупреждение")
-                                .setMessage("Вы уверены, что хотите удалить " + attr + "?")
+                                .setTitle("РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ")
+                                .setMessage("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ " + attr + "?")
                                 .setPositiveButton(R.string.common_word_yes, (d, w) -> {
                                     attributes.remove(attr);
                                     array.setAttributes(attributes);
                                     attributesAdapter.submitList(new ArrayList<>(attributes.keySet()));
                                     hasUnsavedChanges = true;
                                 })
-                                .setNegativeButton("Отмена", null)
+                                .setNegativeButton("РћС‚РјРµРЅР°", null)
                                 .create()
                                 .show();
                     }
@@ -301,14 +301,14 @@ public class ArraysEditor extends Fragment {
             binding.itemValue.requestFocus();
         }
 
-        dialog.setTitle(isEditing ? "Редактировать элемент" : "Создать новый элемент");
+        dialog.setTitle(isEditing ? "Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚" : "РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚");
 
         dialog.setPositiveButton(Helper.getResString(R.string.common_word_save), (d, which) -> {
             String attribute = Objects.requireNonNull(binding.itemName.getText()).toString();
             String value = Objects.requireNonNull(binding.itemValue.getText()).toString();
 
             if (attribute.isEmpty() || value.isEmpty()) {
-                SketchwareUtil.toastError("Пожалуйста, заполните все поля");
+                SketchwareUtil.toastError("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ");
                 return;
             }
 

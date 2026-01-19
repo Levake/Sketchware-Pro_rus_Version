@@ -301,7 +301,7 @@ public class AddImageCollectionActivity extends BaseDialogActivity implements Vi
         public void b() throws By {
             var activity = this.activity.get();
             try {
-                publishProgress("Сейчас обрабатываю..");
+                publishProgress("РЎРµР№С‡Р°СЃ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋ..");
                 if (!activity.editing) {
                     var image = new ProjectResourceBean(ProjectResourceBean.PROJECT_RES_TYPE_FILE,
                             Helper.getText(activity.ed_input_edittext).trim(), activity.imageFilePath);

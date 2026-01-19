@@ -203,7 +203,7 @@ public class ResourcesEditorActivity extends BaseAppCompatActivity {
         builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(Helper.getResString(R.string.resources_manager_xml_load_failed_title))
                 .setMessage(String.format(Helper.getResString(R.string.resources_manager_xml_load_failed_message), title))
-                .setPositiveButton("Открытый редактор кода", (dialog, which) -> goToCodeEditor(title, contentPath))
+                .setPositiveButton("РћС‚РєСЂС‹С‚С‹Р№ СЂРµРґР°РєС‚РѕСЂ РєРѕРґР°", (dialog, which) -> goToCodeEditor(title, contentPath))
                 .setNegativeButton(Helper.getResString(R.string.common_word_exit), (dialogInterface, i) -> finish())
                 .setCancelable(false)
                 .create()
@@ -398,7 +398,7 @@ public class ResourcesEditorActivity extends BaseAppCompatActivity {
         themesEditor.saveThemesFile();
         arraysEditor.saveArraysFile();
         updateProjectMetadata();
-        SketchwareUtil.toast("Сохранение завершено");
+        SketchwareUtil.toast("РЎРѕС…СЂР°РЅРµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ");
     }
 
     private void updateProjectMetadata() {
@@ -547,7 +547,7 @@ public class ResourcesEditorActivity extends BaseAppCompatActivity {
             if (newVariant.startsWith(variantFullNameStarts)) {
                 initializeBackgroundTask(newVariant.replace("values", ""));
             } else {
-                SketchwareUtil.toastError("Неверный ввод варианта");
+                SketchwareUtil.toastError("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ РІР°СЂРёР°РЅС‚Р°");
             }
         } else {
             initializeBackgroundTask(variants.get(selectedChoice.get()).replace("values", ""));

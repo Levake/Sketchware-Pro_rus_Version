@@ -36,7 +36,7 @@ public class LogicEditorScrollView extends FrameLayout {
     @Override
     public void addView(View child) {
         if (getChildCount() > 1) {
-            throw new IllegalStateException("BothDirectionScrollView должен быть только один дочерний вид");
+            throw new IllegalStateException("BothDirectionScrollView РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ РґРѕС‡РµСЂРЅРёР№ РІРёРґ");
         }
         super.addView(child);
     }

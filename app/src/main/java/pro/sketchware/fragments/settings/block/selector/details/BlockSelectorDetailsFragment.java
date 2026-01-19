@@ -122,14 +122,14 @@ public class BlockSelectorDetailsFragment extends qA {
 
     private void showCreateEditDialog(boolean isEdit, int indexA) {
         DialogAddCustomActivityBinding dialogBinding = DialogAddCustomActivityBinding.inflate(LayoutInflater.from(requireContext()));
-        dialogBinding.activityNameInputLayout.setHint("Èìÿ");
+        dialogBinding.activityNameInputLayout.setHint("ÃˆÃ¬Ã¿");
         if (isEdit) {
             dialogBinding.activityNameInput.setText(selectors.get(index).getData().get(indexA));
         }
 
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle("Íîâûé ýëåìåíò âûáîðà");
-        dialog.setPositiveButton("Ñîçäàòü", (v, which) -> {
+        dialog.setTitle("ÃÃ®Ã¢Ã»Ã© Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² Ã¢Ã»Ã¡Ã®Ã°Ã ");
+        dialog.setPositiveButton("Ã‘Ã®Ã§Ã¤Ã Ã²Ã¼", (v, which) -> {
             String newItem = Helper.getText(dialogBinding.activityNameInput);
             if (newItem != null && !newItem.isEmpty()) {
                 if (!isEdit) {
@@ -151,7 +151,7 @@ public class BlockSelectorDetailsFragment extends qA {
         DialogSelectorActionsBinding dialogBinding = DialogSelectorActionsBinding.inflate(LayoutInflater.from(requireContext()));
 
         AlertDialog dialog = new MaterialAlertDialogBuilder(requireActivity()).create();
-        dialog.setTitle("Äåéñòâèÿ");
+        dialog.setTitle("Ã„Ã¥Ã©Ã±Ã²Ã¢Ã¨Ã¿");
         dialog.setView(dialogBinding.getRoot());
 
         dialogBinding.edit.setOnClickListener(v -> {
@@ -164,7 +164,7 @@ public class BlockSelectorDetailsFragment extends qA {
         dialogBinding.delete.setOnClickListener(v -> {
             dialog.dismiss();
             showConfirmationDialog(
-                    "Âû óâåðåíû, ÷òî õîòèòå óäàëèòü ýòîò ýëåìåíò âûáîðà?",
+                    "Ã‚Ã» Ã³Ã¢Ã¥Ã°Ã¥Ã­Ã», Ã·Ã²Ã® ÃµÃ®Ã²Ã¨Ã²Ã¥ Ã³Ã¤Ã Ã«Ã¨Ã²Ã¼ Ã½Ã²Ã®Ã² Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² Ã¢Ã»Ã¡Ã®Ã°Ã ?",
                     confirmDialog -> {
                         selectors.get(index).getData().remove(indexA);
                         saveAll();

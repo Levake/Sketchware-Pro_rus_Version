@@ -69,19 +69,19 @@ public class LibraryDownloaderDialogFragment extends BottomSheetDialogFragment {
     private void initDownloadFlow() {
         dependencyName = Helper.getText(binding.dependencyInput);
         if (dependencyName == null || dependencyName.isEmpty()) {
-            binding.dependencyInputLayout.setError("Пожалуйста, укажите зависимость");
+            binding.dependencyInputLayout.setError("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ");
             binding.dependencyInputLayout.setErrorEnabled(true);
             return;
         }
 
         var parts = dependencyName.split(":");
         if (parts.length != 3) {
-            binding.dependencyInputLayout.setError("Недопустимый формат зависимостей");
+            binding.dependencyInputLayout.setError("РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С„РѕСЂРјР°С‚ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№");
             binding.dependencyInputLayout.setErrorEnabled(true);
             return;
         }
 
-        binding.dependencyInfo.setText("В поисках зависимости...");
+        binding.dependencyInfo.setText("Р’ РїРѕРёСЃРєР°С… Р·Р°РІРёСЃРёРјРѕСЃС‚Рё...");
         binding.dependencyInputLayout.setErrorEnabled(false);
         setDownloadState(true);
 
@@ -111,89 +111,89 @@ public class LibraryDownloaderDialogFragment extends BottomSheetDialogFragment {
             resolver.resolveDependency(new DependencyResolver.DependencyResolverCallback() {
                 @Override
                 public void onResolving(@NonNull Artifact artifact, @NonNull Artifact dependency) {
-                    handler.post(new SetTextRunnable("Решения " + dependency + " для " + artifact + "..."));
+                    handler.post(new SetTextRunnable("Р РµС€РµРЅРёСЏ " + dependency + " РґР»СЏ " + artifact + "..."));
                 }
 
                 @Override
                 public void onResolutionComplete(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Зависимость " + dep + " решенный"));
+                    handler.post(new SetTextRunnable("Р—Р°РІРёСЃРёРјРѕСЃС‚СЊ " + dep + " СЂРµС€РµРЅРЅС‹Р№"));
                 }
 
                 @Override
                 public void onArtifactNotFound(@NonNull Artifact dep) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Зависимость '" + dep + "' не найдено");
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Р—Р°РІРёСЃРёРјРѕСЃС‚СЊ '" + dep + "' РЅРµ РЅР°Р№РґРµРЅРѕ");
                     });
                 }
 
                 @Override
                 public void onSkippingResolution(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Пропуск разрешения для " + dep));
+                    handler.post(new SetTextRunnable("РџСЂРѕРїСѓСЃРє СЂР°Р·СЂРµС€РµРЅРёСЏ РґР»СЏ " + dep));
                 }
 
                 @Override
                 public void onVersionNotFound(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Версия, недоступная для " + dep));
+                    handler.post(new SetTextRunnable("Р’РµСЂСЃРёСЏ, РЅРµРґРѕСЃС‚СѓРїРЅР°СЏ РґР»СЏ " + dep));
                 }
 
                 @Override
                 public void onDependenciesNotFound(@NonNull Artifact dep) {
-                    handler.post(() -> new SetTextRunnable("Зависимости, не найденные для \"" + dep + "\"").run());
+                    handler.post(() -> new SetTextRunnable("Р—Р°РІРёСЃРёРјРѕСЃС‚Рё, РЅРµ РЅР°Р№РґРµРЅРЅС‹Рµ РґР»СЏ \"" + dep + "\"").run());
                 }
 
                 @Override
                 public void onInvalidScope(@NonNull Artifact dep, @NonNull String scope) {
-                    handler.post(new SetTextRunnable("Недопустимая область применения для " + dep + ": " + scope));
+                    handler.post(new SetTextRunnable("РќРµРґРѕРїСѓСЃС‚РёРјР°СЏ РѕР±Р»Р°СЃС‚СЊ РїСЂРёРјРµРЅРµРЅРёСЏ РґР»СЏ " + dep + ": " + scope));
                 }
 
                 @Override
                 public void invalidPackaging(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Недопустимая упаковка для зависимостей " + dep));
+                    handler.post(new SetTextRunnable("РќРµРґРѕРїСѓСЃС‚РёРјР°СЏ СѓРїР°РєРѕРІРєР° РґР»СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№ " + dep));
                 }
 
                 @Override
                 public void onDownloadStart(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Зависимость от загрузки " + dep + "..."));
+                    handler.post(new SetTextRunnable("Р—Р°РІРёСЃРёРјРѕСЃС‚СЊ РѕС‚ Р·Р°РіСЂСѓР·РєРё " + dep + "..."));
                 }
 
                 @Override
                 public void onDownloadEnd(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Зависимость " + dep + " загруженный"));
+                    handler.post(new SetTextRunnable("Р—Р°РІРёСЃРёРјРѕСЃС‚СЊ " + dep + " Р·Р°РіСЂСѓР¶РµРЅРЅС‹Р№"));
                 }
 
                 @Override
                 public void onDownloadError(@NonNull Artifact dep, @NonNull Throwable e) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Зависимость от загрузки '" + dep + "' неудачно: " + Log.getStackTraceString(e));
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Р—Р°РІРёСЃРёРјРѕСЃС‚СЊ РѕС‚ Р·Р°РіСЂСѓР·РєРё '" + dep + "' РЅРµСѓРґР°С‡РЅРѕ: " + Log.getStackTraceString(e));
                     });
                 }
 
                 @Override
                 public void unzipping(@NonNull Artifact artifact) {
-                    handler.post(new SetTextRunnable("Распаковка зависимости " + artifact));
+                    handler.post(new SetTextRunnable("Р Р°СЃРїР°РєРѕРІРєР° Р·Р°РІРёСЃРёРјРѕСЃС‚Рё " + artifact));
                 }
 
                 @Override
                 public void dexing(@NonNull Artifact dep) {
-                    handler.post(new SetTextRunnable("Ослабляющая зависимость " + dep));
+                    handler.post(new SetTextRunnable("РћСЃР»Р°Р±Р»СЏСЋС‰Р°СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ " + dep));
                 }
 
                 @Override
                 public void dexingFailed(@NonNull Artifact dependency, @NonNull Exception e) {
                     handler.post(() -> {
                         setDownloadState(false);
-                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "Ослабляющая зависимость '" + dependency + "' неудачно: " + Log.getStackTraceString(e));
+                        SketchwareUtil.showAnErrorOccurredDialog(getActivity(), "РћСЃР»Р°Р±Р»СЏСЋС‰Р°СЏ Р·Р°РІРёСЃРёРјРѕСЃС‚СЊ '" + dependency + "' РЅРµСѓРґР°С‡РЅРѕ: " + Log.getStackTraceString(e));
                     });
                 }
 
                 @Override
                 public void onTaskCompleted(@NonNull List<String> dependencies) {
                     handler.post(() -> {
-                        SketchwareUtil.toast("Библиотека успешно загружена");
+                        SketchwareUtil.toast("Р‘РёР±Р»РёРѕС‚РµРєР° СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅР°");
                         if (!notAssociatedWithProject) {
-                            new SetTextRunnable("Добавление зависимостей в проект...").run();
+                            new SetTextRunnable("Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№ РІ РїСЂРѕРµРєС‚...").run();
                             var fileContent = FileUtil.readFile(localLibFile);
                             var enabledLibs = gson.fromJson(fileContent, Helper.TYPE_MAP_LIST);
                             enabledLibs.addAll(dependencies.stream()

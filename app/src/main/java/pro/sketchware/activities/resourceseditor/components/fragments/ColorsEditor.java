@@ -181,7 +181,7 @@ public class ColorsEditor extends Fragment {
             public void afterTextChanged(Editable s) {
                 String value = s.toString();
                 if (value.startsWith("#") && !PropertiesUtil.isHexColor(value)) {
-                    dialogBinding.colorValueInputLayout.setError("Íåäîïóñòèìûé øåñòíàäöàòåðè÷íûé öâåò");
+                    dialogBinding.colorValueInputLayout.setError("ÐÐµÐ´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ð¹ ÑˆÐµÑÑ‚Ð½Ð°Ð´Ñ†Ð°Ñ‚ÐµÑ€Ð¸Ñ‡Ð½Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚");
                     return;
                 }
                 dialogBinding.colorValueInput.setError(null);
@@ -205,18 +205,18 @@ public class ColorsEditor extends Fragment {
             }
         });
 
-        dialog.setPositiveButton("Ñîõðàíèòü", (v1, which) -> {
+        dialog.setPositiveButton("Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ", (v1, which) -> {
             String key = Objects.requireNonNull(dialogBinding.colorKeyInput.getText()).toString();
             String value = Objects.requireNonNull(dialogBinding.colorValueInput.getText()).toString();
 
             if (key.isEmpty() || value.isEmpty()) {
-                SketchwareUtil.toastError("Ïîæàëóéñòà, çàïîëíèòå âñå ïîëÿ", Toast.LENGTH_SHORT);
+                SketchwareUtil.toastError("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚Ðµ Ð²ÑÐµ Ð¿Ð¾Ð»Ñ", Toast.LENGTH_SHORT);
                 return;
             }
 
             if (value.startsWith("#")) {
                 if (!PropertiesUtil.isHexColor(value)) {
-                    SketchwareUtil.toastError("Ïîæàëóéñòà, ââåäèòå äîïóñòèìûé øåñòíàäöàòåðè÷íûé öâåò");
+                    SketchwareUtil.toastError("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ð¹ ÑˆÐµÑÑ‚Ð½Ð°Ð´Ñ†Ð°Ñ‚ÐµÑ€Ð¸Ñ‡Ð½Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚");
                     return;
                 }
             }
@@ -259,7 +259,7 @@ public class ColorsEditor extends Fragment {
         });
 
         if (colorModel != null && !defaultColors.containsKey(colorModel.getColorName())) {
-            dialog.setNeutralButton("Óäàëèòü", (v1, which) -> {
+            dialog.setNeutralButton("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ", (v1, which) -> {
                 colorList.remove(position);
                 adapter.notifyItemRemoved(position);
                 adapter.notifyItemRangeChanged(position, colorList.size());
@@ -278,7 +278,7 @@ public class ColorsEditor extends Fragment {
         ColorModel newItem = new ColorModel(name, value);
         for (int i = 0; i < colorList.size(); i++) {
             if (colorList.get(i).getColorName().equals(name)) {
-                SketchwareUtil.toastError("\"" + name + "\" óæå ñóùåñòâóåò");
+                SketchwareUtil.toastError("\"" + name + "\" ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚");
                 return;
             }
         }

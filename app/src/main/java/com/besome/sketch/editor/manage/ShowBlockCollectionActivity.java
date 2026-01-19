@@ -180,7 +180,7 @@ public class ShowBlockCollectionActivity extends BaseAppCompatActivity implement
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem saveImageItem = menu.add(0, 12, 0, "Сохранить изображение");
+        MenuItem saveImageItem = menu.add(0, 12, 0, "РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ");
         saveImageItem.setIcon(R.drawable.full_image_48);
         saveImageItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -191,9 +191,9 @@ public class ShowBlockCollectionActivity extends BaseAppCompatActivity implement
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == 12) {
             if (ImageFactory.saveBitmap(binding.editor.getChildAt(0), blockName).exists()) {
-                SketchwareUtil.toast("Изображение сохранено по пути /Внутренняя память/sketchware/saved_block/" + blockName + ".png!");
+                SketchwareUtil.toast("РЎРѕС…СЂР°РЅРµРЅРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РІ /Р’РЅСѓС‚СЂРµРЅРµРµ С…СЂР°РЅРёР»РёС‰Рµ/sketchware/saved_block/" + blockName + ".png!");
             } else {
-                SketchwareUtil.toastError("Не удалось сохранить изображение");
+                SketchwareUtil.toastError("РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ");
             }
         }
 
